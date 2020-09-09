@@ -5,9 +5,9 @@ require_once(__ROOT__ . '/database/schemas/products.php');
 require_once(__ROOT__.'/database/schemas/users.php');
 
 $tables = [
-    $categoriesTable,
-    $productsTable,
-    $usersTable
+    $categories,
+    $products,
+    $users,
 ];
 
 foreach ($tables as $table) {

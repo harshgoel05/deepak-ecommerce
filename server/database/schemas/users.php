@@ -1,11 +1,11 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
-require_once(__ROOT__.'/database/Table.php');
+require_once(__ROOT__.'/models/Users.php');
 
-$usersTable = new Table;
+$users = new Users;
 
-$usersTable->name = 'users';
-$usersTable->cols = [
+$users->name = 'users';
+$users->cols = [
     'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'username' => 'VARCHAR(255) NOT NULL',
     'password' => 'VARCHAR(255) NOT NULL',
@@ -13,4 +13,4 @@ $usersTable->cols = [
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',
 ];
 
-return $usersTable;
+return $users;

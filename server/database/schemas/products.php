@@ -1,12 +1,12 @@
 <?php 
 require_once(__DIR__.'/../../config/other-configs.php');
-require_once(__ROOT__.'/database/Table.php');
+require_once(__ROOT__.'/models/Products.php');
 require_once(__ROOT__.'/database/schemas/categories.php');
 
-$productsTable = new Table;
+$products = new Products;
 
-$productsTable->name = 'products';
-$productsTable->cols = [
+$products->name = 'products';
+$products->cols = [
     'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'category_id' => 'INT NOT NULL',
     'product_id' => 'INT NOT NULL',
@@ -18,8 +18,8 @@ $productsTable->cols = [
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',
 ];
 
-$productsTable->extras = [
-    "FOREIGN KEY (category_id) REFERENCES {$categoriesTable->name}(id) ON DELETE CASCADE ",
+$products->extras = [
+    "FOREIGN KEY (category_id) REFERENCES {$categories->name}(id) ON DELETE CASCADE ",
 ];
 
-return $productsTable;
+return $products;

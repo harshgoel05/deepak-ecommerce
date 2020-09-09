@@ -1,17 +1,17 @@
 <?php
 
 require_once(__DIR__."/../../config/other-configs.php");
-require_once(__ROOT__.'/database/Table.php');
+require_once(__ROOT__.'/models/Categories.php');
 
-$categoriesTable = new Table;
+$categories = new Categories;
 
-$categoriesTable->name = 'categories';
+$categories->name = 'categories';
 
-$categoriesTable->cols = [
+$categories->cols = [
     'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'title' => 'TEXT NOT NULL',
     'description' => 'TEXT',
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',
 ];
 
-return $categoriesTable;
+return $categories;
