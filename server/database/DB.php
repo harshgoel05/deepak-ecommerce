@@ -53,7 +53,7 @@ class DB
         $sql .= ') VALUES (';
         $sql .= $values;
         $sql .= ')';
-        echo $sql.'<br>';
+        // echo $sql.'<br>';
         if ($db->query($sql)) {
             return true;
         } else return $db->error;
@@ -78,6 +78,7 @@ class DB
             $sql.='WHERE ';
             $sql.=$query;
         }
+        // show($sql);
         $result = $db->query($sql);
         return $result;
     }

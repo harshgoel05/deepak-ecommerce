@@ -13,6 +13,7 @@ $res = [
     'error' => null,
 ];
 $status_code = HTTP_OK;
+$data = decodeRequestJson();
 $temp_res = $products->insertRow($_POST);
 if($temp_res !== true) 
 {

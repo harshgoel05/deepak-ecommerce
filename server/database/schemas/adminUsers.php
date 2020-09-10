@@ -7,9 +7,9 @@ $adminUsers = new AdminUsers;
 $adminUsers->name = 'admin_users';
 $adminUsers->cols = [
     'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
-    'username' => 'VARCHAR(255) NOT NULL',
+    'username' => 'VARCHAR(255) NOT NULL UNIQUE',
     'password' => 'VARCHAR(255) NOT NULL',
-    'email' => 'VARCHAR(255) NOT NULL',
+    'email' => 'VARCHAR(255) NOT NULL UNIQUE',
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',
 ];
 

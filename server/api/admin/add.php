@@ -5,7 +5,8 @@ require_once(__ROOT__.'/utility/network-helpers.php');
 
 addCommonHeaders();
 // echo file_get_contents('php://input');
-$data = json_decode(file_get_contents('php://input'),true);
+$data = decodeRequestJson();
+// var_dump($data);
 $res = $adminUsers->insertRow($data);
 if($res !== true)
 {
