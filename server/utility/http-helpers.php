@@ -12,7 +12,7 @@ function unauthorizedAccessErrorHandler()
         'type' => 'UnauthorizedAccess',
         'message' => 'Not authorized to access the content'
     ];
-    echo json_decode($error);
+    echo json_encode($error);
     exit();
 }
 
@@ -23,6 +23,6 @@ function badRequestErrorHandler($errMessage = null, $errType = 'TypeError')
         'type' => $errType,
         'message' => $errMessage
     ];
-    echo json_decode($err);
+    echo json_encode($err);
     exit();
 }

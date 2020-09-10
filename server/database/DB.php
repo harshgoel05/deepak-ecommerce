@@ -25,6 +25,15 @@ class DB
         } else return $db->error;
     }
 
+    private static function appendValue($val) 
+    {
+        if(is_string($val))
+        {
+            $val = '"'.$val.'"';
+        }
+        return $val;
+    }
+
     public static function insertRow($tableName, $row)
     {
         global $db;
@@ -33,8 +42,8 @@ class DB
         $lastkey = end(array_keys($row));
         $sql = "INSERT INTO `{$tableName}` (";
         foreach ($row as $key => $value) {
-            $keys .= $key;
-            $values .= $value;
+            $keys .= "`{$key}`";
+            $values .= self::appendValue($value);
             if ($key !== $lastkey) {
                 $keys .= ' , ';
                 $values .= ' , ';
@@ -44,6 +53,7 @@ class DB
         $sql .= ') VALUES (';
         $sql .= $values;
         $sql .= ')';
+        echo $sql.'<br>';
         if ($db->query($sql)) {
             return true;
         } else return $db->error;
