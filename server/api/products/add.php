@@ -1,16 +1,22 @@
 <?php
-require(__DIR__.'/../../config/other-configs.php');
-require(__ROOT__.'/database/schemas/products.php');
+require_once(__DIR__.'/../../config/other-configs.php');
+require_once(__ROOT__.'/database/schemas/products.php');
+require_once(__ROOT__.'/utility/network-helpers.php');
+require_once(__ROOT__.'/auth/adminUsers.php');
+
+
+
+addCommonHeaders();
 
 $res = [
     'success' => 0,
     'error' => null,
 ];
-$status_code = 200;
+$status_code = HTTP_OK;
 $temp_res = $products->insertRow($_POST);
 if($temp_res !== true) 
 {
-    $status_code=400;
+    $status_code= HTTP_BAD_REQUEST;
     $res['error'] = [
         'type' => 'ValueError',
         'message' => $temp_res, 
@@ -18,4 +24,4 @@ if($temp_res !== true)
 }
 
 http_response_code($status_code);
-return json_decode($res);
+echo json_decode($res);
