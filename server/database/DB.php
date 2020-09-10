@@ -28,6 +28,47 @@ class DB
     public static function insertRow($tableName, $row)
     {
         global $db;
+        $keys = '';
+        $values = '';
+        $lastkey = end(array_keys($row));
         $sql = "INSERT INTO `{$tableName}` (";
+        foreach ($row as $key => $value) {
+            $keys .= $key;
+            $values .= $value;
+            if ($key !== $lastkey) {
+                $keys .= ' , ';
+                $values .= ' , ';
+            }
+        }
+        $sql .= $keys;
+        $sql .= ') VALUES (';
+        $sql .= $values;
+        $sql .= ')';
+        if ($db->query($sql)) {
+            return true;
+        } else return $db->error;
+    }
+
+    public static function find($tableName, $cols = null, $query = null, $extras = null)
+    {
+        global $db;
+
+        $sql = "SELECT ";
+        if (count($cols)) {
+            for ($i = 0; $i < count($cols); $i++) {
+                $sql .= "`{$cols[$i]}`";
+                if ($i !== count($cols) - 1)
+                    $sql .= ' , ';
+            }
+        } else {
+            $sql .= ' * ';
+        }
+        $sql .= "from `{$tableName}` ";
+        if (count($query)) {
+            $sql.='WHERE ';
+            $sql.=$query;
+        }
+        $result = $db->query($sql);
+        return $result;
     }
 }

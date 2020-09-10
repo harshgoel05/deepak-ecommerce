@@ -19,4 +19,28 @@ class Table
     {
         return DB::createTable($this->name, $this->cols, $this->extras);
     }
+
+    private function filterKeys($row) {
+        $filteredRow = [];
+        foreach($row as $key => $value)
+        {
+            if(array_key_exists($key,$this->cols))
+            {
+                $filteredRow[$key] = $value;
+            }
+        }
+        return $filteredRow;
+    }
+    
+    public function insertRow($row)
+    {
+        $filteredRow = $this->filterKeys($row);
+        return DB::insertRow($this->name,$filteredRow);
+    }
+
+    public function find($col_names,$query)
+    {
+        return DB::find($this->name,$col_names,$query);
+    }
+
 }
