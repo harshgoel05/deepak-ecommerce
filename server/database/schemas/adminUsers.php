@@ -1,17 +1,16 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
-require_once(__ROOT__.'/models/Users.php');
+require_once(__ROOT__.'/models/AdminUsers.php');
 
-$users = new Users;
+$adminUsers = new AdminUsers;
 
-$users->name = 'users';
-$users->cols = [
+$adminUsers->name = 'admin_users';
+$adminUsers->cols = [
     'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'username' => 'VARCHAR(255) NOT NULL',
     'password' => 'VARCHAR(255) NOT NULL',
     'email' => 'VARCHAR(255) NOT NULL',
-    'phone_number' => 'VARCHAR(30)',
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',
 ];
 
-return $users;
+return $adminUsers;
