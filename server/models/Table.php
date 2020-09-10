@@ -43,4 +43,9 @@ class Table
         return DB::find($this->name,$col_names,$query);
     }
 
+    public function findById($col_names=NULL,$_id)
+    {
+        return $this->find($col_names,"`id` = {$_id}");
+    }
+
 }
