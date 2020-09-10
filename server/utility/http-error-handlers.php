@@ -6,8 +6,11 @@ function unauthorizedAccessErrorHandler()
 {
     http_response_code(HTTP_UNAUTHORIZED);
     $error = [
-        'type' => 'UnauthorizedAccess',
-        'message' => 'Not authorized to access the content'
+        'success' => false,
+        'error' => [
+            'type' => 'UnauthorizedAccess',
+            'message' => 'Not authorized to access the content'
+        ],
     ];
     echo json_encode($error);
     exit();
@@ -17,8 +20,11 @@ function badRequestErrorHandler($errMessage = null, $errType = 'TypeError')
 {
     http_response_code(HTTP_BAD_REQUEST);
     $err = [
-        'type' => $errType,
-        'message' => $errMessage
+        'success' => false,
+        'error' => [
+            'type' => $errType,
+            'message' => $errMessage
+        ],
     ];
     echo json_encode($err);
     exit();

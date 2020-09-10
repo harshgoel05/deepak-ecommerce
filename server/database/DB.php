@@ -11,12 +11,12 @@ class DB
         $lastkey = end(array_keys($tableCols));
         foreach ($tableCols as $colName => $colS)    //colS means column specification
         {
-            $sql .= "`" . $colName . "`" . ' ' . $colS;
+            $sql .= "`" . $db->escape_string($colName) . "`" . ' ' . $colS;
             if ($colName !== $lastkey)
                 $sql .= ',';
         }
         foreach ($extras as $value) {
-            $sql .= "," . $value;
+            $sql .= "," . $db->escape_string($value);
         }
         $sql .= ')';
         // echo $sql.'<br><br>';
@@ -42,6 +42,8 @@ class DB
         $lastkey = end(array_keys($row));
         $sql = "INSERT INTO `{$tableName}` (";
         foreach ($row as $key => $value) {
+            $key = $db->escape_string($key);
+            $value = $db->escape_string($value);
             $keys .= "`{$key}`";
             $values .= self::appendValue($value);
             if ($key !== $lastkey) {
@@ -66,6 +68,7 @@ class DB
         $sql = "SELECT ";
         if (count($cols)) {
             for ($i = 0; $i < count($cols); $i++) {
+                $cols[$i] = $db->escape_string($cols[$i]);
                 $sql .= "`{$cols[$i]}`";
                 if ($i !== count($cols) - 1)
                     $sql .= ' , ';
