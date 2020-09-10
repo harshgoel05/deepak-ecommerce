@@ -4,9 +4,8 @@ require_once(__ROOT__.'/database/schemas/products.php');
 require_once(__ROOT__.'/utility/network-helpers.php');
 require_once(__ROOT__.'/auth/adminUsers.php');
 
-
-
 addCommonHeaders();
+ensureAdminLoggedIn();
 
 $res = [
     'success' => 0,
