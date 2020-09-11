@@ -48,4 +48,22 @@ class Table
         return $this->find($col_names,"`id` = {$_id}");
     }
 
+    protected function validateRow($row)
+    {
+        if(array_key_exists('email',$row))
+        {
+            $row['email'] = filter_var($row['email'],FILTER_VALIDATE_EMAIL);
+            if($row['email'] === false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function drop()
+    {
+        return DB::drop($this->name);
+    }
+
 }

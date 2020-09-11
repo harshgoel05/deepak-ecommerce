@@ -88,4 +88,15 @@ class DB
         $result = $db->query($sql);
         return $result;
     }
+
+    public static function drop($tableName)
+    {
+        global $db;
+        $tableName = $db->escape_string($tableName);
+        $sql = "DROP TABLE `{$tableName}`";
+        if ($db->query($sql))
+            return true;
+        else
+            return $db->error;
+    }
 }

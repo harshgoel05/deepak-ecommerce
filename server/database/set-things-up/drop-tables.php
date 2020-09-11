@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/../config/other-configs.php');
+require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/database/schemas/categories.php');
 require_once(__ROOT__ . '/database/schemas/products.php');
 require_once(__ROOT__.'/database/schemas/users.php');
@@ -13,11 +13,11 @@ $tables = [
 ];
 
 foreach ($tables as $table) {
-    $result = $table->create();
+    $result = $table->drop();
     if ($result === true) {
-        echo "{$table->name} table created successfully";
+        echo "{$table->name} table dropped successfully";
     } else {
-        echo "Unable to create {$table->name} table : " . $result;
+        echo "Unable to drop {$table->name} table : " . $result;
     }
     echo '<br>';
 }

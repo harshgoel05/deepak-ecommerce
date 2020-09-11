@@ -19,7 +19,7 @@ $products->cols = [
 ];
 
 $products->extras = [
-    "FOREIGN KEY (category_id) REFERENCES {$categories->name}(category_id) ON DELETE CASCADE ",
+    "FOREIGN KEY (`category_id`) REFERENCES `{$categories->name}`(`category_id`) ",
 ];
 
 return $products;

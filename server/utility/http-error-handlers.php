@@ -2,7 +2,7 @@
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/utility/http-helpers.php');
 
-function unauthorizedAccessErrorHandler()
+function unauthorizedAccessErrorHandler($exitAtEnd = true)
 {
     http_response_code(HTTP_UNAUTHORIZED);
     $error = [
@@ -13,10 +13,11 @@ function unauthorizedAccessErrorHandler()
         ],
     ];
     echo json_encode($error);
-    exit();
+    if ($exitAtEnd === true)
+        exit();
 }
 
-function badRequestErrorHandler($errMessage = null, $errType = 'TypeError')
+function badRequestErrorHandler($errType = null, $errMessage = null, $exitAtEnd = true)
 {
     http_response_code(HTTP_BAD_REQUEST);
     $err = [
@@ -27,5 +28,6 @@ function badRequestErrorHandler($errMessage = null, $errType = 'TypeError')
         ],
     ];
     echo json_encode($err);
-    exit();
+    if ($exitAtEnd === true)
+        exit();
 }

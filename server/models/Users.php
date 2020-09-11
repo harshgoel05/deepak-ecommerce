@@ -8,7 +8,12 @@ class Users extends Table
 {
     public function insertRow($row)
     {
-        $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
+        if(! $this->validateRow($row))
+        {
+            return 'Validation error';
+        }
+        if(isset($row[PASSWORD]))
+            $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
         return parent::insertRow($row);
     }
     public function verifyPassword($identifier, $_password)

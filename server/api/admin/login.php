@@ -8,16 +8,12 @@ addCommonHeaders();
 
 
 $data = decodeRequestJson();
-$response = [
-    'success' => false,
-];
 
 if($adminUsers->verifyPassword($data[USER_IDENTIFIER],$data[PASSWORD]))
 {
     addAdminToSession($data[USER_IDENTIFIER]);
-    $response['success'] = true;
+    sendSuccessResponse();
 }
 
-http_response_code(HTTP_OK);
-echo json_encode($response);
+badRequestErrorHandler(CustomErrors::AUTH_ERROR);
 
