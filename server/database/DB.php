@@ -11,18 +11,27 @@ class DB
         $lastkey = end(array_keys($tableCols));
         foreach ($tableCols as $colName => $colS)    //colS means column specification
         {
-            $sql .= "`" . $colName . "`" . ' ' . $colS;
+            $sql .= "`" . $db->escape_string($colName) . "`" . ' ' . $colS;
             if ($colName !== $lastkey)
                 $sql .= ',';
         }
         foreach ($extras as $value) {
-            $sql .= "," . $value;
+            $sql .= "," . $db->escape_string($value);
         }
         $sql .= ')';
         // echo $sql.'<br><br>';
         if ($db->query($sql)) {
             return true;
         } else return $db->error;
+    }
+
+    private static function appendValue($val) 
+    {
+        if(is_string($val))
+        {
+            $val = '"'.$val.'"';
+        }
+        return $val;
     }
 
     public static function insertRow($tableName, $row)
@@ -33,8 +42,10 @@ class DB
         $lastkey = end(array_keys($row));
         $sql = "INSERT INTO `{$tableName}` (";
         foreach ($row as $key => $value) {
-            $keys .= $key;
-            $values .= $value;
+            $key = $db->escape_string($key);
+            $value = $db->escape_string($value);
+            $keys .= "`{$key}`";
+            $values .= self::appendValue($value);
             if ($key !== $lastkey) {
                 $keys .= ' , ';
                 $values .= ' , ';
@@ -44,6 +55,7 @@ class DB
         $sql .= ') VALUES (';
         $sql .= $values;
         $sql .= ')';
+        // echo $sql.'<br>';
         if ($db->query($sql)) {
             return true;
         } else return $db->error;
@@ -56,6 +68,7 @@ class DB
         $sql = "SELECT ";
         if (count($cols)) {
             for ($i = 0; $i < count($cols); $i++) {
+                $cols[$i] = $db->escape_string($cols[$i]);
                 $sql .= "`{$cols[$i]}`";
                 if ($i !== count($cols) - 1)
                     $sql .= ' , ';
@@ -68,6 +81,7 @@ class DB
             $sql.='WHERE ';
             $sql.=$query;
         }
+        // show($sql);
         $result = $db->query($sql);
         return $result;
     }
