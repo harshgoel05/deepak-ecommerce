@@ -19,5 +19,5 @@ if($adminUsers->verifyPassword($data[USER_IDENTIFIER],$data[PASSWORD]))
 }
 
 http_response_code(HTTP_OK);
-echo json_encode($res);
+echo json_encode($response);
 
