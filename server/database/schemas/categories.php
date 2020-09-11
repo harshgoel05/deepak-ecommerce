@@ -8,7 +8,7 @@ $categories = new Categories;
 $categories->name = 'categories';
 
 $categories->cols = [
-    'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
+    'category_id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'title' => 'TEXT NOT NULL',
     'description' => 'TEXT',
     'created_at' => 'TIMESTAMP NOT NULL DEFAULT NOW()',

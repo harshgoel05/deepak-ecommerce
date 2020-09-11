@@ -7,9 +7,9 @@ $products = new Products;
 
 $products->name = 'products';
 $products->cols = [
-    'id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
+    'product_id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
     'category_id' => 'INT NOT NULL',
-    'product_id' => 'INT NOT NULL',
+    'external_product_id' => 'INT NOT NULL',
     'title' => 'TEXT NOT NULL',
     'subtitle' => 'TEXT',
     'description' => "TEXT ",
