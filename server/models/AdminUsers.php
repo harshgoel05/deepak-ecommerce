@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../config/other-configs.php');
 require_once(__ROOT__.'/models/Table.php');
-require_once(__ROOT__.'/database/db-connection.php.php');
+require_once(__ROOT__.'/database/db-connection.php');
 
 class AdminUsers extends Table
 {
