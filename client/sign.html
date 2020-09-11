@@ -8,34 +8,54 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href='./src/css/login.css'>
+    <link rel="stylesheet" href='./src/css/login.css'>  
+    <link rel="stylesheet" href='./src/css/common.css'>
     <title>Home</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand" style="color: white;" href="#">Deepak Saares</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Deepak Saares</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">MEN <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">WOMEN <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">KIDS <span class="sr-only">(current)</span></a>
+        </li> 
+        <li class="nav-item active">
+            <a class="nav-link" href="#">HOME & LIVING <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">OFFERS<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#" style="color: white;">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: white;">My Cart <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: white;">Account <span class="sr-only">(current)</span></a>
-            </li> 
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Product" aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit"><i style="color: white;" class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Product" aria-label="Search">
+        <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
+      <div class="form-inline my-2 my-lg-0 nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Login / signup</a>
+          <a class="dropdown-item" href="#">My cart</a>
+          <a class="dropdown-item" href="#">My wish list</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-    </nav>
+    </div>
+    </div>
+</nav>
+
     <br><br><br><br><br>
     <section>
         <div class="container">
@@ -94,29 +114,54 @@
         </div>
       </section>
       <br><br><br><br><br><br>
-      <!-- FOOTER START -->
-      <div class="footer">
-        <div class="contain">
+   <!-- FOOTER START -->
+<div class="footer">
+  <div class="container">
+    <div class="row">
         <div class="col">
-          <h1>Email: Deepak_Saares@gmail.com</h1>
+            <h1>ONLINE SHOPPING</h1>
+            <br>
+            <ul>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Home & Living</li>
+            <li>Offers</li>
+            <li>Gift Cards</li>
+            </ul>
         </div>
         <div class="col">
-          <h1>Address: SRM Institute of Science and Technology , SRM Nagar, Kattankulathur, Chengalpattu District, Tamil Nadu - 603203.</h1>
+                <h1>USEFUL LINKS</h1>
+                <br>
+                <ul>
+                <li>Contact US</li>
+                <li>FAQ</li>
+                <li>Terms of Use</li>
+                <li>Track Oders</li>
+                <li>Shipping</li>
+                <li>Cancellation</li>
+                </ul>
         </div>
         <div class="col">
-          <h1>Contact : XXXXXXXXXX</h1>
+            <h1><strong>100% ORIGINAL guarantee</strong> for all products at deepaksaree.com</h1>
+            <br>
+            <h1><strong>Return within 30days</strong> of receiving your order</h1>
+            <br>
+            <h1><strong>Get free delivery</strong> for every order above Rs. 799</h1>
         </div>
+        </div>
+        <div class="row">
         <div class="col">
-            <h1>
-              <a class="icons"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-              <a class="icons"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-              <a class="icons"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a class="icons"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-            </h1>
+            <p><h1><strong>POPULAR SEARCHES</strong></h1></p>
+            </div>
         </div>
-      <div class="clearfix"></div>
-      </div>
-      </div>
-      <!-- END OF FOOTER -->
+        <div class="row">
+        <div class="col">
+            <p><h1>Kurta Pajama | Leather Jackets | Shirts|  T-Shirts |  Waistcoat </h1></p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- END OF FOOTER -->
 </body>
 </html>
