@@ -34,8 +34,9 @@ function addIdentifierToSession($loginType, $identifier)
 
 function startReadOnlySession()
 {
-    session_start();
-    session_write_close();
+    session_start([
+        'read_and_close' => true,
+    ]);
 }
 
 function getAdminSessionIdentifier()
