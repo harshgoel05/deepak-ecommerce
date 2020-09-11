@@ -11,12 +11,14 @@ function decodeRequestJson()
     return $data;
 }
 
-function sendSuccessResponse($exitAtEnd=true)
+function sendSuccessResponse($data = null,$exitAtEnd=true)
 {
     http_response_code(HTTP_OK);
     $response = [
         'success' => true,
     ];
+    if($data !== null)
+        $response['data'] = $data;
     echo json_encode($response);
     if($exitAtEnd === true)
         exit();

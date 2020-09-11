@@ -38,14 +38,14 @@ class Table
         return DB::insertRow($this->name,$filteredRow);
     }
 
-    public function find($col_names,$query)
+    public function find($colNames,$query)
     {
-        return DB::find($this->name,$col_names,$query);
+        return DB::find($this->name,$colNames,$query);
     }
 
-    public function findById($col_names=NULL,$_id)
+    public function findById($colNames,$_id)
     {
-        return $this->find($col_names,"`id` = {$_id}");
+        return $this->find($colNames,"`id` = {$_id}");
     }
 
     protected function validateRow($row)
@@ -66,4 +66,14 @@ class Table
         return DB::drop($this->name);
     }
 
+    public function findAllExceptGivenCols($colNames,$query)
+    {
+        $colNamesForSQL = [];
+        foreach($this->cols as $columnName => $value)
+        {
+            if(! in_array($columnName,$colNames))
+                $colNamesForSQL[] = $columnName;
+        }
+        return $this->find($colNamesForSQL,$query);
+    }
 }

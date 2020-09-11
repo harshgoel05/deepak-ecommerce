@@ -4,6 +4,7 @@ require_once(__ROOT__.'/utility/network-helpers.php');
 
 addCommonHeaders();
 
+session_start();
 session_unset();
 session_destroy();
 

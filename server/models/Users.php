@@ -28,4 +28,15 @@ class Users extends Table
         }
         return password_verify($_password, $hashedPassword);
     }
+
+    public function getProfile($identifier)
+    {
+        global $db;
+        $identifier = $db->escape_string($identifier);
+        $res = $this->findAllExceptGivenCols(['user_id',PASSWORD],USER_IDENTIFIER." = '{$identifier}'");
+        if($res->num_rows > 0)
+            return $res->fetch_assoc();
+        else return false;
+
+    }
 }
