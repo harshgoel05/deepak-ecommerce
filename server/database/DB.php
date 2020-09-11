@@ -4,19 +4,22 @@ require_once(__ROOT__ . '/database/db-connection.php');
 
 class DB
 {
-    public static function createTable($tableName, $tableCols, $extras)
+    public static function createTable($tableName, $tableCols, $extras = null)
     {
         global $db;
         $sql = "CREATE TABLE `{$tableName}` (";
-        $lastkey = end(array_keys($tableCols));
+        $temp_keys = array_keys($tableCols);
+        $lastkey = end($temp_keys);
         foreach ($tableCols as $colName => $colS)    //colS means column specification
         {
             $sql .= "`" . $db->escape_string($colName) . "`" . ' ' . $colS;
             if ($colName !== $lastkey)
                 $sql .= ',';
         }
-        foreach ($extras as $value) {
-            $sql .= "," . $db->escape_string($value);
+        if ($extras) {
+            foreach ($extras as $value) {
+                $sql .= "," . $value;
+            }
         }
         $sql .= ')';
         // echo $sql.'<br><br>';
@@ -25,11 +28,11 @@ class DB
         } else return $db->error;
     }
 
-    private static function appendValue($val) 
+    private static function appendValue($val)
     {
-        if(is_string($val))
-        {
-            $val = '"'.$val.'"';
+        global $db;
+        if (is_string($val)) {
+            $val = '"' . $db->escape_string($val) . '"';
         }
         return $val;
     }
@@ -78,8 +81,8 @@ class DB
         }
         $sql .= "from `{$tableName}` ";
         if (count($query)) {
-            $sql.='WHERE ';
-            $sql.=$query;
+            $sql .= 'WHERE ';
+            $sql .= $query;
         }
         // show($sql);
         $result = $db->query($sql);
