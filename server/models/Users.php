@@ -8,7 +8,7 @@ class Users extends Table
 {
     public function insertRow($row)
     {
-        if(! $this->validateRow($row))
+        if(! $this->validateRow($row,['email','password','name']))
         {
             return 'Validation error';
         }

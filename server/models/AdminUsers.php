@@ -8,7 +8,7 @@ class AdminUsers extends Table
 
     public function insertRow($row)
     {
-        if(! $this->validateRow($row))
+        if(! $this->validateRow($row,['email','password','username']))
         {
             return "Validation error";
         }

@@ -48,7 +48,7 @@ class Table
         return $this->find($colNames,"`id` = {$_id}");
     }
 
-    protected function validateRow($row)
+    protected function validateRow($row,$colNames = null)
     {
         if(array_key_exists('email',$row))
         {
@@ -56,6 +56,14 @@ class Table
             if($row['email'] === false)
             {
                 return false;
+            }
+        }
+        if($colNames !== null)
+        {
+            foreach($colNames as $columnName)
+            {
+                if(empty($row[$columnName]) && !is_numeric($row[$columnName]))
+                    return false;
             }
         }
         return true;
@@ -76,4 +84,5 @@ class Table
         }
         return $this->find($colNamesForSQL,$query);
     }
+
 }
