@@ -45,7 +45,11 @@ class Table
 
     public function findById($colNames,$_id)
     {
-        return $this->find($colNames,"`id` = {$_id}");
+        $res =  $this->find($colNames,"`id` = {$_id}");
+        if($res->num_rows > 0)
+            return $res->fetch_assoc();
+        return false;
+
     }
 
     protected function validateRow($row,$colNames = null)

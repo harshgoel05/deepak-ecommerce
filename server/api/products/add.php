@@ -7,21 +7,11 @@ require_once(__ROOT__.'/auth/adminUsers.php');
 addCommonHeaders();
 ensureAdminLoggedIn();
 
-$res = [
-    'success' => 0,
-    'error' => null,
-];
-$status_code = HTTP_OK;
 $data = decodeRequestJson();
-$temp_res = $products->insertRow($_POST);
+$temp_res = $products->insertRow($data);
 if($temp_res !== true) 
 {
-    $status_code= HTTP_BAD_REQUEST;
-    $res['error'] = [
-        'type' => 'ValueError',
-        'message' => $temp_res, 
-    ];
+    badRequestErrorHandler('ValueType',$temp_res);
 }
 
-http_response_code($status_code);
-echo json_decode($res);
+sendSuccessResponse();
