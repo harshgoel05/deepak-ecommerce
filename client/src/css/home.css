@@ -1,0 +1,42 @@
+
+
+.iimg{
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+  
+  table {
+    margin-left: 25px;
+  }
+  td, th {
+    border: 0px solid #dddddd;
+    padding: 10px;
+  }
+  
+  ]
+  /* NEW */
+  
+  /* NEW */
+  .row2{
+    width: 100%;
+    text-align: center;
+    font-family: cursive;
+  }
+  .btn-lg{
+    border-radius: 20px;
+  }
+  .details{
+    text-align: left;
+  }
+  .strike{
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+  .mimg{
+    display: block;
+  }
+  
+  
+   
