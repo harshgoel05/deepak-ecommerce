@@ -170,14 +170,14 @@
 <script>
 $("#submit-btn").click(function(){
   event.preventDefault()
-  var name = $("#name").text();
-    var email = $("#email").text();
-    var password = $("#password").text();
-    var confirm_password = $("#confirm_password").text();
-    var address = $("#adress").text();
-    var phone_number = $("#phone_number").text();
+  var name = $("#name").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
+    var confirm_password = $("#confirm_password").val();
+    var address = $("#adress").val();
+    var phone_number = $("#phone_number").val();
     var formData={
-  
+  "email" :email,
   "name" : name,
   "password" : password,
   "confirm_password" : confirm_password, 
@@ -188,7 +188,7 @@ $("#submit-btn").click(function(){
   $.ajax({
 			url: "https://ecommerce-try.herokuapp.com/server/api/user/add.php",
       type: 'POST',
-      data: formData,
+      data: JSON.stringify(formData),
 			crossDomain: true,
 			success: function (response) {
 				console.log(response);
