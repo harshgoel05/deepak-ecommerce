@@ -32,6 +32,11 @@ function addIdentifierToSession($loginType, $identifier)
     return true;
 }
 
+function startSession()
+{
+    session_start();
+}
+
 function startReadOnlySession()
 {
     session_start([
