@@ -13,14 +13,22 @@ function decodeRequestJson()
     return $data;
 }
 
-function sendSuccessResponse($data = null,$exitAtEnd=true)
+function createSuccessResponse($data=null)
 {
-    http_response_code(HTTP_OK);
     $response = [
         'success' => true,
     ];
-    if($data !== null)
+    if($data !== null) 
+    {
         $response['data'] = $data;
+    }
+    return $response;
+}
+
+function sendSuccessResponse($data = null,$exitAtEnd=true)
+{
+    http_response_code(HTTP_OK);
+    $response = createSuccessResponse($data);
     echo json_encode($response);
     if($exitAtEnd === true)
         exit();
