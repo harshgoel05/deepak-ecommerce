@@ -1,13 +1,13 @@
 <?php
 require_once(__DIR__.'/../config/other-configs.php');
-require_once(__ROOT__.'/utility/network-helpers.php');
+require_once(__ROOT__.'/utility/utilities.php');
 
-addCommonHeaders();
+\Utility\HeadersUtil\addCommonHeaders();
 
 session_start();
 session_unset();
 session_destroy();
 
-sendSuccessResponse();
+\Utility\HttpUtil\sendSuccessResponse();
 
 

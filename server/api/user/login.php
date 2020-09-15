@@ -1,19 +1,18 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/database/schemas/users.php');
-require_once(__ROOT__.'/utility/network-helpers.php');
+require_once(__ROOT__.'/utility/utilities.php');
 require_once(__ROOT__.'/config/field-consts.php');
-require_once(__ROOT__.'/utility/error-handlers.php');
 
-addCommonHeaders();
+\Utility\HeadersUtil\addCommonHeaders();
 
-$data = decodeRequestJson();
+$data = \Utility\HttpUtil\decodeRequestJson();
 
 
 if($users->verifyPassword($data[USER_IDENTIFIER],$data[PASSWORD]))
 {
-    addUserToSession($data[USER_IDENTIFIER]);
-    sendSuccessResponse();
+    \Utility\SessionUtil\addUserToSession($data[USER_IDENTIFIER]);
+    \Utility\HttpUtil\sendSuccessResponse();
 }
 
-badRequestErrorHandler(CustomErrors::AUTH_ERROR);
+\Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::AUTH_ERROR);

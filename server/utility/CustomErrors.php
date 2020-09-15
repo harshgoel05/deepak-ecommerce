@@ -1,4 +1,6 @@
 <?php
+namespace Utility;
+
 require_once(__DIR__.'/../config/other-configs.php');
 
 abstract class CustomErrors 

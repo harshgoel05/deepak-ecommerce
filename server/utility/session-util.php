@@ -1,6 +1,7 @@
 <?php
+namespace Utility\SessionUtil;
+
 require_once(__DIR__ . '/../config/other-configs.php');
-require_once(__ROOT__ . '/utility/network-helpers.php');
 require_once(__ROOT__ . '/config/field-consts.php');
 require_once(__ROOT__.'/utility/http-error-handlers.php');
 
@@ -19,7 +20,7 @@ function ensureLoggedIn($loginType)
     $identifier = getSessionIdentifier($loginType);
     if($identifier === false)
     {
-        unauthorizedAccessErrorHandler();
+        \Utility\HttpErrorHandlers\unauthorizedAccessErrorHandler();
     }
 }
 

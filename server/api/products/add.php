@@ -1,17 +1,17 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/database/schemas/products.php');
-require_once(__ROOT__.'/utility/network-helpers.php');
+require_once(__ROOT__.'/utility/utilities.php');
 require_once(__ROOT__.'/auth/adminUsers.php');
 
-addCommonHeaders();
-ensureAdminLoggedIn();
+\Utility\HeadersUtil\addCommonHeaders();
+\Utility\SessionUtil\ensureAdminLoggedIn();
 
-$data = decodeRequestJson();
+$data = \Utility\HttpUtil\decodeRequestJson();
 $temp_res = $products->insertRow($data);
 if($temp_res !== true) 
 {
-    badRequestErrorHandler('ValueType',$temp_res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,$temp_res);
 }
 
-sendSuccessResponse();
+Utility\HttpUtil\sendSuccessResponse();

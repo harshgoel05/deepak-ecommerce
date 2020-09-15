@@ -1,4 +1,5 @@
 <?php
+namespace Utility\HeadersUtil;
 
 function addCommonHeaders()
 {

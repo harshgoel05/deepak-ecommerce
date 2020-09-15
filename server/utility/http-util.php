@@ -1,4 +1,6 @@
 <?php
+namespace Utility\HttpUtil;
+
 require_once(__DIR__ . '/../config/other-configs.php');
 
 const HTTP_UNAUTHORIZED = 401;

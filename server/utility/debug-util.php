@@ -1,5 +1,5 @@
 <?php
-
+namespace Utility\DebugUtil;
 function show($var) 
 {
     echo '<br>';

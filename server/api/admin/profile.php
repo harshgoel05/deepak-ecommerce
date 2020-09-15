@@ -1,19 +1,18 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/database/schemas/adminUsers.php');
-require_once(__ROOT__.'/utility/network-helpers.php');
-require_once(__ROOT__.'/utility/error-handlers.php');
+require_once(__ROOT__.'/utility/utilities.php');
 
-addCommonHeaders();
-ensureAdminLoggedIn();
+\Utility\HeadersUtil\addCommonHeaders();
+\Utility\SessionUtil\ensureAdminLoggedIn();
 
-$identifier = getAdminSessionIdentifier();
+$identifier = \Utility\SessionUtil\getAdminSessionIdentifier();
 
 $adminProfile = $adminUsers->getProfile($identifier);
 
 if($adminProfile === false)
 {
-    badRequestErrorHandler(CustomErrors::VALUE_ERROR,"Admin user not found");
+    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Admin user not found");
 }
 
-sendSuccessResponse($adminProfile);
+\Utility\HttpUtil\sendSuccessResponse($adminProfile);
