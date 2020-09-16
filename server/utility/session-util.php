@@ -8,8 +8,8 @@ require_once(__ROOT__.'/utility/http-error-handlers.php');
 function getSessionIdentifier($loginType)
 {
     startReadOnlySession();
-    if ((isset($_SESSION[$loginType]) && $_SESSION[$loginType] === true) && (isset($_SESSION[USER_IDENTIFIER]) && !empty($_SESSION[USER_IDENTIFIER]))) {
-        return $_SESSION[USER_IDENTIFIER];
+    if ((isset($_SESSION[$loginType]) && $_SESSION[$loginType] === true) && (isset($_SESSION[IDENTIFIER]) && !empty($_SESSION[IDENTIFIER]))) {
+        return $_SESSION[IDENTIFIER];
     } else {
         return false;
     }
@@ -27,7 +27,7 @@ function ensureLoggedIn($loginType)
 function addIdentifierToSession($loginType, $identifier)
 {
     session_start();
-    $_SESSION[USER_IDENTIFIER] = $identifier;
+    $_SESSION[IDENTIFIER] = $identifier;
     $_SESSION[$loginType] = true;
     session_write_close();
     return true;

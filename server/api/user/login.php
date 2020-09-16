@@ -9,9 +9,9 @@ require_once(__ROOT__.'/config/field-consts.php');
 $data = \Utility\HttpUtil\decodeRequestJson();
 
 
-if($users->verifyPassword($data[USER_IDENTIFIER],$data[PASSWORD]))
+if($users->verifyPassword($data[IDENTIFIER],$data[PASSWORD]))
 {
-    \Utility\SessionUtil\addUserToSession($data[USER_IDENTIFIER]);
+    \Utility\SessionUtil\addUserToSession($data[IDENTIFIER]);
     \Utility\HttpUtil\sendSuccessResponse();
 }
 

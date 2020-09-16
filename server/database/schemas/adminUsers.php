@@ -2,7 +2,7 @@
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/models/AdminUsers.php');
 
-$adminUsers = new AdminUsers;
+$adminUsers = new \Models\AdminUsers;
 
 $adminUsers->name = 'admin_users';
 $adminUsers->cols = [
