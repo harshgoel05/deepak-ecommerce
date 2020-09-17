@@ -6,10 +6,11 @@ require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/database.php');
 
 
-class DB
+abstract class DB
 {
     public $db;
-    protected function __construct($databaseName)
+    protected $dbName;
+    protected function __construct($databaseName=null)
     {
         $this->db = new \mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, $databaseName);
 
@@ -18,6 +19,18 @@ class DB
         }
     }
     
+    protected static $instances = [];
+
+    public static function getInstance() 
+    {
+        $className = static::class;
+        if(!isset(self::$instances[$className]))
+        {
+            self::$instances[$className] = new static();
+        }
+        return self::$instances[$className];
+    }
+
     public function createTable($tableName, $tableCols, $extras = null)
     {
         $sql = "CREATE TABLE `{$tableName}` (";

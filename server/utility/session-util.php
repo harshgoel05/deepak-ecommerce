@@ -74,3 +74,12 @@ function ensureUserLoggedIn()
 {
     ensureLoggedIn(USER_LOGIN,USER_IDENTIFIER);
 }
+
+function ensureRequestMethod($method)
+{
+    $method = strtoupper($method);
+    if($_SERVER['REQUEST_METHOD'] !== $method)
+    {
+        \Utility\HttpErrorHandlers\wrongRequestMethodErrorHandler();
+    }
+}

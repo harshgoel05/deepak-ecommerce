@@ -33,3 +33,11 @@ function badRequestErrorHandler($errType = null, $errMessage = null, $exitAtEnd 
     if ($exitAtEnd === true)
         exit();
 }
+
+function wrongRequestMethodErrorHandler($exitAtEnd = true)
+{
+    http_response_code(\Utility\HttpUtil\HTTP_BAD_REQUEST);
+    echo json_encode(createErrorResponse(\Utility\CustomErrors::WRONG_REQUEST_METHOD_ERROR,"Try different http method to access the content properly"));
+    if($exitAtEnd === true)
+        exit();
+}

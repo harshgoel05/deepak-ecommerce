@@ -5,7 +5,7 @@ require_once(__ROOT__.'/config/field-consts.php');
 require_once(__ROOT__.'/models/all-models.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
-
+\Utility\SessionUtil\ensureRequestMethod('POST');
 
 $data = \Utility\HttpUtil\decodeRequestJson();
 $adminUsers = \Models\AdminUsers::getInstance();
