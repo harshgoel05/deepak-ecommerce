@@ -9,24 +9,14 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 class AdminUsers extends Identifier
 {
-    public static $instance = null;
 
-    private function __construct()
+    protected function __construct()
     {
         $this->identifierCol = ADMIN_IDENTIFIER;
         $_dbObj = \Databases\AdminUsersDB::getInstance();
         $_name = 'databunker';
         $_cols = ['id','username','password','number'];
         parent::__construct($_name,$_cols,$_dbObj);
-    }
-
-    public static function getInstance() 
-    {
-        if(self::$instance === null)
-        {
-            self::$instance = new static();
-        }
-        return self::$instance; 
     }
 
     public function getProfile($identifier)

@@ -1,7 +1,8 @@
 <?php
+namespace Models;
 require_once(__DIR__ . '/../config/other-configs.php');
 
-class Table
+abstract class Table
 {
     public $dbObj;
     public $name;
@@ -20,6 +21,18 @@ class Table
         return $this->dbObj->createTable($this->name, $this->cols, $this->extras);
     } */
 
+    protected static $instances = [];
+    
+    public static function getInstance() 
+    {
+        $className = static::class;
+        if(!isset(self::$instances[$className]))
+        {
+            self::$instances[$className] = new static();
+        }
+        return self::$instances[$className]; 
+    }
+    
     private function filterKeys($row) {
         $filteredRow = [];
         foreach($row as $key => $value)

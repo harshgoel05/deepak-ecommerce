@@ -5,6 +5,7 @@ require_once(__ROOT__.'/models/all-models.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
 // echo file_get_contents('php://input');
+\Utility\SessionUtil\ensureRequestMethod('POST');
 $data = \Utility\HttpUtil\decodeRequestJson();
 // var_dump($data);
 $adminUsers = \Models\AdminUsers::getInstance();
