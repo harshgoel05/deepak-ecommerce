@@ -1,11 +1,11 @@
 <?php
-const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 if (DEVELOPMENT === true) {
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'parth_07');
     define('DB_PASSWORD', 'abcdefg');
 } else {
-    define('DB_HOST', 'sql12.freemysqlhosting.net');
+    define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'wmctest@testing1.thestrategybook.com');
     define('DB_PASSWORD', 'wmctest@123');
 }

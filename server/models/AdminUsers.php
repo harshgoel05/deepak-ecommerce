@@ -31,9 +31,8 @@ class AdminUsers extends Identifier
 
     public function getProfile($identifier)
     {
-        global $db;
-        $identifier = $db->escape_string($identifier);
-        $res = $this->findAllExceptGivenCols(['admin_id',PASSWORD],ADMIN_IDENTIFIER." = '{$identifier}'");
+        $identifier = $this->dbObj->db->escape_string($identifier);
+        $res = $this->findAllExceptGivenCols(['id',PASSWORD],ADMIN_IDENTIFIER." = '{$identifier}'");
         if($res->num_rows > 0)
             return $res->fetch_assoc();
         else return false;

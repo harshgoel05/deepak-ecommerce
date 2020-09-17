@@ -8,7 +8,7 @@ require_once(__ROOT__ . '/config/database.php');
 
 class DB
 {
-    private $db;
+    public $db;
     protected function __construct($databaseName)
     {
         $this->db = new \mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, $databaseName);
@@ -53,7 +53,8 @@ class DB
     {
         $keys = '';
         $values = '';
-        $lastkey = end(array_keys($row));
+        $temp_arr = array_keys($row);
+        $lastkey = end($temp_arr);
         $sql = "INSERT INTO `{$tableName}` (";
         foreach ($row as $key => $value) {
             $key = $this->db->escape_string($key);
@@ -89,7 +90,7 @@ class DB
             $sql .= ' * ';
         }
         $sql .= "from `{$tableName}` ";
-        if (count($query)) {
+        if (!empty($query)) {
             $sql .= 'WHERE ';
             $sql .= $query;
         }

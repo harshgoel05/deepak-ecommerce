@@ -1,6 +1,5 @@
 <?php
 require_once(__DIR__ . '/../config/other-configs.php');
-require_once(__ROOT__ . '/database/DB.php');
 
 class Table
 {
@@ -82,7 +81,7 @@ class Table
     public function findAllExceptGivenCols($colNames,$query)
     {
         $colNamesForSQL = [];
-        foreach($this->cols as $columnName => $value)
+        foreach($this->cols as $columnName)
         {
             if(! in_array($columnName,$colNames))
                 $colNamesForSQL[] = $columnName;
