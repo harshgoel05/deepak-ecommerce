@@ -1,6 +1,7 @@
 <?php
 
-const IDENTIFIER = 'email';
+const USER_IDENTIFIER = 'email';
+const ADMIN_IDENTIFIER = 'username';
 const PASSWORD = 'password';
 const ADMIN_LOGIN = 'admin-login';
 const USER_LOGIN = 'user-login';

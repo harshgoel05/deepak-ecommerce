@@ -11,10 +11,11 @@ require_once(__ROOT__ . '/database/db-connection.php');
 
 class Identifier extends Table
 {
+    protected $identifierCol=null;
 
-    public function insertRow($row)
+    public function insertRow($row,$isUser = 1)
     {
-        if (!$this->validateRow($row, ['email', 'password', 'name'])) {
+        if (!$this->validateRow($row, [$this->identifierCol, 'password',])) {
             return 'Validation error';
         }
         if (isset($row[PASSWORD]))
@@ -26,7 +27,7 @@ class Identifier extends Table
     {
         global $db;
         $identifier = $db->escape_string($identifier);
-        $row = $this->find([PASSWORD], "`" . IDENTIFIER . "` = '{$identifier}'");
+        $row = $this->find([PASSWORD], "`" . $this->identifierCol . "` = '{$identifier}'");
         if ($row->num_rows > 0)
             $hashedPassword = $row->fetch_assoc()[PASSWORD];
         else {
