@@ -7,7 +7,7 @@ class KurtisDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'deepakc1';
+        $this->dbName = 'jewrzsmy_deepakc1';
         parent::__construct($this->dbName);
     }
 

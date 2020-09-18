@@ -104,6 +104,22 @@ abstract class Table
 
     public function describe()
     {
-        return $this->dbObj->describe($this->name);
+        $queryRes =  $this->dbObj->describe($this->name);
+        echo $this->dbObj->getDBName().' '.$this->name.'<br>';
+        if(!is_string($queryRes))
+        {
+            foreach($queryRes as $row)
+            {
+                foreach($row as $value)
+                {
+                    print_r($value." ");
+                }
+                echo '<br>';
+            }
+        }
+        else {
+            echo $queryRes || "null";
+        }
+        echo '<br>';
     }
 }

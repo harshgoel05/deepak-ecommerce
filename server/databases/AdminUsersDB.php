@@ -6,7 +6,7 @@ class AdminUsersDB extends DB
 {
     protected function __construct()
     {
-        $this->dbName = 'deepakemp';
+        $this->dbName = 'jewrzsmy_deepakemp';
         parent::__construct($this->dbName);
     }
 
