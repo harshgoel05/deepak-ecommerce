@@ -7,7 +7,7 @@ class PlazzosDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'deepakc4';
+        $this->dbName = 'jewrzsmy_deepakc4';
         parent::__construct($this->dbName);
     }
 

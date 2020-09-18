@@ -4,6 +4,7 @@ namespace Models;
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/models/Table.php');
 require_once(__ROOT__ . '/config/field-consts.php');
+require_once(__ROOT__.'/utility/CustomErrors.php');
 
 class Identifier extends Table
 {
@@ -13,6 +14,10 @@ class Identifier extends Table
     {
         if (!$this->validateRow($row, [$this->identifierCol, 'password',])) {
             return 'Validation error';
+        }
+        if($row[PASSWORD] !== $row['confirm_password'])
+        {
+            \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
         }
         if (isset($row[PASSWORD]))
             $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);

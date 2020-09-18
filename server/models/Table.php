@@ -105,7 +105,8 @@ abstract class Table
     public function describe()
     {
         $queryRes =  $this->dbObj->describe($this->name);
-        if($queryRes !== null)
+        echo $this->dbObj->getDBName().' '.$this->name.'<br>';
+        if(!is_string($queryRes))
         {
             foreach($queryRes as $row)
             {
@@ -116,5 +117,9 @@ abstract class Table
                 echo '<br>';
             }
         }
+        else {
+            echo $queryRes || "null";
+        }
+        echo '<br>';
     }
 }

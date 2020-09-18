@@ -20,7 +20,10 @@ abstract class DB
     }
     
     protected static $instances = [];
-
+    public function getDBName()
+    {
+        return $this->dbName;
+    }
     public static function getInstance() 
     {
         $className = static::class;
@@ -128,6 +131,6 @@ abstract class DB
         $res = $this->db->query($sql);
         if($res->num_rows > 0)
             return $res->fetch_all();
-        else return null;
+        else return $this->db->error;
     }
 }
