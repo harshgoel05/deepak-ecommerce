@@ -115,7 +115,7 @@ $("#selectMe").change(function () {
 
   //  Add if then else like :
   if (selected == "targetdiv1") {
-    $("#submit-btn-1").click(function(){
+    $("#submit-btn-1").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category1").serializeArray() );
       console.log(finalbody);
@@ -135,7 +135,7 @@ $("#selectMe").change(function () {
     })
   }  
   if (selected == "targetdiv2") {
-    $("#submit-btn-2").click(function(){
+    $("#submit-btn-2").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category2").serializeArray() );
       console.log(finalbody);
@@ -155,7 +155,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv3") {
-    $("#submit-btn-3").click(function(){
+    $("#submit-btn-3").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category3").serializeArray() );
       console.log(finalbody);
@@ -175,7 +175,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv4") {
-    $("#submit-btn-4").click(function(){
+    $("#submit-btn-4").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category4").serializeArray() );
       console.log(finalbody);
@@ -195,7 +195,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv5") {
-    $("#submit-btn-5").click(function(){
+    $("#submit-btn-5").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category5").serializeArray() );
       console.log(finalbody);
@@ -215,7 +215,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv6") {
-    $("#submit-btn-6").click(function(){
+    $("#submit-btn-6").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category6").serializeArray() );
       console.log(finalbody);
@@ -235,7 +235,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv7") {
-    $("#submit-btn-7").click(function(){
+    $("#submit-btn-7").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category7").serializeArray() );
       console.log(finalbody);
@@ -255,7 +255,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv8") {
-    $("#submit-btn-8").click(function(){
+    $("#submit-btn-8").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category8").serializeArray() );
       console.log(finalbody);
@@ -275,7 +275,7 @@ $("#selectMe").change(function () {
     })
   }
   if (selected == "targetdiv9") {
-    $("#submit-btn-9").click(function(){
+    $("#submit-btn-9").click(function(event){
       event.preventDefault()
       finalbody =  JSON.stringify( $("#Category9").serializeArray() );
       console.log(finalbody);
