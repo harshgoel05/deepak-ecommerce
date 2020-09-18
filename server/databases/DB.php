@@ -127,7 +127,7 @@ abstract class DB
         $sql = "DESCRIBE {$tableName}";
         $res = $this->db->query($sql);
         if($res->num_rows > 0)
-            return $res->fetch_array();
+            return $res->fetch_all();
         else return null;
     }
 }

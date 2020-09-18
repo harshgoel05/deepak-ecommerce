@@ -1,5 +1,5 @@
 <?php
-const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 if (DEVELOPMENT === true) {
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'parth_07');
