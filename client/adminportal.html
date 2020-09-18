@@ -4810,6 +4810,8 @@
     <script>
           $("select.category").change(function(){
         var selectedCat = $(this).children("option:selected").val();
+        console.log(selectedCat)
+        console.log("3wr")
         if(selectedCat=="GHAGRA")
         {
           $("#Category1").submit(function(e) {
@@ -5017,8 +5019,8 @@
      });
     });
    }
-  )};
-
+  }
+          );
 
     </script>
 </body>
