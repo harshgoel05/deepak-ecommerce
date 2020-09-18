@@ -498,7 +498,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-2">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -980,7 +980,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-1" id="submit-btn-3">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -1392,7 +1392,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-1" id="submit-btn-4">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -1883,7 +1883,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-1" id="submit-btn-5">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -2386,7 +2386,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-6">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -2856,7 +2856,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-7">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -3325,7 +3325,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-8">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -4061,7 +4061,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-1">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -4797,7 +4797,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn-9">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -4807,221 +4807,6 @@
         </section>
       </form>
     <script type="text/javascript" src="./src/js/adminportal.js"></script>
-    <script>
-          $("select.category").change(function(){
-        var selectedCat = $(this).children("option:selected").val();
-        console.log(selectedCat)
-        console.log("3wr")
-        if(selectedCat=="GHAGRA")
-        {
-          $("#Category1").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="READYMADE DRESSES")
-        {
-          $("#Category2").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="NIGHWARE")
-        {
-          $("#Category3").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="DRESS MATERIAL")
-        {
-          $("#Category4").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="SAREE")
-        {
-          $("#Category5").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="LEGGINGS + PANTS")
-        {
-          $("#Category6").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="PLAZZO")
-        {
-          $("#Category7").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="KUSRTIS")
-        {
-          $("#Category8").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-   if(selectedCat=="KURTIS + ADDONS")
-        {
-          $("#Category9").submit(function(e) {
-
-   e.preventDefault(); // avoid to execute the actual submit of the form.
-
-   var form = $(this);
-   var url = form.attr('action');
-  $.ajax({
-       type: "POST",
-       url: url,
-       data: form.serialize(), 
-       success: function(data)
-       {
-         console.log(response);
-       },
-       error: function (xhr, status) {
-				console.log('error', xhr, status);
-				alert('Some unknown error occured');
-			},
-     });
-    });
-   }
-  }
-          );
-
-    </script>
+  
 </body>
 </html>
