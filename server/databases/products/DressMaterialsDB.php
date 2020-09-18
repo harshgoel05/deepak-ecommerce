@@ -7,7 +7,7 @@ class DressMaterialsDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'deepakc5';
+        $this->dbName = 'jewrzsmy_deepakc5';
         parent::__construct($this->dbName);
     }
 
