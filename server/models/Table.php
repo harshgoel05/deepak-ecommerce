@@ -102,4 +102,8 @@ abstract class Table
         return $this->find($colNamesForSQL,$query);
     }
 
+    public function describe()
+    {
+        return $this->dbObj->describe($this->name);
+    }
 }

@@ -121,4 +121,13 @@ abstract class DB
         else
             return $this->db->error;
     }
+    public function describe($tableName)
+    {
+        $tableName = $this->db->escape_string($tableName);
+        $sql = "DESCRIBE {$tableName}";
+        $res = $this->db->query($sql);
+        if($res->num_rows > 0)
+            return $res->fetch_array();
+        else return null;
+    }
 }
