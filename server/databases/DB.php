@@ -10,6 +10,10 @@ abstract class DB
 {
     public $db;
     protected $dbName;
+    public function escape_string($str)
+    {
+        return $this->db->escape_string($str);
+    }
     protected function __construct($databaseName=null)
     {
         $this->db = new \mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, $databaseName);
@@ -101,6 +105,8 @@ abstract class DB
                 $sql .= "`{$cols[$i]}`";
                 if ($i !== count($cols) - 1)
                     $sql .= ' , ';
+                else 
+                    $sql .= ' ';
             }
         } else {
             $sql .= ' * ';
@@ -110,8 +116,11 @@ abstract class DB
             $sql .= 'WHERE ';
             $sql .= $query;
         }
-        // show($sql);
+        // echo $sql.'<br>';
+        // echo $this->dbName.'<br>';
         $result = $this->db->query($sql);
+        // echo $result->num_rows.'<br>';
+        // print_r($result->fetch_assoc());
         return $result;
     }
 

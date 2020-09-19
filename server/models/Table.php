@@ -99,7 +99,9 @@ abstract class Table
             if(! in_array($columnName,$colNames))
                 $colNamesForSQL[] = $columnName;
         }
-        return $this->find($colNamesForSQL,$query);
+        $temp_res = $this->find($colNamesForSQL,$query);
+        // print_r($temp_res->fetch_assoc());
+        return $temp_res;
     }
 
     public function describe()

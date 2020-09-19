@@ -1,5 +1,5 @@
 <?php
-const DEVELOPMENT = false;
+const DEVELOPMENT = true;
 if (DEVELOPMENT === true) {
     define('DB_HOST', '162.214.80.27');
     define('DB_USERNAME', 'jewrzsmy_deepakuser');

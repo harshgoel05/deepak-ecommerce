@@ -1,22 +1,24 @@
 <?php
 require_once(__DIR__.'/../../config/other-configs.php');
-require_once(__ROOT__.'/database/schemas/products.php');
 require_once(__ROOT__.'/utility/utilities.php');
+require_once(__ROOT__.'/models/all-models.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
-\Utility\SessionUtil\ensureAdminLoggedIn();
+// \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
-if(array_key_exists('id',$_get))
+$productType = $_GET['productType'];
+$productModel = \Models\Products\getProductModel($productType);
+// echo $productType.'<br>'.$_GET['productid'];
+if($productModel === null)
 {
-    $res = $products->findById(NULL,$_get['id']);
-    if($res !== false)
-        \Utility\HttpUtil\sendSuccessResponse($res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,\Utility\CustomErrors::invalidValueMessage('productType'));
 }
 
-if(array_key_exists('title',$_get))
-{ 
-    
+$temp_res = $productModel->findByProductID($_GET['productid']);
+if($temp_res !== null)
+{
+    \Utility\HttpUtil\sendSuccessResponse($temp_res);
 }
 
-\Utility\HttpUtil\sendSuccessResponse([]);
+\Utility\HttpErrorHandlers\badRequestErrorHandler();
