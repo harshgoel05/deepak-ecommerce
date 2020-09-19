@@ -7,11 +7,12 @@ class ProductsBase extends \Models\Table
 {
     public function findByProductID($productID)
     {
-        if(!is_numeric($productID))
+        /* if(!is_numeric($productID))
         {
             return null;
-        }
-        $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` = {$productID}");
+        } */
+        $productID = $this->dbObj->escape_string($productID);
+        $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` = '{$productID}'");
         if($temp_res->num_rows > 0)
             return $temp_res->fetch_assoc();
         else 

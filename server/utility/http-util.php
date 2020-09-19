@@ -40,7 +40,7 @@ function sendFailResponse($exitAtEnd=true)
     $response = [
         'success' => false
     ];
-    echo json_decode($response);
+    echo json_encode($response);
     if($exitAtEnd === true)
         exit();
 }
