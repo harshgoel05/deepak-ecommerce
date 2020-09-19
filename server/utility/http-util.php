@@ -33,3 +33,14 @@ function sendSuccessResponse($data = null,$exitAtEnd=true)
     if($exitAtEnd === true)
         exit();
 }
+
+function sendFailResponse($exitAtEnd=true)
+{
+    http_response_code(HTTP_OK);
+    $response = [
+        'success' => false
+    ];
+    echo json_decode($response);
+    if($exitAtEnd === true)
+        exit();
+}

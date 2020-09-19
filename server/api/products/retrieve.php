@@ -21,4 +21,4 @@ if($temp_res !== null)
     \Utility\HttpUtil\sendSuccessResponse($temp_res);
 }
 
-\Utility\HttpErrorHandlers\badRequestErrorHandler();
+\Utility\HttpUtil\sendFailResponse();

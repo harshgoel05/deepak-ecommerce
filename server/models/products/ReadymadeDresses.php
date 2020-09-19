@@ -48,5 +48,6 @@ class ReadymadeDresses extends ProductsBase
             'washcare2',
             'washcare3',
         ];
+        parent::__construct($_name,$_cols,$_dbObj);
     }
 }

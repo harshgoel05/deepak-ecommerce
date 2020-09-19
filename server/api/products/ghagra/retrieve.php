@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/../../config/other-configs.php');
+require_once(__DIR__.'/../../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 require_once(__ROOT__.'/models/all-models.php');
 
@@ -7,8 +7,8 @@ require_once(__ROOT__.'/models/all-models.php');
 // \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
-$productType = $_GET['productType'];
-$productModel = \Models\Products\getProductModel($productType);
+// $productType = $_GET['productType'];
+$productModel = \Models\Products\Ghagra::getInstance();
 // echo $productType.'<br>'.$_GET['productid'];
 if($productModel === null)
 {
@@ -21,4 +21,4 @@ if($temp_res !== null)
     \Utility\HttpUtil\sendSuccessResponse($temp_res);
 }
 
-\Utility\HttpErrorHandlers\badRequestErrorHandler();
+\Utility\HttpUtil\sendFailResponse();
