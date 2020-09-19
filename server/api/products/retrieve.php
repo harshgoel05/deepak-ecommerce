@@ -4,6 +4,8 @@ require_once(__ROOT__.'/database/schemas/products.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
+\Utility\SessionUtil\ensureAdminLoggedIn();
+\Utility\SessionUtil\ensureRequestMethod('GET');
 
 if(array_key_exists('id',$_get))
 {

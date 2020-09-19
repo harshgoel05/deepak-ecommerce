@@ -6,6 +6,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 \Utility\HeadersUtil\addCommonHeaders();
 \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('GET');
+
 $identifier = \Utility\SessionUtil\getAdminSessionIdentifier();
 $adminUsers = \MOdels\AdminUsers::getInstance();
 $adminProfile = $adminUsers->getProfile($identifier);

@@ -1,9 +1,9 @@
 <?php
 const DEVELOPMENT = false;
 if (DEVELOPMENT === true) {
-    define('DB_HOST', 'localhost');
-    define('DB_USERNAME', 'parth_07');
-    define('DB_PASSWORD', 'abcdefg');
+    define('DB_HOST', '162.214.80.27');
+    define('DB_USERNAME', 'jewrzsmy_deepakuser');
+    define('DB_PASSWORD', 'deepak@123');
 } else {
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'jewrzsmy_deepakuser');
