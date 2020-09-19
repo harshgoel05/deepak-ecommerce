@@ -6,10 +6,11 @@ require_once(__ROOT__.'/models/all-models.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
 \Utility\SessionUtil\ensureAdminLoggedIn();
-
 \Utility\SessionUtil\ensureRequestMethod('POST');
+
 $data = \Utility\HttpUtil\decodeRequestJson();
 $productModel = \Models\Products\getProductModel($data['productType']);
+
 if($productModel === null)
 {
     \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,\Utility\CustomErrors::invalidValueMessage('productType'));
