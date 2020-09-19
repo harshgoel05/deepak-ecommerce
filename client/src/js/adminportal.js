@@ -2280,8 +2280,10 @@ $("#submit-btn9").click(function () {
     coupon3: coupon3,
     discount: discount,
   };
+  console.log(formData);
   $.ajax({
-    url: "https://ecommerce-try.herokuapp.com/server/api/user/add.php",
+    url:
+      "http://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php", // change url to product
     type: "POST",
     data: JSON.stringify(formData),
     crossDomain: true,
