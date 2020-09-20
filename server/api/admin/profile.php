@@ -7,7 +7,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
 $identifier = \Utility\SessionUtil\getAdminSessionIdentifier();
-$adminUsers = \MOdels\AdminUsers::getInstance();
+$adminUsers = \Models\AdminUsers::getInstance();
 $adminProfile = $adminUsers->getProfile($identifier);
 
 if($adminProfile === false)

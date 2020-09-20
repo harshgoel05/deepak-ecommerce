@@ -139,4 +139,9 @@ abstract class Table
         }
         echo '<br>';
     }
+
+    public function delete($condition)
+    {
+        return $this->dbObj->delete($this->name,$condition);
+    }
 }

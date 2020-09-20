@@ -18,4 +18,21 @@ class ProductsBase extends \Models\Table
         else 
             return null;
     }
+
+    public function removeByProductID($productID)
+    {
+        $productID = $this->dbObj->escape_string($productID);
+        // echo $productID.'<br>';
+        $temp_res =$this->delete("`productid` = '{$productID}'");
+        if(!is_string($temp_res))
+        {
+            if($temp_res > 0)
+                return true;
+            else 
+                return false;
+        }
+        else 
+            return $temp_res;
+        
+    }
 }
