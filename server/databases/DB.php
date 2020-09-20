@@ -162,10 +162,20 @@ abstract class DB
     {
         $sql = "UPDATE {$tableName} ";
         $sql .= "SET ";
+        $temp_arr = array_keys($row);
+        $lastKey = end($temp_arr);
         foreach($row as $key => $val)
         {
             $sql.= $key." = ";
-            $sql.=$this->appendValue($val)." ";
+            $sql.=$this->appendValue($val);
+            if($key !== $lastKey)
+            {
+                $sql.=" , ";
+            }
+            else
+            {
+                $sql.=" ";
+            }
         }
         $sql.="WHERE ";
         $sql.=$condition;
