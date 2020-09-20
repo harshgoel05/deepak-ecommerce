@@ -144,4 +144,9 @@ abstract class Table
     {
         return $this->dbObj->delete($this->name,$condition);
     }
+
+    public function update($row,$condition)
+    {
+        return $this->dbObj->update($this->name,$row,$condition);
+    }
 }

@@ -157,4 +157,23 @@ abstract class DB
         else 
             return $this->db->error;
     }
+
+    public function update($tableName,$row,$condition)
+    {
+        $sql = "UPDATE {$tableName} ";
+        $sql .= "SET ";
+        foreach($row as $key => $val)
+        {
+            $sql.= $key." = ";
+            $sql.=$this->appendValue($val)." ";
+        }
+        $sql.="WHERE ";
+        $sql.=$condition;
+        if($this->db->query($sql))
+        {
+            return $this->db->affected_rows;
+        }
+        else
+            return $this->db->error;
+    }
 }
