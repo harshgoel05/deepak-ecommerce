@@ -133,13 +133,13 @@ abstract class DB
         else
             return $this->db->error;
     }
-    public function describe($tableName)
+    public function describe($tableName,$resultType=MYSQLI_NUM)
     {
         $tableName = $this->db->escape_string($tableName);
         $sql = "DESCRIBE {$tableName}";
         $res = $this->db->query($sql);
         if($res->num_rows > 0)
-            return $res->fetch_all();
-        else return $this->db->error;
+            return $res->fetch_all($resultType);
+        else return null;
     }
 }

@@ -14,7 +14,7 @@ class Users extends Identifier
     {
         global $db;
         $identifier = $db->escape_string($identifier);
-        $res = $this->findAllExceptGivenCols(['user_id',PASSWORD],IDENTIFIER." = '{$identifier}'");
+        $res = $this->findAllExceptGivenCols(['user_id',PASSWORD],USER_IDENTIFIER." = '{$identifier}'");
         if($res->num_rows > 0)
             return $res->fetch_assoc();
         else return false;

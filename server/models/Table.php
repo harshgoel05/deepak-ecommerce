@@ -9,11 +9,11 @@ abstract class Table
     public $cols;
     public $extras;
 
-    public function __construct($_name = null, $_cols = null, $_dbObj = null)
+    public function __construct($_name = null, $_dbObj = null)
     {
         $this->name = $_name;
-        $this->cols = $_cols;
         $this->dbObj = $_dbObj;
+        $this->cols = $this->getCols();
     }
 
     /* public function create()
@@ -104,11 +104,26 @@ abstract class Table
         return $temp_res;
     }
 
+    public function getCols()
+    {
+        $queryRes = $this->dbObj->describe($this->name,MYSQLI_ASSOC);
+        $_cols = [];
+        if($queryRes !== null)
+        {
+            foreach($queryRes as $row)
+            {
+                $_cols[] = $row['Field'];
+
+            }
+        }
+        return $_cols;
+    }
+
     public function describe()
     {
         $queryRes =  $this->dbObj->describe($this->name);
         echo $this->dbObj->getDBName().' '.$this->name.'<br>';
-        if(!is_string($queryRes))
+        if($queryRes !== null)
         {
             foreach($queryRes as $row)
             {
@@ -120,7 +135,7 @@ abstract class Table
             }
         }
         else {
-            echo $queryRes || "null";
+            echo "null";
         }
         echo '<br>';
     }

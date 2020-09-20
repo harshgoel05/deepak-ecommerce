@@ -15,8 +15,7 @@ class AdminUsers extends Identifier
         $this->identifierCol = ADMIN_IDENTIFIER;
         $_dbObj = \Databases\AdminUsersDB::getInstance();
         $_name = 'databunker';
-        $_cols = ['id','username','password','number'];
-        parent::__construct($_name,$_cols,$_dbObj);
+        parent::__construct($_name,$_dbObj);
     }
 
     public function getProfile($identifier)
