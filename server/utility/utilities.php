@@ -6,3 +6,4 @@ require_once(__ROOT__ . '/utility/http-util.php');
 require_once(__ROOT__ . '/utility/http-error-handlers.php');
 require_once(__ROOT__ . '/utility/session-util.php');
 require_once(__ROOT__ . '/utility/CustomErrors.php');
+require_once(__ROOT__.'/utility/autoloader.php');
