@@ -14,7 +14,7 @@ abstract class DB
     {
         return $this->db->escape_string($str);
     }
-    protected function __construct($databaseName=null)
+    protected function __construct($databaseName = null)
     {
         $this->db = new \mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, $databaseName);
 
@@ -22,17 +22,16 @@ abstract class DB
             die("Connection to the database `{$databaseName}` failed : " . $this->db->connect_error);
         }
     }
-    
+
     protected static $instances = [];
     public function getDBName()
     {
         return $this->dbName;
     }
-    public static function getInstance() 
+    public static function getInstance()
     {
         $className = static::class;
-        if(!isset(self::$instances[$className]))
-        {
+        if (!isset(self::$instances[$className])) {
             self::$instances[$className] = new static();
         }
         return self::$instances[$className];
@@ -105,7 +104,7 @@ abstract class DB
                 $sql .= "`{$cols[$i]}`";
                 if ($i !== count($cols) - 1)
                     $sql .= ' , ';
-                else 
+                else
                     $sql .= ' ';
             }
         } else {
@@ -133,13 +132,29 @@ abstract class DB
         else
             return $this->db->error;
     }
-    public function describe($tableName,$resultType=MYSQLI_NUM)
+    public function describe($tableName, $resultType = MYSQLI_NUM)
     {
         $tableName = $this->db->escape_string($tableName);
         $sql = "DESCRIBE {$tableName}";
         $res = $this->db->query($sql);
-        if($res->num_rows > 0)
+        if ($res->num_rows > 0)
             return $res->fetch_all($resultType);
         else return null;
+    }
+
+    public function delete($tableName, $condition = null)
+    {
+        $sql = "DELETE FROM `{$tableName}`";
+        if($condition !== null)
+        {
+            $sql.=" WHERE $condition";
+        }
+        // echo $sql.'<br>';
+        if($this->db->query($sql))
+        {
+            return $this->db->affected_rows;
+        }
+        else 
+            return $this->db->error;
     }
 }

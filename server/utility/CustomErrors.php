@@ -15,4 +15,9 @@ abstract class CustomErrors
     {
         return "Invalid {$val}";
     }
+
+    public static function valueNotFoundMessage($val)
+    {
+        return "{$val} not found";
+    }
 }

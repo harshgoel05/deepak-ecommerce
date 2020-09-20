@@ -34,12 +34,18 @@ function sendSuccessResponse($data = null,$exitAtEnd=true)
         exit();
 }
 
-function sendFailResponse($exitAtEnd=true)
+function sendFailResponse($errMessage = null,$exitAtEnd=true)
 {
     http_response_code(HTTP_OK);
     $response = [
         'success' => false
     ];
+    if($errMessage !== null)
+    {
+        $response['error'] = [
+            'message' => $errMessage
+        ];
+    }
     echo json_encode($response);
     if($exitAtEnd === true)
         exit();
