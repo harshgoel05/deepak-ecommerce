@@ -147,6 +147,7 @@ abstract class Table
 
     public function update($row,$condition)
     {
-        return $this->dbObj->update($this->name,$row,$condition);
+        $filteredRow = $this->filterKeys($row);
+        return $this->dbObj->update($this->name,$filteredRow,$condition);
     }
 }
