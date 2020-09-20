@@ -5,23 +5,25 @@ $("#login-btn").on("click", function (event) {
   console.log(username, pass);
   if (username && pass) {
     let body = {
-      email: username,
+      username: username,
       password: pass,
     };
     $.ajax({
       url:
-        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/login.php",
+        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/login.php",
       type: "POST",
       data: JSON.stringify(body),
       success: function (response) {
         console.log(response);
+        localStorage.setItem("isloggedin", "true");
+        localStorage.setItem("role", "admin");
         location.replace(
           "https://harshgoel05.github.io/deepak-ecommerce/client/adminportal.html"
         );
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
-        alert("Some unknown error occured");
+        alert("The username or password doesn't match");
       },
     });
   } else {
@@ -41,11 +43,10 @@ $("#logout-btn").click(function (e) {
     type: "GET",
     crossDomain: true,
     success: function (response) {
-      localStorage.removeItem("status");
-      localStorage.removeItem("role");
-      localStorage.removeItem("user");
+      localStorage.removeItem("isloggedin", "true");
+      localStorage.removeItem("role", "admin");
       location.replace(
-        "https://harshgoel05.github.io/deepak-ecommerce/client/login.html"
+        "https://harshgoel05.github.io/deepak-ecommerce/client/admin-login.html"
       );
     },
     error: function (xhr, status) {
