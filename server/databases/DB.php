@@ -77,7 +77,6 @@ abstract class DB
         $sql = "INSERT INTO `{$tableName}` (";
         foreach ($row as $key => $value) {
             $key = $this->db->escape_string($key);
-            $value = $this->db->escape_string($value);
             $keys .= "`{$key}`";
             $values .= $this->appendValue($value);
             if ($key !== $lastkey) {

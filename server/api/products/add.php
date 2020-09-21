@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/../../config/other-configs.php');
+require_once(__DIR__.'/../../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
@@ -9,7 +9,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 $data = \Utility\HttpUtil\decodeRequestJson();
 // echo $data;
 // echo $data['productType'];
-$productModel = \Models\Products\getProductModel($data['productType']);
+$productModel = getSingleton('\\Models\\Products\\',$data['productType']);
 
 if($productModel === null)
 {

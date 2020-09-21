@@ -9,7 +9,7 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 $data = \Utility\HttpUtil\decodeRequestJson();
 
-$productModel = getSingleton('\\Models\\Products\\',__DIR__);
+$productModel = getSingleton('\\Models\\Products\\',$data['productType']);
 
 $productID = $data[PRODUCT_ID];
 unset($data[PRODUCT_ID]);

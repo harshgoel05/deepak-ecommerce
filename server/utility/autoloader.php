@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__.'/../config/other-configs.php');
+require_once(__ROOT__.'/utility/arrays-util.php');
 
 spl_autoload_register(function ($class) {
 
@@ -29,3 +30,10 @@ spl_autoload_register(function ($class) {
         throw new Exception("Autoloading failed for {$file}");
     }
 });
+
+function getSingleton($namespacePrefix,$dirName)
+{
+    $relDirName = \Utility\ArraysUtil\getLastExplodedElem('/',$dirName);
+    $className = $namespacePrefix.ucfirst($relDirName);
+    return $className::getInstance();
+}

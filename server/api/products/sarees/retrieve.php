@@ -8,7 +8,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
 // $productType = $_GET['productType'];
-$productModel = \Models\Products\Sarees::getInstance();
+$productModel = getSingleton('\\Models\\Products\\',__DIR__);
 // echo $productType.'<br>'.$_GET['productid'];
 if($productModel === null)
 {

@@ -9,7 +9,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 $data = \Utility\HttpUtil\decodeRequestJson();
 // echo $data;
 // echo $data['productType'];
-$productModel = \Models\Products\Sarees::getInstance();
+$productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
 if($productModel === null)
 {

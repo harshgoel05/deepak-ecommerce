@@ -9,11 +9,7 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 $data = \Utility\HttpUtil\decodeRequestJson();
 
-$relDirName = \Utility\ArraysUtil\getLastExplodedElem('/',__DIR__);
-
-$modelClassName = '\\Models\\Products\\'.ucfirst($relDirName);
-
-$productModel = $modelClassName::getInstance();
+$productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
 // echo get_class($productModel);
 // echo $data[PRODUCT_ID];
@@ -25,7 +21,7 @@ if($temp_res === true)
 }
 else if($temp_res === false)
 {
-    \Utility\HttpUtil\sendFailResponse(\Utility\CustomErrors::valueNotFoundMessage('productid'));
+    \Utility\HttpUtil\sendFailResponse(\Utility\CustomErrors::valueNotFoundMessage(PRODUCT_ID));
 }
 else
     \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,$temp_res);

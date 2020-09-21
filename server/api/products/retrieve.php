@@ -1,13 +1,14 @@
 <?php
-require_once(__DIR__.'/../../config/other-configs.php');
+require_once(__DIR__.'/../../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
+// require_once(__ROOT__.'/models/all-models.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
 // \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
-$productType = $_GET['productType'];
-$productModel = \Models\Products\getProductModel($productType);
+// $productType = $_GET['productType'];
+$productModel = getSingleton('\\Models\\Products\\',$_GET['productType']);
 // echo $productType.'<br>'.$_GET['productid'];
 if($productModel === null)
 {

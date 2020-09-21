@@ -9,11 +9,7 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 $data = \Utility\HttpUtil\decodeRequestJson();
 
-$relDirName = \Utility\ArraysUtil\getLastExplodedElem('/',__DIR__);
-
-$modelClassName = '\\Models\\Products\\'.ucfirst($relDirName);
-
-$productModel = $modelClassName::getInstance();
+$productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
 // echo get_class($productModel);
 // echo $data[PRODUCT_ID];
