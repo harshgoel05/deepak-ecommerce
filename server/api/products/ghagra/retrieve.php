@@ -15,7 +15,10 @@ if($productModel === null)
     \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,\Utility\CustomErrors::invalidValueMessage('productType'));
 }
 
-$temp_res = $productModel->findByProductID($_GET['productid']);
+if(array_key_exists('productid',$_GET))
+    $temp_res = $productModel->findByProductID($_GET['productid']);
+else $temp_res = $productModel->findByProductID(null);
+
 if($temp_res !== null)
 {
     \Utility\HttpUtil\sendSuccessResponse($temp_res);

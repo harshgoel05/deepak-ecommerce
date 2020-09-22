@@ -51,7 +51,7 @@ abstract class Table
         return $this->dbObj->insertRow($this->name,$filteredRow);
     }
 
-    public function find($colNames,$query)
+    public function find($colNames,$query=null)
     {
         return $this->dbObj->find($this->name,$colNames,$query);
     }
@@ -91,7 +91,7 @@ abstract class Table
         return $this->dbObj->drop($this->name);
     } */
 
-    public function findAllExceptGivenCols($colNames,$query)
+    public function findAllExceptGivenCols($colNames,$query=null)
     {
         $colNamesForSQL = [];
         foreach($this->cols as $columnName)

@@ -6,16 +6,27 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 class ProductsBase extends \Models\Table
 {
-    public function findByProductID($productID)
+    public function findByProductID($productID=null)
     {
         /* if(!is_numeric($productID))
         {
             return null;
         } */
-        $productID = $this->dbObj->escape_string($productID);
-        $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` = '{$productID}'");
+        if($productID !== null)
+        {
+            $productID = $this->dbObj->escape_string($productID);
+            $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` = '{$productID}'");
+        }
+        else
+        {
+            $temp_res = $this->findAllExceptGivenCols(['id']);
+        }
         if($temp_res->num_rows > 0)
-            return $temp_res->fetch_assoc();
+        {
+            if($productID === null)
+                return $temp_res->fetch_all(MYSQLI_ASSOC);
+            else return $temp_res->fetch_assoc();
+        }
         else 
             return null;
     }
