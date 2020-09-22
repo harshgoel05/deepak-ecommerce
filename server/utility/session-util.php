@@ -35,12 +35,21 @@ function addIdentifierToSession($loginType, $identifier,$identifierCol)
 
 function startSession()
 {
-    session_start();
+    session_start([
+        'use_only_cookies' => 1,
+        'cookie_lifetime' => 86400,
+        'cookie_secure' => 0,
+        'cookie_httponly' => 0
+      ]);
 }
 
 function startReadOnlySession()
 {
     session_start([
+        'use_only_cookies' => 1,
+        'cookie_lifetime' => 86400,
+        'cookie_secure' => 0,
+        'cookie_httponly' => 0,
         'read_and_close' => true,
     ]);
 }
