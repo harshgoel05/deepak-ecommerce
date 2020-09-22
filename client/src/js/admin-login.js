@@ -55,3 +55,19 @@ $("#logout-btn").click(function (e) {
     },
   });
 });
+// Get user profile
+$(document).on(function () {
+  $.ajax({
+    url:
+      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/profile.php",
+    type: "GET",
+    crossDomain: true,
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (xhr, status) {
+      console.log("error", xhr, status);
+      alert("Some unknown error occured");
+    },
+  });
+});
