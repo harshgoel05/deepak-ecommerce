@@ -33,7 +33,7 @@ td, th {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .btn-lg{
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .details{
   text-align: left;
@@ -50,7 +50,52 @@ td, th {
 .mrr{
   margin-left: 100px;
 }
+.sizes{
+  border-radius: 50%;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: #dddddd;
+}
+.boxed label {
+  margin-top: -10px;
+  text-align: center;
+  font-size: 12px;
+  width: 40px;
+  padding: 8px;
+  border: solid 2px #ccc;
+  transition: all 0.3s;
+  border-radius:50%;
+  font-weight: bold;
+}
 
+.boxed input[type="radio"] {
+  text-align:center;
+  display: none;
+}
+
+.boxed input[type="radio"]:checked + label {
+  border: solid 2px rgb(201, 207, 201);
+  background-color: rgb(179, 187, 179);
+}
+.hrr{
+  margin-left: -15px;
+}
+.grids{
+  margin-left: -15px;
+}
+#dis{
+  color: orange;
+}
+h7{
+  color: rgb(141, 141, 141);
+}
+#sub-title{
+  color: rgb(141, 141, 141);
+}
+.fa-shopping-bag{
+  padding-right: 10px;
+  color: whitesmoke;
+}
 @media screen and (max-width:769px) {
   .tbl{
     max-width: 100%;
@@ -59,7 +104,8 @@ td, th {
   .iimg{
     margin-left: -10px;
     padding-bottom: 15px;
-    height: 400px;
+    height: 500px;
+    width: 100%;
   }
   /* NEW */
   .iimgg{
@@ -92,5 +138,26 @@ td, th {
   }
   .mrr{
     margin-left: 35px;
+  }
+  .boxed label {
+    margin-top: -10px;
+    text-align: center;
+    font-size: 10px;
+    width: 30px;
+    padding: 5px;
+    padding-top: 7px;
+    border: solid 2px #ccc;
+    transition: all 0.3s;
+  }
+}
+@media screen and (max-width:376px){
+  .iimg{
+    height: 450px;
+  }
+}
+
+@media screen and (max-width:321px){
+  .iimg{
+    height: 380px;
   }
 }
