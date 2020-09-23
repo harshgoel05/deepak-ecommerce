@@ -49,35 +49,35 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id6">
+                          <input type="text" class="form-control inp" placeholder="Product ID" id="id61">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title6">
+                        <input type="text" class="form-control inp" placeholder="Title" id="title61">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title6">
+                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title61">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Brand6">
+                      <input type="text" class="form-control inp" placeholder="Brand6" id="brand61">
                       </div>
                   </div>
-                  <br>
-                    <div class="col">
-                      <select class="row custom-select selectcss" id="sub-cat6">
+                  <!-- <br> -->
+                    <!-- <div class="col">
+                      <select class="row custom-select selectcss" id="sub-cat61">
                           <option selected>Sub-Categories</option>
                           <option value="Ankle length">Ankle length</option>
                           <option value="Chudidar">Chudidar</option>
                       </select>
-                    </div>
+                    </div> -->
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price6">
+                        <input type="text" class="form-control inp" placeholder="Price" id="price61">
                         </div>
                     </div>
                     <br>
@@ -86,41 +86,43 @@
                         <h5>SIZE</h5>
                       </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="XS" id="defaultCheck61">
-                      <label class="form-check-label" for="defaultCheck61">
-                        XS
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="S" id="defaultCheck62">
-                      <label class="form-check-label" for="defaultCheck62">
-                        S
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="M" id="defaultCheck63">
-                      <label class="form-check-label" for="defaultCheck63">
-                        M
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="L" id="defaultCheck64">
-                      <label class="form-check-label" for="defaultCheck64">
-                        L
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="XL" id="defaultCheck65">
-                      <label class="form-check-label" for="defaultCheck65">
-                        XL
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="XLL" id="defaultCheck66">
-                      <label class="form-check-label" for="defaultCheck66">
-                        XLL
-                      </label>
+                    <div id="size-container61">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="XS" id="defaultCheck61">
+                        <label class="form-check-label" for="defaultCheck61">
+                          XS
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="S" id="defaultCheck62">
+                        <label class="form-check-label" for="defaultCheck62">
+                          S
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="M" id="defaultCheck63">
+                        <label class="form-check-label" for="defaultCheck63">
+                          M
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="L" id="defaultCheck64">
+                        <label class="form-check-label" for="defaultCheck64">
+                          L
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="XL" id="defaultCheck65">
+                        <label class="form-check-label" for="defaultCheck65">
+                          XL
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="XLL" id="defaultCheck66">
+                        <label class="form-check-label" for="defaultCheck66">
+                          XLL
+                        </label>
+                      </div>
                     </div>
                     <br><br><br>
                     <div class="row">
@@ -376,12 +378,12 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des6"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description" id="des61"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
-                      <select class="row custom-select selectcss">
+                      <select class="row custom-select selectcss" id="type61">
                           <option selected>Type</option>
                           <option value="Type 1">Product Type 1</option>
                           <option value="Type 2">Product Type 2</option>
@@ -394,58 +396,60 @@
                         <h5>OCCASION</h5>
                       </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Traditional" id="o61">
-                      <label class="form-check-label" for="o61">
-                        Traditional
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Wedding" id="o62">
-                      <label class="form-check-label" for="o62">
-                        Wedding
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Regular" id="o63">
-                      <label class="form-check-label" for="o63">
-                        Regular
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Casual" id="o64">
-                      <label class="form-check-label" for="o64">
-                        Casual
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="wear" id="o65">
-                      <label class="form-check-label" for="o65">
-                        Party-wear
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Daily" id="o66">
-                      <label class="form-check-label" for="o66">
-                        Daily
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Festive" id="o67">
-                      <label class="form-check-label" for="o67">
-                        Festive
-                      </label>
-                    </div>
-                    <br>
-                    <div class="row align-items-center mt-4">
-                      <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric" id="fab6">
+                    <div id="occasion-cont61">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Traditional" id="o61">
+                        <label class="form-check-label" for="o61">
+                          Traditional
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Wedding" id="o62">
+                        <label class="form-check-label" for="o62">
+                          Wedding
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Regular" id="o63">
+                        <label class="form-check-label" for="o63">
+                          Regular
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Casual" id="o64">
+                        <label class="form-check-label" for="o64">
+                          Casual
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="wear" id="o65">
+                        <label class="form-check-label" for="o65">
+                          Party-wear
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Daily" id="o66">
+                        <label class="form-check-label" for="o66">
+                          Daily
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Festive" id="o67">
+                        <label class="form-check-label" for="o67">
+                          Festive
+                        </label>
                       </div>
                     </div>
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Material" id="mat6">
+                      <input type="text" class="form-control inp" placeholder="Fabric" id="faab61">
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row align-items-center mt-4">
+                      <div class="col">
+                      <input type="text" class="form-control inp" placeholder="Material" id="mat61">
                       </div>
                     </div>
                     <br>
@@ -454,23 +458,25 @@
                         <h5>WASH CARE</h5>
                       </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Dry clean" id="w61">
-                      <label class="form-check-label" for="w61">
-                        Dry clean
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Machine Wash" id="w62">
-                      <label class="form-check-label" for="w62">
-                        Machine Wash
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Hand Wash" id="w63">
-                      <label class="form-check-label" for="w63">
-                        Hand Wash
-                      </label>
+                    <div id="washcare-cont61">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Dry clean" id="w61">
+                        <label class="form-check-label" for="w61">
+                          Dry clean
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Machine Wash" id="w62">
+                        <label class="form-check-label" for="w62">
+                          Machine Wash
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="Hand Wash" id="w63">
+                        <label class="form-check-label" for="w63">
+                          Hand Wash
+                        </label>
+                      </div>
                     </div>
                     <br><br>
                     <div class="row align-items-center mt-4">
@@ -496,7 +502,7 @@
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn6">Submit Form</button>
+                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn61">Submit Form</button>
                       </div>
                     </div>
                   </div>
