@@ -16,6 +16,7 @@ abstract class DB
     }
     protected function __construct($databaseName = null)
     {
+        $this->dbName = $databaseName;
         $this->db = new \mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, $databaseName);
 
         if ($this->db->connect_error) {

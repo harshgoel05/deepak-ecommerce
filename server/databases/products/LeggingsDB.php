@@ -7,8 +7,8 @@ class LeggingsDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'jewrzsmy_deepakc2';
-        parent::__construct($this->dbName);
+        $_dbName = 'jewrzsmy_deepakc2';
+        parent::__construct($_dbName);
     }
 
 }

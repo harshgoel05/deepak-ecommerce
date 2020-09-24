@@ -7,8 +7,8 @@ class GhagraDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'jewrzsmy_deepakc7';
-        parent::__construct($this->dbName);
+        $_dbName = 'jewrzsmy_deepakc7';
+        parent::__construct($_dbName);
     }
 
 }

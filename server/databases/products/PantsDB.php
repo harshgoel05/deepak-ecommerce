@@ -7,8 +7,8 @@ class PantsDB extends ProductsBaseDB
 {
     protected function __construct()
     {
-        $this->dbName = 'jewrzsmy_deepakc3';
-        parent::__construct($this->dbName);
+        $_dbName = 'jewrzsmy_deepakc3';
+        parent::__construct($_dbName);
     }
 
 }
