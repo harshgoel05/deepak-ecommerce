@@ -1,4 +1,4 @@
-$("#menu-toggle").click(function(e) {
+$("#menu-toggle").click(function (e) {
   e.preventDefault();
   $("#wrapper").toggleClass("toggled");
 });
@@ -10,13 +10,13 @@ $("#submit-btn5").click(function () {
   let sub_title = $("#sub_title5").val();
   let price = $("#price5").val();
   let description = $("#des5").val();
-  let type= $("#type5").val();
-  let blousefabric= $("#bfab5").val();
-  let blouse= $("#blouse5").val();
-  let sareefabric= $("#sfab5").val();
-  let length= $("#length5").val();
-  let width= $("#width5").val();
-  
+  let type = $("#type5").val();
+  let blousefabric = $("#bfab5").val();
+  let blouse = $("#blouse5").val();
+  let sareefabric = $("#sfab5").val();
+  let length = $("#length5").val();
+  let width = $("#width5").val();
+
   var sizes = [];
   $("#size-container5 input:checked").each(function () {
     sizes.push(this.value);
@@ -32,11 +32,10 @@ $("#submit-btn5").click(function () {
     washcares.push(this.value);
   });
 
-  
   var finalbody = {
     productid: id,
     title: title,
-    subcategory:sub_category,
+    subcategory: sub_category,
     subtitle: sub_title,
     price: price,
     // colors
@@ -46,13 +45,13 @@ $("#submit-btn5").click(function () {
     // image4
     // image5
     // image6
-    description:description,
+    description: description,
     type: type,
-    blousefabric:blousefabric,
-    blouse:blouse,
-    sareefabric:sareefabric,
-    length:length,
-    width:width
+    blousefabric: blousefabric,
+    blouse: blouse,
+    sareefabric: sareefabric,
+    length: length,
+    width: width,
     // washcare1
     // washcare2
     // washcare3
@@ -84,30 +83,4 @@ $("#submit-btn5").click(function () {
       alert("Something went wrong");
     },
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
