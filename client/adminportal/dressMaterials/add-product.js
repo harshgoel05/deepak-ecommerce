@@ -1,3 +1,7 @@
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
 $("#add-product").click(function () {
   console.log("Call add product API");
   let id = $("#product_id").val();
