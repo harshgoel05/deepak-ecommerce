@@ -10,7 +10,7 @@ abstract class CustomErrors
     const AUTH_ERROR = 'AuthenticationError';
     const UNAUTHORIZED_ACCESS_ERROR = 'UnauthorizedAccessError';
     const WRONG_REQUEST_METHOD_ERROR = 'WrongRequestMethodError';
-
+    const LOGIN_ERROR = 'LoginError';
     public static function invalidValueMessage($val)
     {
         return "Invalid {$val}";
@@ -20,4 +20,6 @@ abstract class CustomErrors
     {
         return "{$val} not found";
     }
+
+    const ALREADY_LOGGEDIN_MESSAGE = 'Already logged in';
 }

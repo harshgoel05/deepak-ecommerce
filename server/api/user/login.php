@@ -6,6 +6,7 @@ require_once(__ROOT__.'/config/field-consts.php');
 \Utility\HeadersUtil\addCommonHeaders();
 \Utility\SessionUtil\ensureRequestMethod('POST');
 $data = \Utility\HttpUtil\decodeRequestJson();
+\Utility\SessionUtil\ensureNotLoggedIn();
 
 $users = \Models\Users::getInstance();
 

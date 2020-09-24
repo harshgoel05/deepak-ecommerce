@@ -41,3 +41,11 @@ function wrongRequestMethodErrorHandler($exitAtEnd = true)
     if($exitAtEnd === true)
         exit();
 }
+
+function alreadyLoggedInErrorHandler($exitAtEnd = true)
+{
+    http_response_code(\Utility\HttpUtil\HTTP_BAD_REQUEST);
+    echo json_encode(createErrorResponse(\Utility\CustomErrors::LOGIN_ERROR,\Utility\CustomErrors::ALREADY_LOGGEDIN_MESSAGE));
+    if($exitAtEnd === true)
+        exit();
+}

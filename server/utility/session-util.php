@@ -11,16 +11,24 @@ function getSessionIdentifier($loginType,$identifierCol)
     if ((isset($_SESSION[$loginType]) && $_SESSION[$loginType] === true) && (isset($_SESSION[$identifierCol]) && !empty($_SESSION[$identifierCol]))) {
         return $_SESSION[$identifierCol];
     } else {
-        return false;
+        return null;
     }
 }
 
 function ensureLoggedIn($loginType,$identifierCol)
 {
     $identifier = getSessionIdentifier($loginType,$identifierCol);
-    if($identifier === false)
+    if($identifier === null)
     {
         \Utility\HttpErrorHandlers\unauthorizedAccessErrorHandler();
+    }
+}
+
+function ensureNotLoggedIn()
+{
+    if(getAdminSessionIdentifier() !== null || getUserSessionIdentifier() !== null)
+    {
+        \Utility\HttpErrorHandlers\alreadyLoggedInErrorHandler();
     }
 }
 

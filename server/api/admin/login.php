@@ -5,8 +5,9 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 \Utility\HeadersUtil\addCommonHeaders();
 \Utility\SessionUtil\ensureRequestMethod('POST');
-
 $data = \Utility\HttpUtil\decodeRequestJson();
+\Utility\SessionUtil\ensureNotLoggedIn();
+
 $adminUsers = \Models\AdminUsers::getInstance();
 if($adminUsers->verifyPassword($data[ADMIN_IDENTIFIER],$data[PASSWORD]))
 {
