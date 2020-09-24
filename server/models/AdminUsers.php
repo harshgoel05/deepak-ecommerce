@@ -17,13 +17,4 @@ class AdminUsers extends Identifier
         $_name = 'databunker';
         parent::__construct($_name,$_dbObj);
     }
-
-    public function getProfile($identifier)
-    {
-        $identifier = $this->dbObj->db->escape_string($identifier);
-        $res = $this->findAllExceptGivenCols(['id',PASSWORD],ADMIN_IDENTIFIER." = '{$identifier}'");
-        if($res->num_rows > 0)
-            return $res->fetch_assoc();
-        else return false;
-    }
 }

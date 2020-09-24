@@ -35,4 +35,13 @@ class Identifier extends Table
         }
         return password_verify($_password, $hashedPassword);
     }
+
+    public function getProfile($identifier)
+    {
+        $identifier = $this->dbObj->escape_string($identifier);
+        $res = $this->findAllExceptGivenCols(['id',PASSWORD],$this->identifierCol." = '{$identifier}'");
+        if($res->num_rows > 0)
+            return $res->fetch_assoc();
+        else return null;
+    }
 }

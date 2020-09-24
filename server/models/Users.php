@@ -9,7 +9,7 @@ class Users extends Identifier
     protected function __construct()
     {
         $this->identifierCol = USER_IDENTIFIER;
-        $_dbObj = \Databases\AdminUsersDB::getInstance();
+        $_dbObj = \Databases\UsersDB::getInstance();
         $_name = 'databunker';
         parent::__construct($_name,$_dbObj);
     }
@@ -21,6 +21,6 @@ class Users extends Identifier
         $res = $this->findAllExceptGivenCols(['user_id',PASSWORD],USER_IDENTIFIER." = '{$identifier}'");
         if($res->num_rows > 0)
             return $res->fetch_assoc();
-        else return false;
+        else return null;
     }
 }

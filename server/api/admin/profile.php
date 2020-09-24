@@ -10,7 +10,7 @@ $identifier = \Utility\SessionUtil\getAdminSessionIdentifier();
 $adminUsers = \Models\AdminUsers::getInstance();
 $adminProfile = $adminUsers->getProfile($identifier);
 
-if($adminProfile === false)
+if($adminProfile === null)
 {
     \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Admin user not found");
 }
