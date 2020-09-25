@@ -1,4 +1,3 @@
-$(document).on(function () {});
 $.ajax({
   url:
     "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/profile.php",
