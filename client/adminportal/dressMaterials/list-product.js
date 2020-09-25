@@ -14,9 +14,8 @@ $(document).ready(function () {
               >
                 ${index + 1}
               </th>
-              <td>${product.productid || ""}</td>
-              <td>${product.title || ""}</td>
-              <td>${product.subcategory}</td>
+              <td>${product.productid || "N/A"}</td>
+              <td>${product.title || "N/A"}</td>
               <td>
                 <button type="button" class="btn btn-primary edit-btn" id = ${
                   product.productid
