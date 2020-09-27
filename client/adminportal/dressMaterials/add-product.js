@@ -1,21 +1,31 @@
 $(document).ready(function () {
   $("#sidebar").mCustomScrollbar({
-      theme: "minimal"
+    theme: "minimal",
   });
 
-  $('#dismiss, .overlay').on('click', function () {
-      $('#sidebar').removeClass('active');
-      $('.overlay').removeClass('active');
+  $("#dismiss, .overlay").on("click", function () {
+    $("#sidebar").removeClass("active");
+    $(".overlay").removeClass("active");
   });
 
-  $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').addClass('active');
-      $('.overlay').addClass('active');
-      $('.collapse.in').toggleClass('in');
-      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+  $("#sidebarCollapse").on("click", function () {
+    $("#sidebar").addClass("active");
+    $(".overlay").addClass("active");
+    $(".collapse.in").toggleClass("in");
+    $("a[aria-expanded=true]").attr("aria-expanded", "false");
   });
 });
-$("#add-product").click(function () {
+$("#add-product").click(async function () {
+  // Image Upload
+
+  // var f = document.getElementById("image-up").files[0];
+
+  // var bo = {
+  //   fil1: f,
+  //   w3rw1: f,
+  // };
+  // console.log(bo);
+
   console.log("Call add product API");
   let id = $("#product_id").val();
   let title = $("#title").val();
@@ -99,4 +109,10 @@ $("#add-product").click(function () {
   });
 });
 
-console.log("fwef");
+const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
