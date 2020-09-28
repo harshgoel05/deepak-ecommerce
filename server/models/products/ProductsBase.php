@@ -9,16 +9,29 @@ require_once(__ROOT__.'/config/field-consts.php');
 
 class ProductsBase extends \Models\Table
 {
-    public function findByProductID($productID=null)
+    public function findProductById($productId=null)
     {
-        /* if(!is_numeric($productID))
+        /* if(!is_numeric($productId))
         {
             return null;
         } */
-        if($productID !== null)
+        if($productId !== null)
         {
-            $productID = $this->dbObj->escape_string($productID);
-            $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` = '{$productID}'");
+            if(is_array($productId))
+            {
+                foreach($productId as $key => $value)
+                {
+                    $value = $this->dbObj->escape_string($value);
+                    $productId[$key] = "'{$value}'";
+                }
+                $productsIds = implode(',',$productId);
+            }
+            else 
+            {
+                $productId = $this->dbObj->escape_string($productId);
+                $productsIds = $productId;
+            }
+            $temp_res =  $this->findAllExceptGivenCols(['id'],"`productid` in ($productsIds)");
         }
         else
         {
@@ -26,7 +39,7 @@ class ProductsBase extends \Models\Table
         }
         if($temp_res->num_rows > 0)
         {
-            if($productID === null)
+            if($productId === null || is_array($productId))
                 return $temp_res->fetch_all(MYSQLI_ASSOC);
             else return $temp_res->fetch_assoc();
         }
@@ -34,11 +47,11 @@ class ProductsBase extends \Models\Table
             return null;
     }
 
-    public function removeByProductID($productID)
+    public function removeProductById($productId)
     {
-        $productID = $this->dbObj->escape_string($productID);
-        // echo $productID.'<br>';
-        $temp_res =$this->delete("`productid` = '{$productID}'");
+        $productId = $this->dbObj->escape_string($productId);
+        // echo $productId.'<br>';
+        $temp_res =$this->delete("`productid` = '{$productId}'");
         if(!($temp_res instanceof Fallacy))
         {
             if($temp_res > 0)
@@ -51,10 +64,10 @@ class ProductsBase extends \Models\Table
         
     }
 
-    public function updateByProductID($productID,$row)
+    public function updateProductById($productId,$row)
     {
-        $productID = $this->dbObj->escape_string($productID);
-        $temp_res = $this->update($row,'`'.PRODUCT_ID.'`'." = ".$productID);
+        $productId = $this->dbObj->escape_string($productId);
+        $temp_res = $this->update($row,'`'.PRODUCT_ID.'`'." = ".$productId);
         if(!is_string($temp_res))
         {
             if($temp_res > 0)

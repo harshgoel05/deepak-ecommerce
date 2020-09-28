@@ -13,7 +13,7 @@ $productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
 // echo get_class($productModel);
 // echo $data[PRODUCT_ID];
-$temp_res = $productModel->removeByProductID($data[PRODUCT_ID]);
+$temp_res = $productModel->removeProductById($data[PRODUCT_ID]);
 
 if($temp_res === true)
 {
