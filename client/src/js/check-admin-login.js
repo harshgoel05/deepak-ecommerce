@@ -10,6 +10,6 @@ $.ajax({
   },
   error: function (xhr, status) {
     console.log("error", xhr, status);
-    // window.location.replace("../../adminportal/login.html");
+    window.location.replace("../../adminportal/login.html");
   },
 });
