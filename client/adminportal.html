@@ -1,152 +1,4 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Admin Portal Form</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="../src/css/style3.css" />
-    <link rel="stylesheet" href="../src/css/adminportal.css" />
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-</head>
-
-<body">
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div id="dismiss">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-
-            <div class="sidebar-header">
-                <h3>ADMIN</h3>
-                <h3>PORTAL</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Product Upload<i class="fa fa-caret-down" style="margin-left: 10px;" aria-hidden="true"></i></a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="../adminportal/dressMaterials/add.html">DRESS MATERIALS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/ghagra/add.html">GHAGRA</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/kurtis/add.html">KURTIS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/leggings/add.html">LEGGINGS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/nightwear/add.html">NIGHTWEAR</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/pants/add.html">PANTS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/plazzos/add.html">PLAZZOS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/readymadeBlouse/add.html">READY MADE BLOUSE</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/readymadeDresses/add.html">READY MADE DRESSES</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/sarees/add.html">SAREES</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Product List<i class="fa fa-caret-down" style="margin-left: 10px;" aria-hidden="true"></i></a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="../adminportal/dressMaterials/list.html">DRESS MATERIALS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/ghagra/list.html">GHAGRA</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/kurtis/list.html">KURTIS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/leggings/list.html">LEGGINGS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/nightwear/list.html">NIGHTWEAR</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/pants/list.html">PANTS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/plazzos/list.html">PLAZZOS</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/readymadeBlouse/list.html">READY MADE BLOUSE</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/readymadeDresses/list.html">READY MADE DRESSES</a>
-                        </li>
-                        <li>
-                            <a href="../adminportal/sarees/list.html">SAREES</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../iam.html">IAM</a>
-                </li>
-                <li>
-                    <a class="hg-logout-admin-btn" href="#">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- Page Content  -->
-        <div  id="content">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                        <i class="fas fa-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                </div>
-            </nav>
-            <!-- FORM -->
-        </div>
-    </div>
-
-    <div class="overlay"></div>
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="./adminportal/dressMaterials/add-product.js"></script>
-    <script src="../src/js/adminportal.js"></script>
-    <script src="dressMaterials/add-product.js"></script>
-</body>
-
-</html>
-<!--
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -156,14 +8,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../src/css/adminportal.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-    <title>Admin Portal</title>
+    <link rel="stylesheet" href="./src/css/adminportal.css">
+    <title>Document</title>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
 
+        <!-- Sidebar -->
         <div class="bg-dark text-light border-right" id="sidebar-wrapper">
             <br><br>
           <div class="sidebar-heading text-light bg-dark">Admin Portal</div>
@@ -171,10 +22,12 @@
             <a href="adminportal.html" class="list-group-item list-group-item-action text-light bg-dark">Product Upload</a>
             <a href="productlist.html" class="list-group-item list-group-item-action text-light bg-dark">Product List</a>
             <a href="iam.html" class="list-group-item list-group-item-action text-light bg-dark">IAM</a>
-            <a href="#"  id="logout-btn" class="list-group-item list-group-item-action text-light bg-dark">Logout</a>
+            <a href="#" class="list-group-item list-group-item-action text-light bg-dark">Logout</a>
           </div>
         </div>
-
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-secondary text-light bg-dark header">
                 <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-align-left" aria-hidden="true"></i></button>
@@ -183,20 +36,20 @@
       <div style="text-align: center;">
         <br><br><br>
         <select id="selectMe" class="custom-select selectcss">
-          <option class="category">Category</option>
-          <option value="GHAGRA" >GHAGRA</option>
-          <option value="READYMADE_DRESSES" >READYMADE DRESSES</option>
-          <option value="NIGHTWEAR">NIGHTWEAR</option>
-          <option value="DRESS_MATERIAL" >DRESS MATERIAL</option>
-          <option value="SAREE">SAREE</option>
-          <option value="LEGGINGS_PANTS" >LEGGINGS + PANTS</option>
-          <option value="PLAZZO" >PLAZZO</option>
-          <option value="KURTIS" >KURTIS</option>
-          <option value="KURTIS_ADDONS">KURTIS + ADDONS</option>
-        </select>
+          <option selected>Category</option>
+          <option value="targetdiv1" id="Category1">GHAGRA</option>
+          <option value="targetdiv2" id="Category2">READYMADE DRESSES</option>
+          <option value="targetdiv3" id="Category3">NIGHTWEAR</option>
+          <option value="targetdiv4" id="Category4">DRESS MATERIAL</option>
+          <option value="targetdiv5" id="Category5">SAREE</option>
+          <option value="targetdiv6" id="Category6">LEGGINGS + PANTS</option>
+          <option value="targetdiv7" id="Category7">PLAZZO</option>
+          <option value="targetdiv8" id="Category8">KURTIS</option>
+          <option value="targetdiv9" id="Category9">KURTIS + ADDONS</option>
+        </select>  
       </div>
       <form id="Category1">
-        <section id="GHAGRA" class="sec">
+        <section id="targetdiv1" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -209,30 +62,30 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id1">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title1">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title1">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price1">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select form-control selectcss" id="sub-cat1">
+                      <select class="row custom-select form-control selectcss">
                           <option selected>Sub-Categories</option>
-                          <option value="Simple">Simple</option>
-                          <option value="Bridal">Bridal</option>
+                          <option value="1">Simple</option>
+                          <option value="2">Bridal</option>
                       </select>
                     </div>
                     <br>
@@ -531,16 +384,16 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des1"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
-                      <select class="row custom-select form-control selectcss" id="type1">
+                      <select class="row custom-select form-control selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -594,7 +447,7 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric" id="fab1">
+                      <input type="text" class="form-control inp" placeholder="Fabric">
                       </div>
                     </div>
                     <br>
@@ -624,28 +477,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp11">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp12">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp13">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis1">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button" class="btn btn-primary mt-4" id="submit-btn1" style="width: 150px;">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -655,7 +508,7 @@
         </section>
       </form>
       <form id="Category2">
-        <section id="READYMADE_DRESSES" class="sec">
+        <section id="targetdiv2" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -668,33 +521,33 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id2">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title2">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title2">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price2">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="sub-cat2">
+                      <select class="row custom-select selectcss">
                           <option selected>Sub-Categories</option>
-                          <option value="Punjabi Chudidar">Punjabi Chudidar</option>
-                          <option value="Patiala">Patiala</option>
-                          <option value="Anarkali">Anarkali</option>
-                          <option value="Gowns">Gowns</option>
-                          <option value="Crop top and Lehenga">Crop top and Lehenga</option>
+                          <option value="1">Punjabi Chudidar</option>
+                          <option value="2">Patiala</option>
+                          <option value="3">Anarkali</option>
+                          <option value="4">Gowns</option>
+                          <option value="5">Crop top and Lehenga</option>
                       </select>
                     </div>
                     <br>
@@ -993,16 +846,16 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des2"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -1013,44 +866,44 @@
                     </div>
                     <br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Traditional" id="o21">
-                      <label class="form-check-label" for="o21">
+                      <input class="form-check-input" type="checkbox" value="Traditional" id="ol21">
+                      <label class="form-check-label" for="ol21">
                         Traditional
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Wedding" id="o22">
-                      <label class="form-check-label" for="o22">
+                      <input class="form-check-input" type="checkbox" value="Wedding" id="ol22">
+                      <label class="form-check-label" for="ol22">
                         Wedding
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Regular" id="o23">
-                      <label class="form-check-label" for="o23">
+                      <input class="form-check-input" type="checkbox" value="Regular" id="ol23">
+                      <label class="form-check-label" for="ol23">
                         Regular
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Casual" id="o24">
-                      <label class="form-check-label" for="o24">
+                      <input class="form-check-input" type="checkbox" value="Casual" id="ol24">
+                      <label class="form-check-label" for="ol24">
                         Casual
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Party-wear" id="o25">
-                      <label class="form-check-label" for="o25">
+                      <input class="form-check-input" type="checkbox" value="Party-wear" id="ol25">
+                      <label class="form-check-label" for="ol25">
                         Party-wear
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Daily" id="o26">
-                      <label class="form-check-label" for="o26">
+                      <input class="form-check-input" type="checkbox" value="Daily" id="ol26">
+                      <label class="form-check-label" for="ol26">
                         Daily
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" value="Festive" id="o27">
-                      <label class="form-check-label" for="o27">
+                      <input class="form-check-input" type="checkbox" value="Festive" id="ol27">
+                      <label class="form-check-label" for="ol27">
                         Festive
                       </label>
                     </div>
@@ -1064,18 +917,18 @@
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Neck</option>
-                          <option value="Neck 1">Neck Type 1</option>
-                          <option value="Neck 2">Neck Type 2</option>
-                          <option value="Neck 3">Neck Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Sleeves</option>
-                          <option value="Sleeves 1">Sleeves Type 1</option>
-                          <option value="Sleeves 2">Sleeves Type 2</option>
-                          <option value="Sleeves 3">Sleeves Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -1106,28 +959,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp21">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp22">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp23">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis2">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button" class="btn btn-primary mt-4" style="width: 150px;" id="submit_btn2">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -1137,7 +990,7 @@
         </section>
       </form>
       <form id="Category3">
-        <section id="NIGHTWEAR" class="sec">
+        <section id="targetdiv3" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -1150,22 +1003,22 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title3">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title3">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price3">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <div class="row">
@@ -1463,16 +1316,16 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des3"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -1485,9 +1338,9 @@
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Length</option>
-                          <option value="Length 1">Product Length 1</option>
-                          <option value="Length 2">Product Length 2</option>
-                          <option value="Length 3">Product Length 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -1518,28 +1371,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp31">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp32">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp33">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis3">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button" class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn3">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -1549,7 +1402,7 @@
         </section>
       </form>
       <form id="Category4">
-        <section id="DRESS_MATERIAL" class="sec">
+        <section id="targetdiv4" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -1562,22 +1415,22 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id4">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title4">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title4">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price4">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
@@ -1876,53 +1729,53 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Kurta Fabric" id="kf4" >
+                      <input type="text" class="form-control inp" placeholder="Kurta Fabric">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Bottom Fabric" id="bf4">
+                      <input type="text" class="form-control inp" placeholder="Bottom Fabric">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Dupatta Fabric" id="df4">
+                      <input type="text" class="form-control inp" placeholder="Dupatta Fabric">
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="kfl4">
+                      <select class="row custom-select selectcss">
                           <option selected>Kurta fabric Length</option>
-                          <option value="Kurta fabric Length 1">Kurta fabric Length Type 1</option>
-                          <option value="Kurta fabric Length 2">Kurta fabric Length Type 2</option>
-                          <option value="Kurta fabric Length 3">Kurta fabric Length Type 3</option>
+                          <option value="1">Kurta fabric Length Type 1</option>
+                          <option value="2">Kurta fabric Length Type 2</option>
+                          <option value="3">Kurta fabric Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="bfl4">
+                      <select class="row custom-select selectcss">
                           <option selected>Bottom fabric Length</option>
-                          <option value="Bottom fabric Length 1">Bottom fabric Length Type 1</option>
-                          <option value="Bottom fabric Length 2">Bottom fabric Length Type 2</option>
-                          <option value="Bottom fabric Length 3">Bottom fabric Length Type 3</option>
+                          <option value="1">Bottom fabric Length Type 1</option>
+                          <option value="2">Bottom fabric Length Type 2</option>
+                          <option value="3">Bottom fabric Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="bl4">
+                      <select class="row custom-select selectcss">
                           <option selected>Dupatta Length</option>
-                          <option value="Dupatta Length 1">Dupatta Length Type 1</option>
-                          <option value="Dupatta Length 2">Dupatta Length Type 2</option>
-                          <option value="Dupatta Length 3">Dupatta Length Type 3</option>
+                          <option value="1">Dupatta Length Type 1</option>
+                          <option value="2">Dupatta Length Type 2</option>
+                          <option value="3">Dupatta Length Type 3</option>
                       </select>
                     </div>                   
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="tpye4">
+                      <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br><br>
@@ -1975,11 +1828,11 @@
                     </div>
                     <br><br><br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="stitch">
+                      <select class="row custom-select selectcss">
                           <option selected>Stitch</option>
-                          <option value="Stitch 1">Stitch Type 1</option>
-                          <option value="Stitch 2">Stitch Type 2</option>
-                          <option value="Stitch 3">Stitch Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -2009,28 +1862,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp41">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp42">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp43">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis4">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn4">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -2040,7 +1893,7 @@
         </section>
       </form>
       <form id="Category5">
-        <section id="SAREE" class="sec">
+        <section id="targetdiv5" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -2053,41 +1906,41 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title5">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title5">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price5">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="sub-cat5">
+                      <select class="row custom-select selectcss">
                           <option selected>Sub-Categories</option>
-                          <option value="Printed Sarees">Printed Sarees</option>
-                          <option value="Paithani Sarees">Paithani Sarees</option>
-                          <option value="Catalog Sarees">Catalog Sarees</option>
-                          <option value="Cotton Sarees">Cotton Sarees</option>
-                          <option value="Semi Paithani Sarees">Semi Paithani Sarees</option>
-                          <option value="Raw Silk Sarees">Raw Silk Sarees</option>
-                          <option value="Kanjipuram Silk Sarees">Kanjipuram Silk Sarees</option>
-                          <option value="Banarasi Silk Sarees">Banarasi Silk Sarees</option>
-                          <option value="Kota Sarees">Kota Sarees</option>
-                          <option value="Linen Sarees">Linen Sarees</option>
-                          <option value="Silk Sarees">Silk Sarees</option>
-                          <option value="Kolkata Work Sarees">Kolkata Work Sarees</option>
-                          <option value="Jaipuri Work Sarees">Jaipuri Work Sarees</option>
+                          <option value="1">Printed Sarees</option>
+                          <option value="2">Paithani Sarees</option>
+                          <option value="3">Catalog Sarees</option>
+                          <option value="4">Cotton Sarees</option>
+                          <option value="5">Semi Paithani Sarees</option>
+                          <option value="6">Raw Silk Sarees</option>
+                          <option value="7">Kanjipuram Silk Sarees</option>
+                          <option value="8">Banarasi Silk Sarees</option>
+                          <option value="9">Kota Sarees</option>
+                          <option value="10">Linen Sarees</option>
+                          <option value="11">Silk Sarees</option>
+                          <option value="12">Kolkata Work Sarees</option>
+                          <option value="13">Jaipuri Work Sarees</option>
                       </select>
                     </div>
                     <br>
@@ -2386,7 +2239,7 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des5"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br><br>
@@ -2449,12 +2302,12 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Blouse Fabric" id="bfab5">
+                      <input type="text" class="form-control inp" placeholder="Blouse Fabric">
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="blouse5">
+                      <select class="row custom-select selectcss">
                           <option selected>Blouse</option>
                           <option value="1">Product Blouse 1</option>
                           <option value="2">Product Blouse 2</option>
@@ -2464,7 +2317,7 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Saree Fabric" id="sfab5">
+                      <input type="text" class="form-control inp" placeholder="Saree Fabric">
                       </div>
                     </div>
                     <br>
@@ -2493,47 +2346,47 @@
                     </div>
                     <br><br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="length5">
+                      <select class="row custom-select selectcss">
                           <option selected>Length</option>
-                          <option value="Length 1">Length Type 1</option>
-                          <option value="Length 2">Length Type 2</option>
-                          <option value="Length 3">Length Type 3</option>
+                          <option value="1">Length Type 1</option>
+                          <option value="2">Length Type 2</option>
+                          <option value="3">Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="width5">
+                      <select class="row custom-select selectcss">
                           <option selected>Width</option>
-                          <option value="Width 1">Width Type 1</option>
-                          <option value="Width 2">Width Type 2</option>
-                          <option value="Width 3">Width Type 3</option>
+                          <option value="1">Width Type 1</option>
+                          <option value="2">Width Type 2</option>
+                          <option value="3">Width Type 3</option>
                       </select>
                     </div>
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp51">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp52">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp53">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis5">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn5">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -2543,7 +2396,7 @@
         </section>
       </form>
       <form id="Category6">
-        <section id="LEGGINGS_PANTS" class="sec">
+        <section id="targetdiv6" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -2556,35 +2409,35 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id6">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title6">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title6">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Brand6">
+                      <input type="text" class="form-control inp" placeholder="Brand">
                       </div>
                   </div>
                   <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="sub-cat6">
+                      <select class="row custom-select selectcss">
                           <option selected>Sub-Categories</option>
-                          <option value="Ankle length">Ankle length</option>
-                          <option value="Chudidar">Chudidar</option>
+                          <option value="1">Ankle length</option>
+                          <option value="2">Chudidar</option>
                       </select>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price6">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
@@ -2883,16 +2736,16 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des6"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
                       <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -2946,13 +2799,13 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric" id="fab6">
+                      <input type="text" class="form-control inp" placeholder="Fabric">
                       </div>
                     </div>
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Material" id="mat6">
+                      <input type="text" class="form-control inp" placeholder="Material">
                       </div>
                     </div>
                     <br>
@@ -2982,28 +2835,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp61">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp62">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp63">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis6">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn6">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -3013,7 +2866,7 @@
         </section>
       </form>
       <form id="Category7">
-        <section id="PLAZZO" class="sec">
+        <section id="targetdiv7" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -3026,22 +2879,22 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id7">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title7">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title7">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price7">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
@@ -3340,16 +3193,16 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Product Details" id="des7"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Product Details"></textarea>
                       </div>
                     </div>
                     <br><br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="type7">
+                      <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type 1">Product Type 1</option>
-                          <option value="Type 2">Product Type 2</option>
-                          <option value="Type 3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -3402,26 +3255,26 @@
                     </div>
                     <br><br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="length7">
+                      <select class="row custom-select selectcss">
                           <option selected>Length</option>
-                          <option value="Length 1">Length Type 1</option>
-                          <option value="Length 2">Length Type 2</option>
-                          <option value="Length 3">Length Type 3</option>
+                          <option value="1">Length Type 1</option>
+                          <option value="2">Length Type 2</option>
+                          <option value="3">Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="pattern7">
+                      <select class="row custom-select selectcss">
                           <option selected>Pattern</option>
-                          <option value="Pattern 1">Pattern Type 1</option>
-                          <option value="Pattern 2">Pattern Type 2</option>
-                          <option value="Pattern 3">Pattern Type 3</option>
+                          <option value="1">Pattern Type 1</option>
+                          <option value="2">Pattern Type 2</option>
+                          <option value="3">Pattern Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Material" id="mat7">
+                      <input type="text" class="form-control inp" placeholder="Material">
                       </div>
                     </div>
                     <br>
@@ -3451,28 +3304,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp71">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp72">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp73">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis7">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -3482,7 +3335,7 @@
         </section>
       </form>
       <form id="Category8">
-        <section id="KURTIS" class="sec">
+        <section id="targetdiv8" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -3495,31 +3348,31 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id8">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title8">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title8">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price8">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select form-control selectcss" id="sub-cat8">
+                      <select class="row custom-select form-control selectcss">
                           <option selected>Sub - Categories</option>
-                          <option value="Kurtis">Kurtis</option>
-                          <option value="Kurtis with pants">Kurtis with pants</option>
-                          <option value="Kurtis with palazzos">Kurtis with palazzos</option>
+                          <option value="1">Kurtis</option>
+                          <option value="2">Kurtis with pants</option>
+                          <option value="3">Kurtis with palazzos</option>
                       </select>
                     </div>
                     <br>
@@ -3818,12 +3671,12 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="kfl8">
+                      <select class="row custom-select selectcss">
                           <option selected>Kurti fabric Length</option>
                           <option value="1">Kurti fabric Length Type 1</option>
                           <option value="2">Kurti fabric Length Type 2</option>
@@ -3832,7 +3685,7 @@
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="bfl8">
+                      <select class="row custom-select selectcss">
                           <option selected>Bottom fabric Length</option>
                           <option value="1">Bottom fabric Length Type 1</option>
                           <option value="2">Bottom fabric Length Type 2</option>
@@ -3841,7 +3694,7 @@
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="dl8">
+                      <select class="row custom-select selectcss">
                           <option selected>Dupatta Length</option>
                           <option value="1">Dupatta Length Type 1</option>
                           <option value="2">Dupatta Length Type 2</option>
@@ -3850,7 +3703,7 @@
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="type8">
+                      <select class="row custom-select selectcss">
                           <option selected>Type</option>
                           <option value="1">Product Type 1</option>
                           <option value="2">Product Type 2</option>
@@ -3908,58 +3761,58 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric" id="fab8">
+                      <input type="text" class="form-control inp" placeholder="Fabric">
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="kl8">
+                      <select class="row custom-select selectcss">
                           <option selected>Kurti Length</option>
-                          <option value="Kurti Length 1">Kurti Length Type 1</option>
-                          <option value="Kurti Length 2">Kurti Length Type 2</option>
-                          <option value="Kurti Length 3">Kurti Length Type 3</option>
+                          <option value="1">Kurti Length Type 1</option>
+                          <option value="2">Kurti Length Type 2</option>
+                          <option value="3">Kurti Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="sl8">
+                      <select class="row custom-select selectcss">
                           <option selected>Sleeve Length</option>
-                          <option value="Sleeve Length 1">Sleeve Length Type 1</option>
-                          <option value="Sleeve Length 2">Sleeve Length Type 2</option>
-                          <option value="Sleeve Length 3">Sleeve Length Type 3</option>
+                          <option value="1">Sleeve Length Type 1</option>
+                          <option value="2">Sleeve Length Type 2</option>
+                          <option value="3">Sleeve Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="ss8">
+                      <select class="row custom-select selectcss">
                           <option selected>Sleeve styling</option>
-                          <option value="Sleeve styling 1">Sleeve styling Type 1</option>
-                          <option value="Sleeve styling 2">Sleeve styling Type 2</option>
-                          <option value="Sleeve styling 3">Sleeve styling Type 3</option>
+                          <option value="1">Sleeve styling Type 1</option>
+                          <option value="2">Sleeve styling Type 2</option>
+                          <option value="3">Sleeve styling Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="neck8">
+                      <select class="row custom-select selectcss">
                           <option selected>Neck</option>
-                          <option value="Neck 1">Neck Type 1</option>
-                          <option value="Neck 2">Neck Type 2</option>
-                          <option value="Neck 3">Neck Type 3</option>
+                          <option value="1">Neck Type 1</option>
+                          <option value="2">Neck Type 2</option>
+                          <option value="3">Neck Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="orna8">
+                      <select class="row custom-select selectcss">
                           <option selected>Ornamentation</option>
-                          <option value="Ornamentation 1">Ornamentation Type 1</option>
-                          <option value="Ornamentation 2">Ornamentation Type 2</option>
-                          <option value="Ornamentation 3">Ornamentation Type 3</option>
+                          <option value="1">Ornamentation Type 1</option>
+                          <option value="2">Ornamentation Type 2</option>
+                          <option value="3">Ornamentation Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Material" id="mat8">
+                      <input type="text" class="form-control inp" placeholder="Material">
                       </div>
                     </div>
                     <br><br>
@@ -3989,7 +3842,7 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric 2" id="fab82">
+                      <input type="text" class="form-control inp" placeholder="Fabric 2">
                       </div>
                     </div>
                   <br><br><br>
@@ -4187,28 +4040,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp81">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp82">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp83">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis8">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn8">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -4218,7 +4071,7 @@
         </section>
       </form>
       <form id="Category9">
-        <section id="KURTIS_ADDONS" class="sec">
+        <section id="targetdiv9" class="sec">
           <br><br><br>
           <div class="container">
               <div class="row justify-content-center">
@@ -4231,31 +4084,31 @@
                     <div class="row align-items-center mt-4">
                       <div class="col">
                           <button class="iicon"><i class="fa fa-search" style="font-size: 22px;color: rgb(163, 163, 163);" aria-hidden="true"></i></button>
-                          <input type="text" class="form-control inp" placeholder="Product ID" id="id9">
+                          <input type="text" class="form-control inp" placeholder="Product ID">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Title" id="title9">
+                        <input type="text" class="form-control inp" placeholder="Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Sub Title" id="sub_title9">
+                        <input type="text" class="form-control inp" placeholder="Sub Title">
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
                         <div class="col">
-                        <input type="text" class="form-control inp" placeholder="Price" id="price9">
+                        <input type="text" class="form-control inp" placeholder="Price">
                         </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select form-control selectcss" id="sub-cat9">
+                      <select class="row custom-select form-control selectcss">
                           <option selected>Sub - Categories</option>
-                          <option value="Kurtis">Kurtis</option>
-                          <option value="Kurtis with pants">Kurtis with pants</option>
-                          <option value="Kurtis with palazzos">Kurtis with palazzos</option>
+                          <option value="1">Kurtis</option>
+                          <option value="2">Kurtis with pants</option>
+                          <option value="3">Kurtis with palazzos</option>
                       </select>
                     </div>
                     <br>
@@ -4554,43 +4407,43 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <textarea type="text" class="form-control inp" placeholder="Description" id="des9"></textarea>
+                      <textarea type="text" class="form-control inp" placeholder="Description"></textarea>
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="kfl9">
+                      <select class="row custom-select selectcss">
                           <option selected>Kurti fabric Length</option>
-                          <option value="Kurti fabric Length 1">Kurti fabric Length Type 1</option>
-                          <option value="Kurti fabric Length 2">Kurti fabric Length Type 2</option>
-                          <option value="Kurti fabric Length 3">Kurti fabric Length Type 3</option>
+                          <option value="1">Kurti fabric Length Type 1</option>
+                          <option value="2">Kurti fabric Length Type 2</option>
+                          <option value="3">Kurti fabric Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="bfl9">
+                      <select class="row custom-select selectcss">
                           <option selected>Bottom fabric Length</option>
-                          <option value="Bottom fabric Length 1">Bottom fabric Length Type 1</option>
-                          <option value="Bottom fabric Length 2">Bottom fabric Length Type 2</option>
-                          <option value="Bottom fabric Length 3">Bottom fabric Length Type 3</option>
+                          <option value="1">Bottom fabric Length Type 1</option>
+                          <option value="2">Bottom fabric Length Type 2</option>
+                          <option value="3">Bottom fabric Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="dl9">
+                      <select class="row custom-select selectcss">
                           <option selected>Dupatta Length</option>
-                          <option value="Dupatta Length 1">Dupatta Length Type 1</option>
-                          <option value="Dupatta Length 2">Dupatta Length Type 2</option>
-                          <option value="Dupatta Length 3">Dupatta Length Type 3</option>
+                          <option value="1">Dupatta Length Type 1</option>
+                          <option value="2">Dupatta Length Type 2</option>
+                          <option value="3">Dupatta Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="type9">
+                      <select class="row custom-select selectcss">
                           <option selected>Type</option>
-                          <option value="Type1">Product Type 1</option>
-                          <option value="Type2">Product Type 2</option>
-                          <option value="Type3">Product Type 3</option>
+                          <option value="1">Product Type 1</option>
+                          <option value="2">Product Type 2</option>
+                          <option value="3">Product Type 3</option>
                       </select>
                     </div>
                     <br>
@@ -4644,58 +4497,58 @@
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric" id="fab9">
+                      <input type="text" class="form-control inp" placeholder="Fabric">
                       </div>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="kl9">
+                      <select class="row custom-select selectcss">
                           <option selected>Kurti Length</option>
-                          <option value="Kurti Length 1">Kurti Length Type 1</option>
-                          <option value="Kurti Length 2">Kurti Length Type 2</option>
-                          <option value="Kurti Length 3">Kurti Length Type 3</option>
+                          <option value="1">Kurti Length Type 1</option>
+                          <option value="2">Kurti Length Type 2</option>
+                          <option value="3">Kurti Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="sl9">
+                      <select class="row custom-select selectcss">
                           <option selected>Sleeve Length</option>
-                          <option value="Sleeve Length 1">Sleeve Length Type 1</option>
-                          <option value="Sleeve Length 2">Sleeve Length Type 2</option>
-                          <option value="Sleeve Length 3">Sleeve Length Type 3</option>
+                          <option value="1">Sleeve Length Type 1</option>
+                          <option value="2">Sleeve Length Type 2</option>
+                          <option value="3">Sleeve Length Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="ss9">
+                      <select class="row custom-select selectcss">
                           <option selected>Sleeve styling</option>
-                          <option value="Sleeve styling 1">Sleeve styling Type 1</option>
-                          <option value="Sleeve styling 2">Sleeve styling Type 2</option>
-                          <option value="Sleeve styling 3">Sleeve styling Type 3</option>
+                          <option value="1">Sleeve styling Type 1</option>
+                          <option value="2">Sleeve styling Type 2</option>
+                          <option value="3">Sleeve styling Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="neck9">
+                      <select class="row custom-select selectcss">
                           <option selected>Neck</option>
-                          <option value="Neck 1">Neck Type 1</option>
-                          <option value="Neck 2">Neck Type 2</option>
-                          <option value="Neck 3">Neck Type 3</option>
+                          <option value="1">Neck Type 1</option>
+                          <option value="2">Neck Type 2</option>
+                          <option value="3">Neck Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="col">
-                      <select class="row custom-select selectcss" id="orna9">
+                      <select class="row custom-select selectcss">
                           <option selected>Ornamentation</option>
-                          <option value="Ornamentation 1">Ornamentation Type 1</option>
-                          <option value="Ornamentation 2">Ornamentation Type 2</option>
-                          <option value="Ornamentation 3">Ornamentation Type 3</option>
+                          <option value="1">Ornamentation Type 1</option>
+                          <option value="2">Ornamentation Type 2</option>
+                          <option value="3">Ornamentation Type 3</option>
                       </select>
                     </div>
                     <br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Material" id="mat9">
+                      <input type="text" class="form-control inp" placeholder="Material">
                       </div>
                     </div>
                     <br><br>
@@ -4725,7 +4578,7 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Fabric 2" id="fab92">
+                      <input type="text" class="form-control inp" placeholder="Fabric 2">
                       </div>
                     </div>
                     <br><br><br>
@@ -4846,8 +4699,8 @@
                         </label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="Steel grey" id="col9919">
-                        <label class="form-check-label" for="col9919">
+                        <input class="form-check-input" type="checkbox" value="Steel grey" id="col919">
+                        <label class="form-check-label" for="col919">
                           Steel grey
                         </label>
                       </div>
@@ -4923,28 +4776,28 @@
                     <br><br>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 1" id="cp91">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 1">
                       </div>
                      </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 2" id="cp92">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 2">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Coupon Code 3" id="cp93">
+                      <input type="text" class="form-control inp" placeholder="Coupon Code 3">
                       </div>
                     </div>
                     <div class="row align-items-center mt-4">
                       <div class="col">
-                      <input type="text" class="form-control inp" placeholder="Discount" id="dis9">
+                      <input type="text" class="form-control inp" placeholder="Discount">
                       </div>
                      </div>
                     <br>
                     <div class="row align-items-center">
                       <div class="col mt-4">
-                        <button type="button"  class="btn btn-primary mt-4" style="width: 150px;" id="submit-btn9">Submit Form</button>
+                        <button class="btn btn-primary mt-4" style="width: 150px;">Submit Form</button>
                       </div>
                     </div>
                   </div>
@@ -4953,7 +4806,6 @@
           </div>
         </section>
       </form>
-    <script type="text/javascript" src="../src/js/adminportal.js"></script>
-  
+    <script type="text/javascript" src="./src/js/adminportal.js"></script>
 </body>
-</html>-->
+</html>

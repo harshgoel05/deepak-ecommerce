@@ -50,7 +50,6 @@ $("#logout-btn").click(function (e) {
       // location.replace(
       //   "https://harshgoel05.github.io/deepak-ecommerce/client/admin-login.html"
       // );
-      window.location.replace("../../adminportal/index.html");
     },
     error: function (xhr, status) {
       console.log("error", xhr, status);
