@@ -10,7 +10,7 @@ class Users extends Identifier
     {
         $this->identifierCol = USER_IDENTIFIER;
         $_dbObj = \Databases\UsersDB::getInstance();
-        $_name = 'databunker';
+        $_name = 'cred';
         parent::__construct($_name,$_dbObj);
     }
 

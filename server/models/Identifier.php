@@ -1,6 +1,9 @@
 <?php
 namespace Models;
 
+use Utility\CustomErrors;
+use Utility\Fallacy;
+
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/models/Table.php');
 require_once(__ROOT__ . '/config/field-consts.php');
@@ -10,17 +13,17 @@ class Identifier extends Table
 {
     protected $identifierCol=null;
 
-    public function insertRow($row,$isUser = 1)
+    public function insertRow($row)
     {
-        if (!$this->validateRow($row, [$this->identifierCol, 'password',])) {
-            return 'Validation error';
+        $err = $this->validateRow($row, [$this->identifierCol, 'password',]); 
+        if ($err instanceof Fallacy) {
+            \Utility\HttpErrorHandlers\badRequestErrorHandler($err->getType(),$err->getMessage());
         }
         if($row[PASSWORD] !== $row['confirm_password'])
         {
             \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
         }
-        if (isset($row[PASSWORD]))
-            $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
+        $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
         return parent::insertRow($row);
     }
 
@@ -43,5 +46,24 @@ class Identifier extends Table
         if($res->num_rows > 0)
             return $res->fetch_assoc();
         else return null;
+    }
+
+    protected function validateRow($row,$colNames=null)
+    {
+        $err = parent::validateRow($row,$colNames);
+        if($err instanceof Fallacy)
+        {
+            return $err;
+        }
+        $err = array();
+        if(array_key_exists('email',$row))
+        {
+            $row['email'] = filter_var($row['email'],FILTER_VALIDATE_EMAIL);
+            if($row['email'] === false)
+            {
+                return new Fallacy(CustomErrors::VALUE_ERROR,CustomErrors::invalidValueMessage('email'));
+            }
+        }
+        return true;
     }
 }

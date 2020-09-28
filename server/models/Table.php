@@ -1,5 +1,9 @@
 <?php
 namespace Models;
+
+use Utility\CustomErrors;
+use Utility\Fallacy;
+
 require_once(__DIR__ . '/../config/other-configs.php');
 
 abstract class Table
@@ -67,20 +71,14 @@ abstract class Table
 
     protected function validateRow($row,$colNames = null)
     {
-        if(array_key_exists('email',$row))
-        {
-            $row['email'] = filter_var($row['email'],FILTER_VALIDATE_EMAIL);
-            if($row['email'] === false)
-            {
-                return false;
-            }
-        }
         if($colNames !== null)
         {
             foreach($colNames as $columnName)
             {
                 if(empty($row[$columnName]) && !is_numeric($row[$columnName]))
-                    return false;
+                {
+                    return new Fallacy(CustomErrors::TYPE_ERROR,CustomErrors::valueNotFoundMessage($columnName));
+                }
             }
         }
         return true;
