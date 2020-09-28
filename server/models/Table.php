@@ -49,10 +49,10 @@ abstract class Table
         return $filteredRow;
     }
     
-    public function insertRow($row)
+    public function insertRow($row,$extra=null)
     {
         $filteredRow = $this->filterKeys($row);
-        return $this->dbObj->insertRow($this->name,$filteredRow);
+        return $this->dbObj->insertRow($this->name,$filteredRow,$extra);
 
     }
 

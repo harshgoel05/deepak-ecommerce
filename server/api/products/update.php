@@ -14,7 +14,7 @@ $productModel = getSingleton('\\Models\\Products\\',$data['productType']);
 $productID = $data[PRODUCT_ID];
 unset($data[PRODUCT_ID]);
 
-$temp_res = $productModel->updateByProductID($productID,$data);
+$temp_res = $productModel->updateProductById($productID,$data);
 
 if($temp_res === true)
 {
