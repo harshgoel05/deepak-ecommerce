@@ -34,12 +34,14 @@ class Wagon extends Table
                 $tempProIds[] = $productid;
             }
             $tempProducts = $productModel->findProductById($tempProIds);
-            foreach ($tempProducts as $key => $product) {
-                $tempId = $product[PRODUCT_ID];
-                $qty = $items[$category][$tempId];
-                $tempProducts[$key]['quantity'] = $qty;
-                $tempProducts[$key]['subtotal_price'] = $tempProducts[$key]['price'] * $qty;
-                $totalPrice += $tempProducts[$key]['subtotal_price'];
+            if (is_array($tempProducts)) {
+                foreach ($tempProducts as $key => $product) {
+                    $tempId = $product[PRODUCT_ID];
+                    $qty = $items[$category][$tempId];
+                    $tempProducts[$key]['quantity'] = $qty;
+                    $tempProducts[$key]['subtotal_price'] = $tempProducts[$key]['price'] * $qty;
+                    $totalPrice += $tempProducts[$key]['subtotal_price'];
+                }
             }
             $wagonItems[$category] = $tempProducts;
         }
