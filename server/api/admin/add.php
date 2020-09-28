@@ -1,4 +1,7 @@
 <?php
+
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
@@ -11,7 +14,8 @@ $adminUsers = \Models\AdminUsers::getInstance();
 $res = $adminUsers->insertRow($data);
 if($res !== true)
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::TYPE_ERROR,$res);
+    if($res instanceof Fallacy)
+        \Utility\HttpErrorHandlers\badRequestErrorHandler($res);
 }
 else {
     \Utility\HttpUtil\sendSuccessResponse();

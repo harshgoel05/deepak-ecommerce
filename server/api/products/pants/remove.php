@@ -24,4 +24,4 @@ else if($temp_res === false)
     \Utility\HttpUtil\sendFailResponse(\Utility\CustomErrors::valueNotFoundMessage(PRODUCT_ID));
 }
 else
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,$temp_res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);

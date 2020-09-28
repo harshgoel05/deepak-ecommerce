@@ -1,4 +1,8 @@
 <?php
+
+use Utility\CustomErrors;
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
@@ -12,7 +16,7 @@ $adminProfile = $adminUsers->getProfile($identifier);
 
 if($adminProfile === null)
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Admin user not found");
+    \Utility\HttpErrorHandlers\badRequestErrorHandler(new Fallacy(\Utility\CustomErrors::VALUE_ERROR,CustomErrors::valueNotFoundMessage('admin user')));
 }
 
 \Utility\HttpUtil\sendSuccessResponse($adminProfile);

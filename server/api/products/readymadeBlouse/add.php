@@ -1,4 +1,7 @@
 <?php
+
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
@@ -13,12 +16,12 @@ $productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
 if($productModel === null)
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,\Utility\CustomErrors::invalidValueMessage('productType'));
+    \Utility\HttpErrorHandlers\badRequestErrorHandler(new Fallacy(\Utility\CustomErrors::VALUE_ERROR,\Utility\CustomErrors::invalidValueMessage('productType')));
 }
 $temp_res = $productModel->insertRow($data);
 if($temp_res !== true) 
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,$temp_res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
 }
 
 Utility\HttpUtil\sendSuccessResponse();

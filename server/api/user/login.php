@@ -1,4 +1,7 @@
 <?php
+
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 require_once(__ROOT__.'/config/field-consts.php');
@@ -16,4 +19,4 @@ if($users->verifyPassword($data[USER_IDENTIFIER],$data[PASSWORD]))
     \Utility\HttpUtil\sendSuccessResponse();
 }
 
-\Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::AUTH_ERROR);
+\Utility\HttpErrorHandlers\badRequestErrorHandler(new Fallacy(\Utility\CustomErrors::AUTH_ERROR));

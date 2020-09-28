@@ -2,9 +2,12 @@
 
 namespace Databases;
 
+use Utility\CustomErrors;
+use Utility\Fallacy;
+
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/database.php');
-
+require_once(__ROOT__.'/utility/autoloader.php');
 
 abstract class DB
 {
@@ -92,7 +95,7 @@ abstract class DB
         // echo $sql.'<br>';
         if ($this->db->query($sql)) {
             return true;
-        } else return $this->db->error;
+        } else return new Fallacy(CustomErrors::TYPE_ERROR,$this->db->error);
     }
 
     public function find($tableName, $cols = null, $query = null, $extras = null)
@@ -155,7 +158,7 @@ abstract class DB
             return $this->db->affected_rows;
         }
         else 
-            return $this->db->error;
+            return new Fallacy(CustomErrors::TYPE_ERROR,$this->db->error);
     }
 
     public function update($tableName,$row,$condition)
@@ -184,6 +187,6 @@ abstract class DB
             return $this->db->affected_rows;
         }
         else
-            return $this->db->error;
+            return new Fallacy(CustomErrors::TYPE_ERROR,$this->db->error);
     }
 }

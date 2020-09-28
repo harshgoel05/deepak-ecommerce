@@ -53,6 +53,7 @@ abstract class Table
     {
         $filteredRow = $this->filterKeys($row);
         return $this->dbObj->insertRow($this->name,$filteredRow);
+
     }
 
     public function find($colNames,$query=null)

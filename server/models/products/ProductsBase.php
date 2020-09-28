@@ -1,5 +1,8 @@
 <?php
 namespace Models\Products;
+
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../config/other-configs.php');
 require_once(__ROOT__ . '/utility/autoloader.php');
 require_once(__ROOT__.'/config/field-consts.php');
@@ -36,7 +39,7 @@ class ProductsBase extends \Models\Table
         $productID = $this->dbObj->escape_string($productID);
         // echo $productID.'<br>';
         $temp_res =$this->delete("`productid` = '{$productID}'");
-        if(!is_string($temp_res))
+        if(!($temp_res instanceof Fallacy))
         {
             if($temp_res > 0)
                 return true;

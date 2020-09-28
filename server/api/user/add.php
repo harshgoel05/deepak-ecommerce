@@ -12,7 +12,7 @@ $users = \Models\Users::getInstance();
 $res = $users->insertRow($data);
 if($res !== true)
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::TYPE_ERROR,$res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler($res);
 }
 else {
    \Utility\HttpUtil\sendSuccessResponse();

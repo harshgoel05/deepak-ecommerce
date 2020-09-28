@@ -13,14 +13,4 @@ class Users extends Identifier
         $_name = 'cred';
         parent::__construct($_name,$_dbObj);
     }
-
-    public function getProfile($identifier)
-    {
-        global $db;
-        $identifier = $db->escape_string($identifier);
-        $res = $this->findAllExceptGivenCols(['user_id',PASSWORD],USER_IDENTIFIER." = '{$identifier}'");
-        if($res->num_rows > 0)
-            return $res->fetch_assoc();
-        else return null;
-    }
 }

@@ -17,11 +17,11 @@ class Identifier extends Table
     {
         $err = $this->validateRow($row, [$this->identifierCol, 'password',]); 
         if ($err instanceof Fallacy) {
-            \Utility\HttpErrorHandlers\badRequestErrorHandler($err->getType(),$err->getMessage());
+            return $err;
         }
         if($row[PASSWORD] !== $row['confirm_password'])
         {
-            \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
+            return new Fallacy(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
         }
         $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
         return parent::insertRow($row);

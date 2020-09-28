@@ -2,9 +2,12 @@
 
 namespace Utility\HttpErrorHandlers;
 
+use Utility\Fallacy;
+
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/utility/http-util.php');
 require_once(__ROOT__ . '/utility/CustomErrors.php');
+require_once(__ROOT__.'/utility/Fallacy.php');
 
 function createErrorResponse($errType = null, $errMessage = null)
 {
@@ -26,10 +29,10 @@ function unauthorizedAccessErrorHandler($exitAtEnd = true)
         exit();
 }
 
-function badRequestErrorHandler($errType = null, $errMessage = null, $exitAtEnd = true)
+function badRequestErrorHandler(Fallacy $err, $exitAtEnd = true)
 {
     http_response_code(\Utility\HttpUtil\HTTP_BAD_REQUEST);
-    echo json_encode(createErrorResponse($errType,$errMessage));
+    echo json_encode(createErrorResponse($err->getType(),$err->getMessage()));
     if ($exitAtEnd === true)
         exit();
 }

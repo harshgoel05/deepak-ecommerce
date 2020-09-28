@@ -26,5 +26,5 @@ else if($temp_res === false)
 }
 else 
 {
-    \Utility\HttpErrorHandlers\badRequestErrorHandler(\Utility\CustomErrors::VALUE_ERROR,$temp_res);
+    \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
 }
