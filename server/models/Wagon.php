@@ -48,17 +48,20 @@ class Wagon extends Table
 
     public function removeItem($data)
     {
-        foreach($data as $key=>$value)
+        foreach ($data as $key => $value) {
             $data[$key] = $this->dbObj->escape_string($value);
-        $condition = "`user_id` = '{$data['user_id']}' AND `product_cat` = '{$data['product_cat']}' AND `productid` = '{$data[PRODUCT_ID]}'";
-        $sqlRes = $this->find(['quantity'],$condition);
-        if($sqlRes->num_rows > 0)
-        {
-            $qty = $sqlRes->fetch_assoc()['quantity'];
-            $data['quantity'] = min($data['quantity'],$qty);
-            $data['quantity']*=-1;
-            return $this->addItem($data);
         }
-        else return new Fallacy(CustomErrors::VALUE_ERROR,CustomErrors::valueNotFoundMessage("product"));
+        $condition = "`user_id` = '{$data['user_id']}' AND `product_cat` = '{$data['product_cat']}' AND `productid` = '{$data[PRODUCT_ID]}'";
+        $sqlRes = $this->find(['quantity'], $condition);
+        if ($sqlRes->num_rows > 0) {
+            $qty = $sqlRes->fetch_assoc()['quantity'];
+            if ($data['quantity'] > $qty) {
+                return $this->delete($condition);
+            } else {
+                $data['quantity'] = min($data['quantity'], $qty);
+                $data['quantity'] *= -1;
+                return $this->addItem($data);
+            }
+        } else return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::valueNotFoundMessage("product"));
     }
 }

@@ -1,4 +1,7 @@
 <?php
+
+use Utility\Fallacy;
+
 require_once(__DIR__.'/../../../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 
@@ -13,7 +16,7 @@ $wagonModel = getSingleton('\\Models\\',__DIR__);
 
 $res = $wagonModel->removeItem($data);
 
-if($res !== true)
+if($res instanceof Fallacy)
 {
     \Utility\HttpErrorHandlers\badRequestErrorHandler($res);
 }
