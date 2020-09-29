@@ -1,4 +1,5 @@
 <?php
+
 namespace Models;
 
 use Utility\CustomErrors;
@@ -7,24 +8,23 @@ use Utility\Fallacy;
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/field-consts.php');
 require_once(__ROOT__ . '/utility/autoloader.php');
-require_once(__ROOT__.'/utility/CustomErrors.php');
+require_once(__ROOT__ . '/utility/CustomErrors.php');
 
 class Identifier extends Table
 {
-    protected $identifierCol=null;
+    protected $identifierCol = null;
 
-    public function insertRow($row,$extra = null)
+    public function insertRow($row, $extra = null)
     {
-        $err = $this->validateRow($row, [$this->identifierCol, 'password',]); 
+        $err = $this->validateRow($row, [$this->identifierCol, 'password',]);
         if ($err instanceof Fallacy) {
             return $err;
         }
-        if($row[PASSWORD] !== $row['confirm_password'])
-        {
-            return new Fallacy(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
+        if ($row[PASSWORD] !== $row['confirm_password']) {
+            return new Fallacy(\Utility\CustomErrors::VALUE_ERROR, "Password and confirm password do not match");
         }
         $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
-        return parent::insertRow($row,$extra);
+        return parent::insertRow($row, $extra);
     }
 
     public function verifyPassword($identifier, $_password)
@@ -42,26 +42,23 @@ class Identifier extends Table
     public function getProfile($id)
     {
         $identifier = $this->dbObj->escape_string($id);
-        $res = $this->findAllExceptGivenCols(['id',PASSWORD],SESSION_IDENTIFIER." = '{$id}'");
-        if($res->num_rows > 0)
+        $res = $this->findAllExceptGivenCols(['id', PASSWORD], SESSION_IDENTIFIER . " = '{$id}'");
+        if ($res->num_rows > 0)
             return $res->fetch_assoc();
         else return null;
     }
 
-    protected function validateRow($row,$colNames=null)
+    protected function validateRow($row, $colNames = null)
     {
-        $err = parent::validateRow($row,$colNames);
-        if($err instanceof Fallacy)
-        {
+        $err = parent::validateRow($row, $colNames);
+        if ($err instanceof Fallacy) {
             return $err;
         }
         $err = array();
-        if(array_key_exists('email',$row))
-        {
-            $row['email'] = filter_var($row['email'],FILTER_VALIDATE_EMAIL);
-            if($row['email'] === false)
-            {
-                return new Fallacy(CustomErrors::VALUE_ERROR,CustomErrors::invalidValueMessage('email'));
+        if (array_key_exists('email', $row)) {
+            $row['email'] = filter_var($row['email'], FILTER_VALIDATE_EMAIL);
+            if ($row['email'] === false) {
+                return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage('email'));
             }
         }
         return true;
@@ -70,11 +67,25 @@ class Identifier extends Table
     public function getId($identifier)
     {
         $identifer = $this->dbObj->escape_string($identifier);
-        $res = $this->find(['id'],$this->identifierCol." = '{$identifier}' ");
-        if($res->num_rows > 0)
-        {
+        $res = $this->find(['id'], $this->identifierCol . " = '{$identifier}' ");
+        if ($res->num_rows > 0) {
             return $res->fetch_assoc()['id'];
         }
         return null;
+    }
+
+    public function updateProfile($identifer, $row)
+    {
+        $identifer = $this->dbObj->escape_string($identifer);
+        $condition = SESSION_IDENTIFIER . " = {$identifer}";
+        $temp_res = $this->update($row, $condition);
+        if (!($temp_res instanceof Fallacy)) {
+            if ($temp_res > 0)
+                return true;
+            else
+                return false;
+        } else {
+            return $temp_res;
+        }
     }
 }
