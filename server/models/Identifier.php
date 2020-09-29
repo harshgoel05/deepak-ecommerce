@@ -78,6 +78,12 @@ class Identifier extends Table
     {
         $identifer = $this->dbObj->escape_string($identifer);
         $condition = SESSION_IDENTIFIER . " = {$identifer}";
+
+        if(array_key_exists(PASSWORD,$row))
+        {
+            $row[PASSWORD] = password_hash($row[PASSWORD],PASSWORD_DEFAULT);
+        }
+
         $temp_res = $this->update($row, $condition);
         if (!($temp_res instanceof Fallacy)) {
             if ($temp_res > 0)
