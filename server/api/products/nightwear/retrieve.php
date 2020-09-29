@@ -19,8 +19,8 @@ if($productModel === null)
 }
 
 if(array_key_exists('productid',$_GET))
-    $temp_res = $productModel->findByProductID($_GET['productid']);
-else $temp_res = $productModel->findByProductID(null);
+    $temp_res = $productModel->findProductById($_GET['productid']);
+else $temp_res = $productModel->findProductById(null);
 
 if($temp_res !== null)
 {

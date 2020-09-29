@@ -72,7 +72,7 @@ abstract class DB
         return $val;
     }
 
-    public function insertRow($tableName, $row)
+    public function insertRow($tableName, $row,$extra = null)
     {
         $keys = '';
         $values = '';
@@ -91,7 +91,11 @@ abstract class DB
         $sql .= $keys;
         $sql .= ') VALUES (';
         $sql .= $values;
-        $sql .= ')';
+        $sql .= ') ';
+        if($extra !== null)
+        {
+            $sql.=$extra;
+        }
         // echo $sql.'<br>';
         if ($this->db->query($sql)) {
             return true;

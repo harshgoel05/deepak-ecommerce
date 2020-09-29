@@ -5,15 +5,15 @@ use Utility\CustomErrors;
 use Utility\Fallacy;
 
 require_once(__DIR__ . '/../config/other-configs.php');
-require_once(__ROOT__ . '/models/Table.php');
 require_once(__ROOT__ . '/config/field-consts.php');
+require_once(__ROOT__ . '/utility/autoloader.php');
 require_once(__ROOT__.'/utility/CustomErrors.php');
 
 class Identifier extends Table
 {
     protected $identifierCol=null;
 
-    public function insertRow($row)
+    public function insertRow($row,$extra = null)
     {
         $err = $this->validateRow($row, [$this->identifierCol, 'password',]); 
         if ($err instanceof Fallacy) {
@@ -24,7 +24,7 @@ class Identifier extends Table
             return new Fallacy(\Utility\CustomErrors::VALUE_ERROR,"Password and confirm password do not match");
         }
         $row[PASSWORD] = password_hash($row[PASSWORD], PASSWORD_DEFAULT);
-        return parent::insertRow($row);
+        return parent::insertRow($row,$extra);
     }
 
     public function verifyPassword($identifier, $_password)
@@ -39,10 +39,10 @@ class Identifier extends Table
         return password_verify($_password, $hashedPassword);
     }
 
-    public function getProfile($identifier)
+    public function getProfile($id)
     {
-        $identifier = $this->dbObj->escape_string($identifier);
-        $res = $this->findAllExceptGivenCols(['id',PASSWORD],$this->identifierCol." = '{$identifier}'");
+        $identifier = $this->dbObj->escape_string($id);
+        $res = $this->findAllExceptGivenCols(['id',PASSWORD],SESSION_IDENTIFIER." = '{$id}'");
         if($res->num_rows > 0)
             return $res->fetch_assoc();
         else return null;
@@ -65,5 +65,16 @@ class Identifier extends Table
             }
         }
         return true;
+    }
+
+    public function getId($identifier)
+    {
+        $identifer = $this->dbObj->escape_string($identifier);
+        $res = $this->find(['id'],$this->identifierCol." = '{$identifier}' ");
+        if($res->num_rows > 0)
+        {
+            return $res->fetch_assoc()['id'];
+        }
+        return null;
     }
 }
