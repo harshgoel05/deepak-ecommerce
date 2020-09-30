@@ -79,6 +79,8 @@ class ProductsBase extends \Models\Table
             }
         }
         $temp_res = $this->findAllExceptGivenCols(['id'], $condition);
-        return $temp_res->fetch_all(MYSQLI_ASSOC);
+        $temp_res = $temp_res->fetch_all(MYSQLI_ASSOC);
+        \Utility\ArraysUtil\addToEachRow($temp_res,PRODUCT_CATEGORY,$this->productCategory);
+        return $temp_res;
     }
 }
