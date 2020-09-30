@@ -13,7 +13,7 @@ class Kurtis extends ProductsBase
     {
         $_dbObj = \Databases\Products\KurtisDB::getInstance();
         $_name = 'databunker';
-        
+        $this->productCategory = 'kurtis';
         parent::__construct($_name,$_dbObj);
     }
 }

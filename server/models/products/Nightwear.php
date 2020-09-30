@@ -12,7 +12,7 @@ class Nightwear extends ProductsBase
     {
         $_dbObj = \Databases\Products\NightwearDB::getInstance();
         $_name = 'databunker';
-      
+        $this->productCategory = 'nightwear';
         parent::__construct($_name,$_dbObj);
     }
 }

@@ -12,7 +12,7 @@ class ReadymadeBlouse extends ProductsBase
     {
         $_dbObj = \Databases\Products\ReadymadeBlouseDB::getInstance();
         $_name = 'databunker';
-        
+        $this->productCategory = 'readymadeBlouse';
         parent::__construct($_name,$_dbObj);
     }
 }

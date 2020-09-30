@@ -12,7 +12,7 @@ class Ghagra extends ProductsBase
     {
         $_dbObj = \Databases\Products\GhagraDB::getInstance();
         $_name = 'databunker';
-        
+        $this->productCategory = 'ghagra';
         parent::__construct($_name,$_dbObj);
     }
 }

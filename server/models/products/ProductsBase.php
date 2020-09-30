@@ -10,6 +10,7 @@ require_once(__ROOT__ . '/config/field-consts.php');
 
 class ProductsBase extends \Models\Table
 {
+    protected $productCategory;
     public function findProductById($productId = null)
     {
         /* if(!is_numeric($productId))
@@ -64,5 +65,20 @@ class ProductsBase extends \Models\Table
                 return false;
         } else
             return $temp_res;
+    }
+
+    public function findProductsByInfo($info, $findIn = ['title', 'subtitle'], $conditionSep = "OR")
+    {
+        $condition = "";
+        $temp_arr = array_keys($findIn);
+        $lastKey = end($temp_arr);
+        foreach ($findIn as $key => $colName) {
+            $condition .= "`{$colName}` LIKE '%${info}%' ";
+            if ($key != $lastKey) {
+                $condition .= "{$conditionSep} ";
+            }
+        }
+        $temp_res = $this->findAllExceptGivenCols(['id'], $condition);
+        return $temp_res->fetch_all(MYSQLI_ASSOC);
     }
 }

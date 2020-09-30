@@ -12,7 +12,7 @@ class Plazzos extends ProductsBase
     {
         $_dbObj = \Databases\Products\PlazzosDB::getInstance();
         $_name = 'databunker';
-        
+        $this->productCategory = 'plazzos';
         parent::__construct($_name,$_dbObj);
     }
 }

@@ -12,7 +12,7 @@ class Sarees extends ProductsBase
     {
         $_dbObj = \Databases\Products\SareesDB::getInstance();
         $_name = 'databunker';
-        
+        $this->productCategory = 'sarees';
         parent::__construct($_name,$_dbObj);
     }
 }
