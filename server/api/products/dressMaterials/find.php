@@ -10,7 +10,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 
 $productModel = getSingleton('\\Models\\Products\\',__DIR__);
 
-$products = $productModel->findProductsByInfo($_GET['search_criteria']);
+$products = $productModel->findProductsByInfo($_GET['search']);
 
 sendSuccessResponse($products);
 
