@@ -79,7 +79,7 @@ class Wagon extends Table
         $temp_data = $data;
         unset($temp_data['selected_quantity']);
         $condition = $this->conditionCreaterHelper($temp_data);
-        echo $condition.'<br>';
+        // echo $condition.'<br>';
         $sqlRes = $this->find(['selected_quantity'], $condition);
         if ($sqlRes->num_rows > 0) {
             $qty = $sqlRes->fetch_assoc()['selected_quantity'];
