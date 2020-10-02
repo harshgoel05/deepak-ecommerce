@@ -12,10 +12,25 @@ const PRIMARY_SELECTED_FIELDS = ['selected_colors','selected_size','selected_len
 
 class Wagon extends Table
 {
+    protected function addPrimarySelectedKeysIfMissing(&$row)
+    {
+        foreach(PRIMARY_SELECTED_FIELDS as $field)
+        {
+            if(!array_key_exists($field,$row))
+                $row[$field] = "0";
+        }
+
+    }
+
     public function addItem($row)
     {
         if (!(in_array($row['product_category'], PRODUCT_CATEGORIES))) {
             return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage("product_category"));
+        }
+        $this->addPrimarySelectedKeysIfMissing($row);
+        if($row['selected_quantity'] <= 0 )
+        {   
+            return new Fallacy(CustomErrors::VALUE_ERROR,"selected_quantity should be a positive integer");
         }
         $extra = "ON DUPLICATE KEY UPDATE `selected_quantity` = `selected_quantity` + " . $row['selected_quantity'];
         return $this->insertRow($row, $extra);
@@ -66,12 +81,8 @@ class Wagon extends Table
 
     public function removeItem($data)
     {
-        foreach(PRIMARY_SELECTED_FIELDS as $field)
-        {
-            if(!array_key_exists($field,$data))
-                $data[$field] = "0";
-        }
-
+        $this->addPrimarySelectedKeysIfMissing($data);
+        
         foreach ($data as $key => $value) {
             if(is_string($value))
                 $data[$key] = $this->dbObj->escape_string($value);
