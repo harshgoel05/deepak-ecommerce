@@ -17,6 +17,7 @@ foreach($dirs as $dir)
     $productModel = getSingleton('\\Models\\Products\\',$dir);
     $temp = $productModel->findProductsByInfo($_GET['search']);
     $products = array_merge($products,$temp);
+    // echo $dir.'<br>';
 }
 
 sendSuccessResponse($products);
