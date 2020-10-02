@@ -83,7 +83,7 @@ class Wagon extends Table
         $sqlRes = $this->find(['selected_quantity'], $condition);
         if ($sqlRes->num_rows > 0) {
             $qty = $sqlRes->fetch_assoc()['selected_quantity'];
-            if ($data['selected_quantity'] > $qty) {
+            if ($data['selected_quantity'] >= $qty) {
                 return $this->delete($condition);
             } else {
                 $data['selected_quantity'] = min($data['selected_quantity'], $qty);
