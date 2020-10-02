@@ -16,7 +16,7 @@ $("#login-btn").on("click", function (event) {
       success: function (response, status, xhr) {
         console.log(response);
         location.replace(
-          "https://harshgoel05.github.io/deepak-ecommerce/client/adminportal/index.html"
+          "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html"
         );
       },
       error: function (xhr, status) {
