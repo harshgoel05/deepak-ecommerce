@@ -40,28 +40,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >MEN <span class="sr-only">(current)</span></a
+            <a class="nav-link" href="../index.html"
+              >HOME <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#"
-              >WOMEN <span class="sr-only">(current)</span></a
+              >ABOUT US <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#"
-              >KIDS <span class="sr-only">(current)</span></a
+              >TESTIMONIALS <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >HOME & LIVING <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >OFFERS<span class="sr-only">(current)</span></a
+            <a class="nav-link" href="./contact.html"
+              >CONTACT US <span class="sr-only">(current)</span></a
             >
           </li>
         </ul>
@@ -91,11 +86,11 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">WELCOME</a>
-            <a class="dropdown-item" href="#">Login / signup</a>
-            <a class="dropdown-item" href="#">My cart</a>
-            <a class="dropdown-item" href="#">My wish list</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="./sign.html">Signup</a>
+              <a class="dropdown-item" href="./login.html">Login</a>
+              <a class="dropdown-item" href="./cart.html">My cart</a>
+              <a class="dropdown-item" href="./wishlist.html">My wish list</a>
+ 
           </div>
         </div>
       </div>
@@ -110,7 +105,7 @@
               class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow"
             >
               <div class="card p-4">
-                <h2 class="py-4 font-weight-bold">My Shopping Bag</h2>
+                <h2 class="py-4 font-weight-bold card-title">My Shopping Bag</h2>
                 <div class="row">
                   <!-- cart images div -->
                   <div
@@ -137,7 +132,7 @@
                       <!--QUANTITY HANDLED HERE-->
                       <!-- quantity inc dec -->
                       <div class="col-6">
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-end prices">
                           <li class="page-item">
                             <button
                               class="page-link"
@@ -172,10 +167,10 @@
                         class="col-8 d-flex justify-content-between remove_wish"
                       >
                         <a class="rem"
-                          ><i class="fas fa-trash-alt"></i> REMOVE ITEM</a
+                          ><i class="fas fa-trash-alt"></i> REMOVE<br>ITEM</a
                         >
                         <a class="wish"
-                          ><i class="fas fa-heart"></i>MOVE TO WISH LIST
+                          ><i class="fas fa-heart" style="margin-right: 5px;"></i>MOVE TO<br>WISHLIST
                         </a>
                       </div>
                       <div class="col-4 d-flex justify-content-end price_money">
@@ -205,16 +200,16 @@
                     <div class="row">
                       <!-- product name  -->
                       <div class="col-6 card-title">
-                        <h1 class="mb-4 product_name">Green Zara Shirt</h1>
-                        <p class="mb-2">SHIRT - Green</p>
-                        <p class="mb-2">COLOR: Green</p>
+                        <h1 class="mb-4 product_name">Red Zara Shirt</h1>
+                        <p class="mb-2">SHIRT - RED</p>
+                        <p class="mb-2">COLOR: RED</p>
                         <p class="mb-3">SIZE: M</p>
                       </div>
 
                       <!--QUANTITY HANDLED HERE-->
                       <!-- quantity inc dec -->
                       <div class="col-6">
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-end prices">
                           <li class="page-item">
                             <button
                               class="page-link"
@@ -249,10 +244,10 @@
                         class="col-8 d-flex justify-content-between remove_wish"
                       >
                         <a class="rem"
-                          ><i class="fas fa-trash-alt"></i> REMOVE ITEM</a
+                          ><i class="fas fa-trash-alt"></i> REMOVE<br>ITEM</a
                         >
                         <a class="wish"
-                          ><i class="fas fa-heart"></i>MOVE TO WISH LIST
+                          ><i class="fas fa-heart" style="margin-right: 5px;"></i>MOVE TO<br>WISHLIST
                         </a>
                       </div>
                       <div class="col-4 d-flex justify-content-end price_money">
@@ -282,7 +277,7 @@
                   <p>The total amount of (including VAT)</p>
                   <p>Rs <span id="total_cart_amt">0.00</span></p>
                 </div>
-                <button class="btn btn-primary text-uppercase">Checkout</button>
+                <button class="btn text-uppercase" style="background-color: rgb(164, 52, 147);color: aliceblue;"><b>Checkout</b></button>
               </div>
 
               <!--DISCOUNT COUPONS HANDLED HERE-->

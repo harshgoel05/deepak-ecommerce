@@ -149,4 +149,20 @@ abstract class Table
         $filteredRow = $this->filterKeys($row);
         return $this->dbObj->update($this->name,$filteredRow,$condition);
     }
+
+    public function conditionCreaterHelper($row,$logicalSeparator = 'AND')
+    {
+        $filteredRow = $this->filterKeys($row);
+        $condition = "";
+        $temp_arr = array_keys($filteredRow);
+        $lastKey = end($temp_arr);
+        foreach($filteredRow as $key => $value)
+        {
+            $condition.="`{$key}` = ";
+            $condition.=$this->dbObj->appendValue($value)." ";
+            if($key != $lastKey)
+                $condition.="{$logicalSeparator} ";
+        }
+        return $condition;
+    }
 }

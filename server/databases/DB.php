@@ -64,7 +64,7 @@ abstract class DB
         } else return $this->db->error;
     }
 
-    private function appendValue($val)
+    public function appendValue($val)
     {
         if (is_string($val)) {
             $val = '"' . $this->db->escape_string($val) . '"';
