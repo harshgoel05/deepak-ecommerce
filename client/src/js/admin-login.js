@@ -15,13 +15,9 @@ $("#login-btn").on("click", function (event) {
       data: JSON.stringify(body),
       success: function (response, status, xhr) {
         console.log(response);
-        // console.log(xhr.getAllResponseHeaders("set-cookie"));
-        // console.log(xhr.getResponseHeader());
-        // localStorage.setItem("isloggedin", "true");
-        // localStorage.setItem("role", "admin");
-        // location.replace(
-        //   "https://harshgoel05.github.io/deepak-ecommerce/client/adminportal.html"
-        // );
+        location.replace(
+          "https://harshgoel05.github.io/deepak-ecommerce/client/adminportal/index.html"
+        );
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
@@ -32,8 +28,6 @@ $("#login-btn").on("click", function (event) {
     alert("Please enter all the details");
   }
 });
-// FrontDesk => Add client, Trainer ( employee, time)
-// Admin => All menus
 
 $("#logout-btn").click(function (e) {
   e.preventDefault();
@@ -45,11 +39,9 @@ $("#logout-btn").click(function (e) {
     type: "GET",
     crossDomain: true,
     success: function (response) {
-      // localStorage.removeItem("isloggedin", "true");
-      // localStorage.removeItem("role", "admin");
-      // location.replace(
-      //   "https://harshgoel05.github.io/deepak-ecommerce/client/admin-login.html"
-      // );
+      location.replace(
+        "https://harshgoel05.github.io/deepak-ecommerce/client/admin-login.html"
+      );
     },
     error: function (xhr, status) {
       console.log("error", xhr, status);
