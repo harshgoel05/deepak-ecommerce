@@ -11,7 +11,7 @@ require_once(__ROOT__.'/utility/autoloader.php');
 
 abstract class DB
 {
-    public $db;
+    protected $db;
     protected $dbName;
     public function escape_string($str)
     {
@@ -25,6 +25,31 @@ abstract class DB
         if ($this->db->connect_error) {
             die("Connection to the database `{$databaseName}` failed : " . $this->db->connect_error);
         }
+    }
+
+    public function query($sql)
+    {
+        return $this->db->query($sql);
+    }
+
+    public function begin_transaction()
+    {
+        $this->db->begin_transaction();
+    }
+
+    public function commit()
+    {
+        return $this->db->commit();
+    }
+
+    public function rollback()
+    {
+        return $this->db->rollback();
+    }
+
+    public function insert_id()
+    {
+        return $this->db->insert_id;
     }
 
     protected static $instances = [];
@@ -66,6 +91,8 @@ abstract class DB
 
     public function appendValue($val)
     {
+        // print_r($val);
+        // echo '<br>';
         if (is_string($val)) {
             $val = '"' . $this->db->escape_string($val) . '"';
         }

@@ -20,3 +20,9 @@ const PRODUCT_CATEGORIES = [
     'readymadeDresses',
     'sarees',
 ];
+const PRIMARY_SELECTED_FIELDS = [
+    'selected_colors',
+    'selected_size',
+    'selected_length',
+    'selected_width'
+];

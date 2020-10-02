@@ -8,9 +8,16 @@ require_once(__ROOT__.'/utility/autoloader.php');
 // echo '<br>';
 // print_r(\Models\Cart::getInstance()->getCols());
 // echo '<br>';
-$users = \Models\Users::getInstance();
-$fields = $users->getCols();
-foreach($fields as $colName)
+foreach(PRODUCT_CATEGORIES as $category)
 {
-    echo $colName.'<br>';
+    $productModel = getSingleton('\\Models\\Products\\',$category);
+    $sql = "ALTER TABLE databunker ADD quantity INT NOT NULL DEFAULT 0";
+    if($productModel->dbObj->query($sql))
+    {
+        echo "column added in ".$category.'<br>';
+    }
+    else 
+    {
+        echo "task failed for table ".$category.'<br>';
+    }
 }

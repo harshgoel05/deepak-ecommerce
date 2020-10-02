@@ -29,7 +29,7 @@ class Identifier extends Table
 
     public function verifyPassword($identifier, $_password)
     {
-        $identifier = $this->dbObj->db->escape_string($identifier);
+        $identifier = $this->dbObj->escape_string($identifier);
         $row = $this->find([PASSWORD], "`" . $this->identifierCol . "` = '{$identifier}'");
         if ($row->num_rows > 0)
             $hashedPassword = $row->fetch_assoc()[PASSWORD];

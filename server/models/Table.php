@@ -39,10 +39,14 @@ abstract class Table
     
     private function filterKeys($row) {
         $filteredRow = [];
+        // print_r($this->cols);
+        // echo '<br>';
         foreach($row as $key => $value)
         {
-            if(in_array($key,$this->cols))
+            if(in_array($key,$this->cols,true))
             {
+                // print_r($key);
+                // echo '<br>';
                 $filteredRow[$key] = $value;
             }
         }
@@ -56,7 +60,7 @@ abstract class Table
 
     }
 
-    public function find($colNames,$query=null)
+    public function find($colNames=null,$query=null)
     {
         return $this->dbObj->find($this->name,$colNames,$query);
     }

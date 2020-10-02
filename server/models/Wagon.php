@@ -8,8 +8,6 @@ use Utility\Fallacy;
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/utility/autoloader.php');
 
-const PRIMARY_SELECTED_FIELDS = ['selected_colors','selected_size','selected_length','selected_width'];
-
 class Wagon extends Table
 {
     protected function addPrimarySelectedKeysIfMissing(&$row)

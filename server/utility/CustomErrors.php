@@ -26,5 +26,10 @@ abstract class CustomErrors
         return "{$val} validation failed";
     }
 
+    public static function notAvailableMessage($val)
+    {
+        return "{$val} not available";
+    }
+
     const ALREADY_LOGGEDIN_MESSAGE = 'Already logged in';
 }
