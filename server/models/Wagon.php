@@ -8,6 +8,8 @@ use Utility\Fallacy;
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/utility/autoloader.php');
 
+const PRIMARY_SELECTED_FIELDS = ['selected_colors','selected_size','selected_length','selected_width'];
+
 class Wagon extends Table
 {
     public function addItem($row)
@@ -64,11 +66,20 @@ class Wagon extends Table
 
     public function removeItem($data)
     {
+        foreach(PRIMARY_SELECTED_FIELDS as $field)
+        {
+            if(!array_key_exists($field,$data))
+                $data[$field] = "0";
+        }
+
         foreach ($data as $key => $value) {
             if(is_string($value))
                 $data[$key] = $this->dbObj->escape_string($value);
         }
-        $condition = $this->conditionCreaterHelper($data);
+        $temp_data = $data;
+        unset($temp_data['selected_quantity']);
+        $condition = $this->conditionCreaterHelper($temp_data);
+        echo $condition.'<br>';
         $sqlRes = $this->find(['selected_quantity'], $condition);
         if ($sqlRes->num_rows > 0) {
             $qty = $sqlRes->fetch_assoc()['selected_quantity'];

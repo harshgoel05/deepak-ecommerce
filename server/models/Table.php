@@ -158,7 +158,7 @@ abstract class Table
         $lastKey = end($temp_arr);
         foreach($filteredRow as $key => $value)
         {
-            $condition.="{$key} = ";
+            $condition.="`{$key}` = ";
             $condition.=$this->dbObj->appendValue($value)." ";
             if($key != $lastKey)
                 $condition.="{$logicalSeparator} ";
