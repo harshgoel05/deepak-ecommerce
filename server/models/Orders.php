@@ -40,7 +40,7 @@ class Orders extends Table
             $orders = $this->find(null, $condition);
         } else {
             $condition = "`user_id` = ${userId}";
-            $orders = $this->find(null,$condition);
+            $orders = $this->find(null, $condition);
         }
         if ($orders instanceof Fallacy)
             return $orders;
@@ -49,5 +49,48 @@ class Orders extends Table
                 return $orders->fetch_all(MYSQLI_ASSOC);
             else return $orders->fetch_assoc();
         } else return null;
+    }
+
+    public function getOrderDetails($orderId, $userId)
+    {
+        $condition = "`order_id` = {$orderId} ";
+        $ordersDetailsModel = \Models\OrdersDetails::getInstance();
+        $rows = $ordersDetailsModel->findAllExceptGivenCols(['user_id'], $condition);
+        $categoryItems = [];
+        // print_r($rows);
+        while ($row = $rows->fetch_array(MYSQLI_ASSOC)) {
+            $categoryItems[$row['product_category']][] = $row;
+        }
+        $orderItems = [];
+        $totalPrice = 0;
+        foreach ($categoryItems as $category => $items) {
+            /* print_r($items);
+            echo '<br>'; */
+            $productModel = getSingleton('\\Models\\Products\\', $category);
+            $categoryItemsProIds = [];
+            foreach ($items as $item) {
+                if (!in_array($item[PRODUCT_ID], $categoryItemsProIds))
+                    $categoryItemsProIds[] = $item[PRODUCT_ID];
+            }
+            $tempProducts = $productModel->findProductById($categoryItemsProIds);
+            $categoryProducts = [];
+            if (is_array($tempProducts)) {
+                foreach ($tempProducts as $product) {
+                    $categoryProducts[$product[PRODUCT_ID]] = $product;
+                }
+                // print_r($categoryProducts);
+                foreach ($items as $item) {
+                    // print_r($item);
+                    $productid = $item[PRODUCT_ID];
+                    // print_r($productid);
+                    if (!array_key_exists($productid, $categoryProducts))
+                        continue;
+                    // print_r($productid);
+                    $temp = array_merge($categoryProducts[$productid], $item);
+                    $orderItems[] = $temp;
+                }
+            }
+        }
+        return $orderItems;
     }
 }

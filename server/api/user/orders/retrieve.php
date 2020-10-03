@@ -1,5 +1,6 @@
 <?php
 
+use Utility\CustomErrors;
 use Utility\Fallacy;
 
 use function Utility\HttpUtil\sendSuccessResponse;
@@ -23,6 +24,9 @@ $temp_res = $ordersModel->getOrders($orderId, $userId);
 
 if ($temp_res instanceof Fallacy) {
     \Utility\HttpUtil\sendFailResponse($temp_res->getMessage());
-} else {
-    \Utility\HttpUtil\sendSuccessResponse();
+} else if($temp_res !==null) {
+    \Utility\HttpUtil\sendSuccessResponse($temp_res);
+}
+else {
+    \Utility\HttpUtil\sendFailResponse(CustomErrors::valueNotFoundMessage('order_id'));
 }

@@ -22,7 +22,7 @@ class OrdersDetails extends Table
         parent::__construct($_name, $_dbObj);
     }
 
-    public function insertRow($data,$extra=NULL)
+    public function insertRow($data,$extra=NULL,$returnSubTotalPrice = 1)
     {
         /* print_r($data);
         echo '<br>'; */
@@ -54,6 +54,14 @@ class OrdersDetails extends Table
         $temp_res = $productModel->updateProductById($product['productid'],$productUpdationRow);
         if($temp_res instanceof Fallacy)
             return $temp_res;
-        return parent::insertRow($data);
+        $temp_res = parent::insertRow($data);
+        if($returnSubTotalPrice)
+        {
+            if($temp_res instanceof Fallacy)
+                return $temp_res;
+            else
+                return $data['subtotal_price'];
+        }
+        else return $temp_res;
     }
 }

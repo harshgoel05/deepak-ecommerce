@@ -27,7 +27,7 @@ $orderId = $ordersModel->createOrder($temp_data);
 // echo '<br>';
 $allGood = true;
 $toCommit[] = $ordersModel;
-
+$totalPrice = 0;
 foreach ($data as $detail) {
     $detail['order_id'] = $orderId;
     if (in_array($detail[PRODUCT_CATEGORY], PRODUCT_CATEGORIES)) {
@@ -39,15 +39,23 @@ foreach ($data as $detail) {
     $temp_res = $ordersDetailsModel->insertRow($detail);
     if ($temp_res instanceof Fallacy) {
         $allGood = false;
-        foreach($toCommit as $model)
-        {
+        foreach ($toCommit as $model) {
             $model->dbObj->rollback();
         }
         \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
         break;
     }
+    $totalPrice += $temp_res;
 }
-
+$updationRow['total_price'] = $totalPrice;
+$temp_res = $ordersModel->update($updationRow, "`id` = {$orderId}");
+if ($temp_res instanceof Fallacy) {
+    $allGood = false;
+    foreach ($toCommit as $model) {
+        $model->dbObj->rollback();
+    }
+    \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
+}
 foreach ($toCommit as $model) {
     if (!$model->dbObj->commit()) {
         $allGood = false;

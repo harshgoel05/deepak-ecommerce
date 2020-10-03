@@ -132,7 +132,7 @@ abstract class DB
     public function find($tableName, $cols = null, $query = null, $extras = null)
     {
         $sql = "SELECT ";
-        if (count($cols)) {
+        if (is_array($cols) && count($cols)) {
             for ($i = 0; $i < count($cols); $i++) {
                 $cols[$i] = $this->db->escape_string($cols[$i]);
                 $sql .= "`{$cols[$i]}`";

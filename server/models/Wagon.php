@@ -12,12 +12,10 @@ class Wagon extends Table
 {
     protected function addPrimarySelectedKeysIfMissing(&$row)
     {
-        foreach(PRIMARY_SELECTED_FIELDS as $field)
-        {
-            if(!array_key_exists($field,$row))
+        foreach (PRIMARY_SELECTED_FIELDS as $field) {
+            if (!array_key_exists($field, $row))
                 $row[$field] = "0";
         }
-
     }
 
     public function addItem($row)
@@ -26,9 +24,8 @@ class Wagon extends Table
             return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage("product_category"));
         }
         $this->addPrimarySelectedKeysIfMissing($row);
-        if($row['selected_quantity'] <= 0 )
-        {   
-            return new Fallacy(CustomErrors::VALUE_ERROR,"selected_quantity should be a positive integer");
+        if ($row['selected_quantity'] <= 0) {
+            return new Fallacy(CustomErrors::VALUE_ERROR, "selected_quantity should be a positive integer");
         }
         $extra = "ON DUPLICATE KEY UPDATE `selected_quantity` = `selected_quantity` + " . $row['selected_quantity'];
         return $this->insertRow($row, $extra);
@@ -50,7 +47,8 @@ class Wagon extends Table
             $productModel = getSingleton('\\Models\\Products\\', $category);
             $categoryItemsProIds = [];
             foreach ($items as $item) {
-                $categoryItemsProIds[] = $item[PRODUCT_ID];
+                if (!in_array($item[PRODUCT_ID], $categoryItemsProIds))
+                    $categoryItemsProIds[] = $item[PRODUCT_ID];
             }
             $tempProducts = $productModel->findProductById($categoryItemsProIds);
             $categoryProducts = [];
@@ -64,7 +62,7 @@ class Wagon extends Table
                     $productid = $item[PRODUCT_ID];
                     // print_r($productid);
                     if (!array_key_exists($productid, $categoryProducts))
-                    continue;
+                        continue;
                     // print_r($productid);
                     $temp = array_merge($categoryProducts[$productid], $item);
                     $temp[PRODUCT_CATEGORY] = $category;
@@ -80,9 +78,9 @@ class Wagon extends Table
     public function removeItem($data)
     {
         $this->addPrimarySelectedKeysIfMissing($data);
-        
+
         foreach ($data as $key => $value) {
-            if(is_string($value))
+            if (is_string($value))
                 $data[$key] = $this->dbObj->escape_string($value);
         }
         $temp_data = $data;
