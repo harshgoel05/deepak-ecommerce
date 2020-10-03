@@ -25,6 +25,11 @@ abstract class DB
         if ($this->db->connect_error) {
             die("Connection to the database `{$databaseName}` failed : " . $this->db->connect_error);
         }
+        if(!($this->db->query("SET SESSION sql_mode = 'STRICT_ALL_TABLES'")))
+        {
+            echo "unable to set sql_mode to STRICT_ALL_TABLES";
+            exit();
+        }
     }
 
     public function query($sql)
@@ -155,6 +160,11 @@ abstract class DB
         // echo $result->num_rows.'<br>';
         // print_r($result->fetch_assoc());
         return $result;
+    }
+
+    public function error()
+    {
+        return $this->db->error;
     }
 
     public function drop($tableName)
