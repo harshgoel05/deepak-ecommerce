@@ -38,7 +38,7 @@ $(document).ready(function () {
         console.log(productid);
         $.ajax({
           url:
-            "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterial/remove.php",
+            "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterials/remove.php",
           type: "POST",
           data: JSON.stringify({
             productid: productid,
