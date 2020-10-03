@@ -9,7 +9,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('POST');
 
-$data = \Utility\HttpUtil\decodeRequestJson();
+$data = \Utility\HttpUtil\decodeRequestJson(true);
 // echo $data;
 // echo $data['productType'];
 $productModel = getSingleton('\\Models\\Products\\',__DIR__);
