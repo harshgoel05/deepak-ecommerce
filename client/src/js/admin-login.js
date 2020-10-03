@@ -1,3 +1,20 @@
+$.ajax({
+  url:
+    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/profile.php",
+  type: "GET",
+  xhrFields: {
+    withCredentials: true,
+  },
+  success: function (response, status, xhr) {
+    console.log("Admin is logged in");
+    window.location.href =
+      "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html";
+  },
+  error: function (xhr, status) {
+    console.log("error", xhr, status);
+  },
+});
+
 $("#admin-login-btn").on("click", function (event) {
   event.preventDefault();
   var username = $("#username").val();
