@@ -1,4 +1,4 @@
-$("#login-btn").on("click", function (event) {
+$("#admin-login-btn").on("click", function (event) {
   event.preventDefault();
   var username = $("#username").val();
   var pass = $("#pass").val();
@@ -15,9 +15,8 @@ $("#login-btn").on("click", function (event) {
       data: JSON.stringify(body),
       success: function (response, status, xhr) {
         console.log(response);
-        window.location.href(
-          "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html"
-        );
+        window.location.href =
+          "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html";
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
@@ -41,9 +40,8 @@ $("#logout-btn").click(function (e) {
     type: "GET",
     crossDomain: true,
     success: function (response) {
-      window.location.href(
-        "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/login.html"
-      );
+      window.location.href =
+        "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/login.html";
     },
     error: function (xhr, status) {
       console.log("error", xhr, status);
