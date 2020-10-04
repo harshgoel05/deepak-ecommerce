@@ -26,3 +26,13 @@ const PRIMARY_SELECTED_FIELDS = [
     'selected_length',
     'selected_width'
 ];
+
+const ORDER_STATUS_FLAGS =[
+    "PLACED" => 0,
+    "OUT_FOR_DELIVERY" => 1,
+    "DELIVERED" => 2,
+    "CANCELLED" => 3,
+    "RETURNED" => 4
+];
+
+const ORDER_ID = 'order_id';

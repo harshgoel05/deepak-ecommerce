@@ -20,7 +20,7 @@ class Orders extends Table
         // print_r($data);
         $temp_res = $this->insertRow($data);
         if ($temp_res instanceof Fallacy) {
-            echo "here" . '<br>';
+            // echo "here" . '<br>';
             return $temp_res;
         } else return $this->dbObj->insert_id();
     }
@@ -33,7 +33,7 @@ class Orders extends Table
             if (!is_array($ids)) {
                 $ids = [$ids];
             }
-            $condition = "`id` in ( ";
+            $condition = "`order_id` in ( ";
             $condition .= implode(',', $ids) . ' ';
             $condition .= ") ";
             $condition .= "AND `user_id` = ${userId}";
@@ -92,5 +92,18 @@ class Orders extends Table
             }
         }
         return $orderItems;
+    }
+    public function cancelOrder($order_id,$user_id)
+    {
+        $updationRow['order_status'] = ORDER_STATUS_FLAGS['CANCELLED'];
+        $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
+        return $this->update($updationRow,$condition);
+    }
+    
+    public function returnOrder($order_id,$user_id)
+    {
+        $updationRow['order_status'] = ORDER_STATUS_FLAGS['RETURNED'];
+        $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
+        return $this->update($updationRow,$condition);
     }
 }

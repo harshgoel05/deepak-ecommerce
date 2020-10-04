@@ -48,7 +48,7 @@ foreach ($data as $detail) {
     $totalPrice += $temp_res;
 }
 $updationRow['total_price'] = $totalPrice;
-$temp_res = $ordersModel->update($updationRow, "`id` = {$orderId}");
+$temp_res = $ordersModel->update($updationRow, "`order_id` = {$orderId}");
 if ($temp_res instanceof Fallacy) {
     $allGood = false;
     foreach ($toCommit as $model) {

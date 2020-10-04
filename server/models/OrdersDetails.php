@@ -64,4 +64,6 @@ class OrdersDetails extends Table
         }
         else return $temp_res;
     }
+
+    
 }
