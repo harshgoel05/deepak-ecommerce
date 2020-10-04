@@ -2,6 +2,7 @@
 
 namespace Models;
 
+use Utility\CustomErrors;
 use Utility\Fallacy;
 
 require_once(__DIR__ . '/../config/other-configs.php');
@@ -97,13 +98,27 @@ class Orders extends Table
     {
         $updationRow['order_status'] = ORDER_STATUS_FLAGS['CANCELLED'];
         $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
-        return $this->update($updationRow,$condition);
+        $temp_res = $this->find(null,$condition);
+        if($temp_res instanceof Fallacy)
+            return $temp_res;
+        if($temp_res->num_rows > 0)
+        {
+            return $this->update($updationRow,$condition);
+        }
+        else return new Fallacy(CustomErrors::VALUE_ERROR,"no order found with given details");
     }
     
     public function returnOrder($order_id,$user_id)
     {
         $updationRow['order_status'] = ORDER_STATUS_FLAGS['RETURNED'];
         $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
-        return $this->update($updationRow,$condition);
+        $temp_res = $this->find(null,$condition);
+        if($temp_res instanceof Fallacy)
+            return $temp_res;
+        if($temp_res->num_rows > 0)
+        {
+            return $this->update($updationRow,$condition);
+        }
+        else return new Fallacy(CustomErrors::VALUE_ERROR,"no order found with given details");
     }
 }
