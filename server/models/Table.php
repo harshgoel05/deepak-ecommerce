@@ -162,8 +162,27 @@ abstract class Table
         $lastKey = end($temp_arr);
         foreach($filteredRow as $key => $value)
         {
-            $condition.="`{$key}` = ";
-            $condition.=$this->dbObj->appendValue($value)." ";
+            if(is_array($value))
+            {
+                $condition.="`{$key}` IN ";
+                $condition.="( ";
+                $temp_arr = array_keys($value);
+                $lastKey = end($temp_arr);
+                foreach($value as $temp_key => $temp_value)
+                {
+                    $condition.=$this->dbObj->appendValue($temp_value)." ";
+                    if($temp_key === $lastKey)
+                    {
+                        $condition.=", ";
+                    }
+                }
+                $condition.=") ";
+            }
+            else 
+            {
+                $condition.= "`{$key}` = ";
+                $condition.=$this->dbObj->appendValue($value)." ";
+            }
             if($key != $lastKey)
                 $condition.="{$logicalSeparator} ";
         }

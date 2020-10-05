@@ -29,15 +29,14 @@ class Orders extends Table
     {
         $orderIds = $ids;
         if ($ids !== null) {
-
-
             if (!is_array($ids)) {
                 $ids = [$ids];
             }
-            $condition = "`order_id` in ( ";
-            $condition .= implode(',', $ids) . ' ';
-            $condition .= ") ";
-            $condition .= "AND `user_id` = ${userId}";
+            $conditionRow = [
+                ORDER_ID => $ids,
+                'user_id' => $userId
+            ];
+            $condition = $this->conditionCreaterHelper($conditionRow);
             $orders = $this->find(null, $condition);
         } else {
             $condition = "`user_id` = ${userId}";
@@ -46,10 +45,28 @@ class Orders extends Table
         if ($orders instanceof Fallacy)
             return $orders;
         if ($orders->num_rows > 0) {
-            if ($orderIds === null || is_array($orderIds))
-                return $orders->fetch_all(MYSQLI_ASSOC);
-            else return $orders->fetch_assoc();
-        } else return null;
+            if ($orderIds === null || is_array($orderIds)) {
+                $orders = $orders->fetch_all(MYSQLI_ASSOC);
+                foreach ($orders as &$order) {
+                    $items = $this->getOrderDetails($order['order_id'], $userId);
+                    if ($items instanceof Fallacy)
+                        return $items;
+                    $order['items'] = $items;
+                }
+                unset($order);
+            } else {
+                $orders = $orders->fetch_assoc();
+                $items = $this->getOrderDetails($orders['order_id'], $userId);
+                if ($items instanceof Fallacy)
+                    return $items;
+                $orders['items'] = $items;
+            }
+            return $orders;
+        } else {
+            if($orderIds === null || is_array($orderIds))
+                return [];
+            else return null;
+        };
     }
 
     public function getOrderDetails($orderId, $userId)
@@ -94,31 +111,27 @@ class Orders extends Table
         }
         return $orderItems;
     }
-    public function cancelOrder($order_id,$user_id)
+    public function cancelOrder($order_id, $user_id)
     {
         $updationRow['order_status'] = ORDER_STATUS_FLAGS['CANCELLED'];
         $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
-        $temp_res = $this->find(null,$condition);
-        if($temp_res instanceof Fallacy)
+        $temp_res = $this->find(null, $condition);
+        if ($temp_res instanceof Fallacy)
             return $temp_res;
-        if($temp_res->num_rows > 0)
-        {
-            return $this->update($updationRow,$condition);
-        }
-        else return new Fallacy(CustomErrors::VALUE_ERROR,"no order found with given details");
+        if ($temp_res->num_rows > 0) {
+            return $this->update($updationRow, $condition);
+        } else return new Fallacy(CustomErrors::VALUE_ERROR, "no order found with given details");
     }
-    
-    public function returnOrder($order_id,$user_id)
+
+    public function returnOrder($order_id, $user_id)
     {
         $updationRow['order_status'] = ORDER_STATUS_FLAGS['RETURNED'];
         $condition = "`user_id` = {$user_id} AND `order_id` = {$order_id} ";
-        $temp_res = $this->find(null,$condition);
-        if($temp_res instanceof Fallacy)
+        $temp_res = $this->find(null, $condition);
+        if ($temp_res instanceof Fallacy)
             return $temp_res;
-        if($temp_res->num_rows > 0)
-        {
-            return $this->update($updationRow,$condition);
-        }
-        else return new Fallacy(CustomErrors::VALUE_ERROR,"no order found with given details");
+        if ($temp_res->num_rows > 0) {
+            return $this->update($updationRow, $condition);
+        } else return new Fallacy(CustomErrors::VALUE_ERROR, "no order found with given details");
     }
 }

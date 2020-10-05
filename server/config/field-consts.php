@@ -36,3 +36,4 @@ const ORDER_STATUS_FLAGS =[
 ];
 
 const ORDER_ID = 'order_id';
+const COUPON_CODE = 'coupon_code';
