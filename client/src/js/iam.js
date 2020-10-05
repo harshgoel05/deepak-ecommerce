@@ -4,10 +4,10 @@ $("#add-iam-btn").on("click", function (event) {
   var pass = $("#pass").val();
   var confirm_pass = $("#confirm_pass").val();
   var phone_number = $("#phone_number").val();
-  console.log(username, pass);
+  console.log(username, pass, confirm_pass, phone_number);
   if (username && pass) {
     let body = {
-      email: username,
+      username: username,
       password: pass,
       confirm_password: confirm_pass,
       number: phone_number,
