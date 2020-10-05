@@ -6,8 +6,8 @@ require_once(__ROOT__.'/config/field-consts.php');
 \Utility\SessionUtil\ensureAdminLoggedIn();
 \Utility\HeadersUtil\addCommonHeaders();
 \Utility\SessionUtil\ensureRequestMethod('POST');
-
 $data = \Utility\HttpUtil\decodeRequestJson();
+\Utility\HttpUtil\ensureFields($data,[PRODUCT_ID]);
 
 $productModel = getSingleton('\\Models\\Products\\',__DIR__);
 

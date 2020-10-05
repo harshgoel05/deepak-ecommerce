@@ -1,7 +1,11 @@
 <?php
 namespace Utility\HttpUtil;
 
+use Utility\CustomErrors;
+use Utility\Fallacy;
+
 require_once(__DIR__ . '/../config/other-configs.php');
+require_once(__ROOT__.'/utility/http-error-handlers.php');
 
 const HTTP_UNAUTHORIZED = 401;
 const HTTP_OK = 200;
@@ -24,6 +28,19 @@ function decodeRequestJson($removeEmtpy = false)
         }
     }
     return $data;
+}
+
+function ensureFields($data,$fields)
+{
+    foreach($fields as $field)
+    {
+        if(!array_key_exists($field,$data))
+        {
+            $err = new Fallacy(CustomErrors::TYPE_ERROR,CustomErrors::missingRequiredFieldMessage($field));
+            \Utility\HttpErrorHandlers\badRequestErrorHandler($err);
+            break;
+        }
+    }
 }
 
 function createSuccessResponse($data=null)
