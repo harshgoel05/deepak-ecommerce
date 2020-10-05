@@ -31,5 +31,10 @@ abstract class CustomErrors
         return "{$val} not available";
     }
 
+    public static function missingRequiredFieldMessage($val)
+    {
+        return "Missing required field '{$val}' in request";
+    }
+
     const ALREADY_LOGGEDIN_MESSAGE = 'Already logged in';
 }

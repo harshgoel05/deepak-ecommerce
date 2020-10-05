@@ -37,7 +37,11 @@ class ProductsBase extends \Models\Table
                 return $temp_res->fetch_all(MYSQLI_ASSOC);
             else return $temp_res->fetch_assoc();
         } else
-            return null;
+        {
+            if ($productId === null || is_array($productId))
+                return [];
+            else return null;
+        }
     }
 
     public function removeProductById($productId)
