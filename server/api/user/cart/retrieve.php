@@ -9,7 +9,7 @@ require_once(__ROOT__ . '/utility/utilities.php');
 \Utility\SessionUtil\ensureUserLoggedIn();
 \Utility\SessionUtil\ensureRequestMethod('GET');
 
-$wagonModel = getSingleton('\\Models\\',__DIR__);
+$wagonModel = getSingleton('\\Models\\',__DIR__.'Items');
 
 $userId = \Utility\SessionUtil\getUserSessionIdentifier();
 

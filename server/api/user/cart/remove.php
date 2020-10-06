@@ -12,7 +12,7 @@ $data = \Utility\HttpUtil\decodeRequestJson();
 
 $data['user_id'] = \Utility\SessionUtil\getUserSessionIdentifier();
 
-$wagonModel = getSingleton('\\Models\\',__DIR__);
+$wagonModel = getSingleton('\\Models\\',__DIR__.'Items');
 
 $res = $wagonModel->removeItem($data);
 

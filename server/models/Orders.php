@@ -134,4 +134,6 @@ class Orders extends Table
             return $this->update($updationRow, $condition);
         } else return new Fallacy(CustomErrors::VALUE_ERROR, "no order found with given details");
     }
+
+    
 }

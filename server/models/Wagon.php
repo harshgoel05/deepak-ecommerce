@@ -67,7 +67,6 @@ class Wagon extends Table
                     $temp = array_merge($categoryProducts[$productid], $item);
                     $temp[PRODUCT_CATEGORY] = $category;
                     $temp['subtotal_price'] = $temp['price'] * $temp['selected_quantity'];
-                    $temp['subtotal_price'] -= ($temp['discount'] / 100) * $temp['subtotal_price'];
                     $wagonItems[] = $temp;
                 }
             }
@@ -98,5 +97,16 @@ class Wagon extends Table
                 return $this->addItem($data);
             }
         } else return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::valueNotFoundMessage("product"));
+    }
+
+    public function getTotalAmount($userId)
+    {
+        $wagonItems = $this->getItems($userId);
+        if($wagonItems instanceof Fallacy)
+            return $wagonItems;
+        $totalAmount = 0;
+        foreach($wagonItems as $item)
+            $totalAmount+=$item['subtotal_price'];
+        return $totalAmount;
     }
 }

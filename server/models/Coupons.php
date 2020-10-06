@@ -16,9 +16,9 @@ class Coupons extends Table
         parent::__construct($_name,$_dbObj);
     }
 
-    public function updateCoupon($coupnCode,$update)
+    public function updateCoupon($couponCode,$update)
     {
-        $condRow[COUPON_CODE] = $coupnCode;
+        $condRow[COUPON_CODE] = $couponCode;
         $condition = $this->conditionCreaterHelper($condRow);
         $coupon = $this->find([COUPON_CODE],$condition);
         if($coupon->num_rows === 0)
@@ -50,6 +50,13 @@ class Coupons extends Table
                 return [];
             else return null;
         }
+    }
+    public function getCouponUsedCount($couponCode) {
+        $ordersModel = \Models\Orders::getInstance();
+        $condRow[COUPON_CODE] = $couponCode;
+        $sql = "SELECT COUNT( ".COUPON_CODE." ) FROM orders";
+        $temp_res = $ordersModel->dbObj->query($sql);
+        return $temp_res->fetch_arrray(MYSQLI_NUM)[0];
     }
 
 }
