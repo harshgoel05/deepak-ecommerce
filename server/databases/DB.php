@@ -223,6 +223,7 @@ abstract class DB
         }
         $sql.="WHERE ";
         $sql.=$condition;
+        // echo $sql.'<br>';
         if($this->db->query($sql))
         {
             return $this->db->affected_rows;

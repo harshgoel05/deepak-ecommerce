@@ -12,8 +12,8 @@ $data = \Utility\HttpUtil\decodeRequestJson(true);
 \Utility\HttpUtil\ensureFields($data,[COUPON_CODE,'update']);
 
 $couponsModel = \Models\Coupons::getInstance();
-
-$temp_res = $couponsModel->update($data[COUPON_CODE],$data['update']);
+$condRow[COUPON_CODE] = $data[COUPON_CODE];
+$temp_res = $couponsModel->update($data['update'],$couponsModel->conditionCreaterHelper($condRow));
 
 if($temp_res instanceof Fallacy)
 {

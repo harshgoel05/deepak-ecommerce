@@ -16,9 +16,9 @@ class Coupons extends Table
         parent::__construct($_name,$_dbObj);
     }
 
-    public function updateCoupon($coupon_code,$update)
+    public function updateCoupon($coupnCode,$update)
     {
-        $condRow[COUPON_CODE] = $coupon_code;
+        $condRow[COUPON_CODE] = $coupnCode;
         $condition = $this->conditionCreaterHelper($condRow);
         $coupon = $this->find([COUPON_CODE],$condition);
         if($coupon->num_rows === 0)
@@ -27,4 +27,29 @@ class Coupons extends Table
         }
         return $this->update($update,$condition);
     }
+
+    public function findByCouponCode($couponCode = null)
+    {
+        if($couponCode !== null)
+        {
+            $temp_res =$this->find(null,$this->conditionCreaterHelper([COUPON_CODE => $couponCode]));
+        }
+        else {
+            $temp_res = $this->find();
+        }
+        if($temp_res instanceof Fallacy)
+            return $temp_res;
+        if($temp_res->num_rows > 0)
+        {
+            if($couponCode === null)
+                return $temp_res->fetch_all(MYSQLI_ASSOC);
+            else return $temp_res->fetch_assoc();
+        }
+        else {
+            if($couponCode === null)
+                return [];
+            else return null;
+        }
+    }
+
 }

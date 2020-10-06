@@ -11,10 +11,10 @@ const HTTP_UNAUTHORIZED = 401;
 const HTTP_OK = 200;
 const HTTP_BAD_REQUEST = 400;
 
-function decodeRequestJson($removeEmtpy = false)
+function decodeRequestJson($removeEmpty = false)
 {
     $data = json_decode(file_get_contents('php://input'), true);
-    if($removeEmtpy)
+    if($removeEmpty && is_array($data))
     {
         $temp_data = $data;
         $data = [];

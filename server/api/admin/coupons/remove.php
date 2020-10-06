@@ -10,7 +10,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 \Utility\SessionUtil\ensureRequestMethod('POST');
 \Utility\SessionUtil\ensureAdminLoggedIn();
 $data = \Utility\HttpUtil\decodeRequestJson(true);
-\Utility\HttpUtil\ensureFields($data,[COUPON_CODE,'update']);
+\Utility\HttpUtil\ensureFields($data,[COUPON_CODE]);
 
 $couponsModel = \Models\Coupons::getInstance();
 
