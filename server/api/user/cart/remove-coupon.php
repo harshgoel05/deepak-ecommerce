@@ -12,7 +12,7 @@ require_once(__ROOT__.'/utility/utilities.php');
 $cartModel = \Models\Cart::getInstance();
 $condRow['user_id'] = \Utility\SessionUtil\getUserSessionIdentifier();
 
-$temp_res = $cartModel->delete($this->conditionCreaterHelper($condRow));
+$temp_res = $cartModel->delete($cartModel->conditionCreaterHelper($condRow));
 
 if($temp_res instanceof Fallacy)
 {

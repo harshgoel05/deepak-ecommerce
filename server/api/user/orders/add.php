@@ -33,7 +33,17 @@ $items = $data['items'];
 $coupon = null;
 if(!empty($data[COUPON_CODE]))
 {
-    $coupon = $couponsModel->findByCouponCode($data[COUPON_CODE]);
+    $coupon = $ordersModel->checkCoupon($data[COUPON_CODE]);
+    if($coupon instanceof Fallacy)
+    {
+        if($coupon->getType() === null)
+        {
+            \Utility\HttpUtil\sendFailResponse($coupon->getMessage());
+        }
+        else {
+            \Utility\HttpErrorHandlers\badRequestErrorHandler($coupon);
+        }
+    }
 }
 
 foreach ($items as $item) {
@@ -54,10 +64,24 @@ foreach ($items as $item) {
         \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
         break;
     }
-    $totalPrice += $temp_res;
 }
-$updationRow['total_price'] = $totalPrice;
-$temp_res = $ordersModel->update($updationRow, "`order_id` = {$orderId}");
+$updationRow[TOTAL_AMOUNT] = 0;
+$updationRow[FINAL_AMOUNT] = 0;
+
+$items = $ordersModel->getOrderDetails($orderId,$identifier);
+
+foreach($items as $item)
+{
+    $updationRow[TOTAL_AMOUNT]+=$item[SUBTOTAL_PRICE];
+    $updationRow[FINAL_AMOUNT]+=$item[FINAL_SUBTOTAL_PRICE];
+}
+if($updationRow[TOTAL_AMOUNT] < $coupon[MINIMUM_AMOUNT_NEEDED])
+{
+    $temp_res = new Fallacy(null,"Failed to apply coupon !! Cart total amount needs to be equal to or greater than {$coupon[MINIMUM_AMOUNT_NEEDED]}");
+}
+else {
+    $temp_res = $ordersModel->update($updationRow, "`order_id` = {$orderId}");
+}
 if ($temp_res instanceof Fallacy) {
     $allGood = false;
     foreach ($toCommit as $model) {

@@ -135,5 +135,23 @@ class Orders extends Table
         } else return new Fallacy(CustomErrors::VALUE_ERROR, "no order found with given details");
     }
 
-    
+    public function checkCoupon($couponCode)
+    {
+        $couponsModel = \Models\Coupons::getInstance();
+        $coupon = $couponsModel->findByCouponCode($couponCode);
+
+        if ($coupon instanceof Fallacy) {
+            return $coupon;
+        } else if ($coupon === null) {
+            return new Fallacy(null,CustomErrors::valueNotFoundMessage(COUPON_CODE));
+        }
+
+        $couponUsedCount = $couponsModel->getCouponUsedCount($couponCode);
+
+        if ($couponUsedCount > $coupon['use_limit']) {
+            return new Fallacy(null,"Failed to apply coupon !! Coupon already expired or used maximum times");
+        }
+
+        return $coupon;
+    }
 }

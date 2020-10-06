@@ -54,7 +54,8 @@ class Coupons extends Table
     public function getCouponUsedCount($couponCode) {
         $ordersModel = \Models\Orders::getInstance();
         $condRow[COUPON_CODE] = $couponCode;
-        $sql = "SELECT COUNT( ".COUPON_CODE." ) FROM orders";
+        $sql = "SELECT COUNT( ".COUPON_CODE." ) FROM orders WHERE ";
+        $sql.=$this->conditionCreaterHelper($condRow);
         $temp_res = $ordersModel->dbObj->query($sql);
         return $temp_res->fetch_array(MYSQLI_NUM)[0];
     }

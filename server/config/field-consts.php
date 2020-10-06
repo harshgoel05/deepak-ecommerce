@@ -43,3 +43,5 @@ const FINAL_SUBTOTAL_PRICE = 'final_subtotal_price';
 const FLAT_OFF_AMOUNT = 'flat_off_amount';
 const FLAT_OFF_PERCENTAGE = 'flat_off_percentage';
 const COUPON = 'coupon';
+const TOTAL_AMOUNT = 'total_amount';
+const FINAL_AMOUNT = 'final_amount';
