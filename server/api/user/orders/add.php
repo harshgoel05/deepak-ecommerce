@@ -75,7 +75,7 @@ foreach($items as $item)
     $updationRow[TOTAL_AMOUNT]+=$item[SUBTOTAL_PRICE];
     $updationRow[FINAL_AMOUNT]+=$item[FINAL_SUBTOTAL_PRICE];
 }
-if($updationRow[TOTAL_AMOUNT] < $coupon[MINIMUM_AMOUNT_NEEDED])
+if($coupon !== null && $updationRow[TOTAL_AMOUNT] < $coupon[MINIMUM_AMOUNT_NEEDED])
 {
     $temp_res = new Fallacy(null,"Failed to apply coupon !! Cart total amount needs to be equal to or greater than {$coupon[MINIMUM_AMOUNT_NEEDED]}");
 }

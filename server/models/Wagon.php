@@ -24,9 +24,9 @@ class Wagon extends Table
             return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage("product_category"));
         }
         $this->addPrimarySelectedKeysIfMissing($row);
-        if ($row['selected_quantity'] <= 0) {
+        /* if ($row['selected_quantity'] <= 0) {
             return new Fallacy(CustomErrors::VALUE_ERROR, "selected_quantity should be a positive integer");
-        }
+        } */
         $extra = "ON DUPLICATE KEY UPDATE `selected_quantity` = `selected_quantity` + " . $row['selected_quantity'];
         return $this->insertRow($row, $extra);
     }
