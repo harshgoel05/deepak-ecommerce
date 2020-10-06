@@ -19,6 +19,7 @@ $data['user_id'] = $identifier;
 
 $ordersModel = \Models\Orders::getInstance();
 $ordersDetailsModel = \Models\OrdersDetails::getInstance();
+$couponsModel = \Models\Coupons::getInstance();
 
 $ordersModel->dbObj->begin_transaction();
 $orderId = $ordersModel->createOrder($data);
@@ -28,7 +29,15 @@ $allGood = true;
 $toCommit[] = $ordersModel;
 $totalPrice = 0;
 $items = $data['items'];
+
+$coupon = null;
+if(!empty($data[COUPON_CODE]))
+{
+    $coupon = $couponsModel->findByCouponCode($data[COUPON_CODE]);
+}
+
 foreach ($items as $item) {
+    $item[COUPON] = $coupon;
     $item['order_id'] = $orderId;
     if (in_array($item[PRODUCT_CATEGORY], PRODUCT_CATEGORIES)) {
         if (!array_key_exists($item[PRODUCT_CATEGORY], $toCommit)) {

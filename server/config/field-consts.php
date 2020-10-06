@@ -37,8 +37,9 @@ const ORDER_STATUS_FLAGS =[
 
 const ORDER_ID = 'order_id';
 const COUPON_CODE = 'coupon_code';
-const MINIMUM_AMOUNT_NEEDED = 'minimum_amount_needed';
+const MINIMUM_AMOUNT_NEEDED = 'min_amount_needed';
 const SUBTOTAL_PRICE = 'subtotal_price';
 const FINAL_SUBTOTAL_PRICE = 'final_subtotal_price';
 const FLAT_OFF_AMOUNT = 'flat_off_amount';
 const FLAT_OFF_PERCENTAGE = 'flat_off_percentage';
+const COUPON = 'coupon';

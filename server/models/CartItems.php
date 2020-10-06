@@ -15,9 +15,11 @@ class CartItems extends Wagon
     public function getItems($userId)
     {
         $cartModel = \Models\Cart::getInstance();
-        $cartItems = parent::getItems($userId);
+        $items = parent::getItems($userId);
+        // print_r($items);
         $coupon = $cartModel->getCoupon($userId);
-        foreach($cartItems as &$item)
+        // print_r($coupon);
+        foreach($items as &$item)
         {
             $item[FINAL_SUBTOTAL_PRICE] = $item[SUBTOTAL_PRICE];
             if($coupon !== null)
@@ -27,6 +29,6 @@ class CartItems extends Wagon
             }
         }
         unset($item);
-        return $cartItems;
+        return $items;
     }
 }

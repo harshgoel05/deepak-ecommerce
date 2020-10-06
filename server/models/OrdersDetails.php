@@ -22,7 +22,7 @@ class OrdersDetails extends Table
         parent::__construct($_name, $_dbObj);
     }
 
-    public function insertRow($data,$extra=NULL,$returnSubTotalPrice = 1)
+    public function insertRow($data,$extra=NULL)
     {
         /* print_r($data);
         echo '<br>'; */
@@ -47,22 +47,21 @@ class OrdersDetails extends Table
         }
         $this->addKeysIfMissing($data);
         $data['price'] = $product['price'];
-        $data['subtotal_price'] = $product['price'] * $data['selected_quantity'];
-        $data['subtotal_price'] -= ($data['discount'] / 100) * $data['subtotal_price'];
+        $data[SUBTOTAL_PRICE] = $product['price'] * $data['selected_quantity'];
+        $data[FINAL_SUBTOTAL_PRICE] = $data[SUBTOTAL_PRICE];
+        if($data[COUPON] !== null)
+        {
+            $coupon = $data[COUPON];
+            $data[FINAL_SUBTOTAL_PRICE]-=$coupon[FLAT_OFF_AMOUNT];
+            $data[FINAL_SUBTOTAL_PRICE]-= ($coupon[FLAT_OFF_PERCENTAGE]/100)*$data[FINAL_SUBTOTAL_PRICE];
+        }
         $productUpdationRow = [];
         $productUpdationRow['quantity']=$product['quantity']-$data['selected_quantity'];
         $temp_res = $productModel->updateProductById($product['productid'],$productUpdationRow);
         if($temp_res instanceof Fallacy)
             return $temp_res;
         $temp_res = parent::insertRow($data);
-        if($returnSubTotalPrice)
-        {
-            if($temp_res instanceof Fallacy)
-                return $temp_res;
-            else
-                return $data['subtotal_price'];
-        }
-        else return $temp_res;
+        return $temp_res;
     }
 
     

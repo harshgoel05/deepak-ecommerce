@@ -14,6 +14,7 @@ class Cart extends Table
     {
         $_name = 'cart';
         $_dbObj = \Databases\UsersDB::getInstance();
+        parent::__construct($_name,$_dbObj);
     }
 
     public function applyCoupon($userId, $couponCode)
@@ -28,6 +29,8 @@ class Cart extends Table
         }
         $cartItemsModel = \Models\CartItems::getInstance();
         $cartAmount = $cartItemsModel->getTotalAmount($userId);
+        // print_r($cartAmount);
+        // print_r($coupon[MINIMUM_AMOUNT_NEEDED]);
         if ($cartAmount < $coupon[MINIMUM_AMOUNT_NEEDED]) {
             return new Fallacy(null,"Failed to apply coupon !! Cart total amount needs to be equal to or greater than {$coupon[MINIMUM_AMOUNT_NEEDED]}");
         }
@@ -48,9 +51,14 @@ class Cart extends Table
     public function getCoupon($userId)
     {
         $condRow['user_id'] = $userId;
-        $temp_res = $this->find(COUPON_CODE,$this->conditionCreaterHelper($condRow));
+        $temp_res = $this->find([COUPON_CODE],$this->conditionCreaterHelper($condRow));
         if($temp_res->num_rows > 0)
-            return $temp_res->fetch_array(MYSQLI_NUM)[0];
+        {
+            $couponCode = $temp_res->fetch_array(MYSQLI_NUM)[0];
+            $couponsModel = \Models\Coupons::getInstance();
+            $coupon = $couponsModel->findByCouponCode($couponCode);
+            return $coupon;
+        }
         else return null;
     }
 }

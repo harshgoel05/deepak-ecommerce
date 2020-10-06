@@ -56,7 +56,7 @@ class Coupons extends Table
         $condRow[COUPON_CODE] = $couponCode;
         $sql = "SELECT COUNT( ".COUPON_CODE." ) FROM orders";
         $temp_res = $ordersModel->dbObj->query($sql);
-        return $temp_res->fetch_arrray(MYSQLI_NUM)[0];
+        return $temp_res->fetch_array(MYSQLI_NUM)[0];
     }
 
 }
