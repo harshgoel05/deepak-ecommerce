@@ -1,11 +1,11 @@
 $("#user-login-btn").on("click", function (event) {
   event.preventDefault();
-  var email = $("#email").val();
+  var username = $("#username").val();
   var pass = $("#pass").val();
-  console.log(email, pass);
-  if (email && pass) {
+  console.log(username, pass);
+  if (username && pass) {
     let body = {
-      email: email,
+      email: username,
       password: pass,
     };
     $.ajax({

@@ -34,8 +34,7 @@ $(document).ready(function () {
       // delete api inside the success for previous api
       $(".delete-btn").click(function () {
         console.log("hi");
-        console.log($(this));
-        let productid = $(this)[0].id;
+        let productid = $(this).id;
         console.log(productid);
         $.ajax({
           url:
@@ -49,7 +48,7 @@ $(document).ready(function () {
           },
           success: function (response, status, xhr) {
             alert("Product Deleted");
-            // window.location.reload();
+            window.location.reload();
           },
           error: function (xhr, status) {
             console.log("error", xhr, status);
