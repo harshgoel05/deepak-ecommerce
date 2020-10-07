@@ -167,11 +167,11 @@ abstract class Table
                 $condition.="`{$key}` IN ";
                 $condition.="( ";
                 $temp_arr = array_keys($value);
-                $lastKey = end($temp_arr);
+                $innerLastKey = end($temp_arr);
                 foreach($value as $temp_key => $temp_value)
                 {
                     $condition.=$this->dbObj->appendValue($temp_value)." ";
-                    if($temp_key === $lastKey)
+                    if($temp_key !== $innerLastKey)
                     {
                         $condition.=", ";
                     }

@@ -33,7 +33,7 @@ class Orders extends Table
         $all = [];
         foreach($allOrders as $one)
         {
-            $temp = $this->getOrderDetails($one[ORDER_ID],$one['user_id']);
+            $temp = $this->getOrders($one[ORDER_ID],$one['user_id']);
             if($temp instanceof Fallacy)
                 return $temp;
             $all[]=$temp;
@@ -41,7 +41,7 @@ class Orders extends Table
         return $all;
     }
 
-    public function getOrders($ids = null, $userId)
+    public function getOrders($ids , $userId)
     {
         $orderIds = $ids;
         if ($ids !== null) {
@@ -60,6 +60,9 @@ class Orders extends Table
         }
         if ($orders instanceof Fallacy)
             return $orders;
+        /* print_r($condition);
+        echo '<br>'; */
+        // print_r($orders);
         if ($orders->num_rows > 0) {
             if ($orderIds === null || is_array($orderIds)) {
                 $orders = $orders->fetch_all(MYSQLI_ASSOC);

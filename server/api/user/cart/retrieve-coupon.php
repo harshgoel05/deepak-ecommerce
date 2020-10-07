@@ -23,6 +23,6 @@ if($temp_res instanceof Fallacy)
     else \Utility\HttpErrorHandlers\badRequestErrorHandler($temp_res);
 }
 else {
-    \Utility\HttpUtil\sendSuccessResponse([COUPON_CODE => $temp_res]);
+    \Utility\HttpUtil\sendSuccessResponse([COUPON_CODE => $temp_res[COUPON_CODE]]);
 }
 
