@@ -45,3 +45,4 @@ const FLAT_OFF_PERCENTAGE = 'flat_off_percentage';
 const COUPON = 'coupon';
 const TOTAL_AMOUNT = 'total_amount';
 const FINAL_AMOUNT = 'final_amount';
+const ORDER_STATUS = 'order_status';

@@ -25,6 +25,22 @@ class Orders extends Table
             return $temp_res;
         } else return $this->dbObj->insert_id();
     }
+
+    public function getFilteredOrders($data)
+    {
+        $condition = $this->conditionCreaterHelper($data);
+        $allOrders = $this->find(null,$condition);
+        $all = [];
+        foreach($allOrders as $one)
+        {
+            $temp = $this->getOrderDetails($one[ORDER_ID],$one['user_id']);
+            if($temp instanceof Fallacy)
+                return $temp;
+            $all[]=$temp;
+        }
+        return $all;
+    }
+
     public function getOrders($ids = null, $userId)
     {
         $orderIds = $ids;
