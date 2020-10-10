@@ -48,7 +48,7 @@ $(document).ready(function () {
           },
           success: function (response, status, xhr) {
             alert("Product Deleted");
-            window.location.reload();
+            window.location.reload()
           },
           error: function (xhr, status) {
             console.log("error", xhr, status);
