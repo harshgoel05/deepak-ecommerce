@@ -24,8 +24,10 @@ class CartItems extends Wagon
             $item[FINAL_SUBTOTAL_PRICE] = $item[SUBTOTAL_PRICE];
             if($coupon !== null)
             {
-                $item[FINAL_SUBTOTAL_PRICE] -= $coupon[FLAT_OFF_AMOUNT];
+                $temp = min($coupon[FLAT_OFF_AMOUNT],$item[FINAL_SUBTOTAL_PRICE]);
+                $item[FINAL_SUBTOTAL_PRICE] -= $temp;
                 $item[FINAL_SUBTOTAL_PRICE] -= ($coupon[FLAT_OFF_PERCENTAGE]/100)*$item[FINAL_SUBTOTAL_PRICE];
+                $coupon[FLAT_OFF_AMOUNT]-=$temp;
             }
         }
         unset($item);
