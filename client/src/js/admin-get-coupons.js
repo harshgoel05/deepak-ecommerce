@@ -6,11 +6,7 @@ $(document).ready(function () {
     success: function (response) {
       if (response.data) {
         response.data.forEach((coupon, index) => {
-          if (coupon.flat_off_amount) {
-            var coupondis = `INR ${coupon.flat_off_amount}`;
-          } else if (coupon.flat_off_percentage) {
-            var coupondis = `${coupon.flat_off_percentage} %`;
-          }
+          console.log(escape(coupon.title));
           $("tbody").append(`
                   <tr>
                   <th
@@ -20,7 +16,11 @@ $(document).ready(function () {
                   </th>
                   <td>${coupon.coupon_code || "N/A"}</td>
                   <td>${coupon.min_amount_needed || "N/A"}</td>
-                  <td>${coupondis || "N/A"}</td>
+                  <td>${
+                    coupon.flat_off_amount ||
+                    coupon.flat_off_percentage ||
+                    "N/A"
+                  }</td>
                   <td>${coupon.use_limit || "N/A"}</td>
                   <td>${coupon.description || "N/A"}</td>
                   <td>${coupon.ts_create || "N/A"}</td>
