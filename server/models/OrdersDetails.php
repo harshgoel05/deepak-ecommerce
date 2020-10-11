@@ -52,7 +52,7 @@ class OrdersDetails extends Table
         if($data[COUPON] !== null)
         {
             $coupon = $data[COUPON];
-            $data[FINAL_SUBTOTAL_PRICE]-=$coupon[FLAT_OFF_AMOUNT];
+            // $data[FINAL_SUBTOTAL_PRICE]-=$coupon[FLAT_OFF_AMOUNT];
             $data[FINAL_SUBTOTAL_PRICE]-= ($coupon[FLAT_OFF_PERCENTAGE]/100)*$data[FINAL_SUBTOTAL_PRICE];
         }
         $productUpdationRow = [];
