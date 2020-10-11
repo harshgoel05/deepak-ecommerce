@@ -1,35 +1,48 @@
 $(document).ready(function () {
   $.ajax({
     url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/coupons/retrieve.php",
+      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/find.php",
     type: "GET",
     success: function (response) {
       if (response.data) {
-        response.data.forEach((coupon, index) => {
-          if (coupon.flat_off_amount) {
-            var coupondis = `INR ${coupon.flat_off_amount}`;
-          } else if (coupon.flat_off_percentage) {
-            var coupondis = `${coupon.flat_off_percentage} %`;
-          }
+        response.data.forEach((product, index) => {
           $("tbody").append(`
-                  <tr>
-                  <th
-                    scope="row"
-                  >
-                    ${index + 1}
-                  </th>
-                  <td>${coupon.coupon_code || "N/A"}</td>
-                  <td>${coupon.min_amount_needed || "N/A"}</td>
-                  <td>${coupondis || "N/A"}</td>
-                  <td>${coupon.use_limit || "N/A"}</td>
-                  <td>${coupon.description || "N/A"}</td>
-                  <td>${coupon.ts_create || "N/A"}</td>
-                  <td>
-                    <button type="button" class="btn btn-danger delete-btn"  id = ${
-                      coupon.coupon_code
-                    }>Delete</button>
-                  </td>
-                </tr>      
+          <tr>
+          <td>${index}</td>
+          <td>Yo sarees</td>
+          <td>One-size</td>
+          <td>Red</td>
+          <td>sarees</td>
+          <td>Paithani Sarees</td>
+          <td>NIL</td>
+          <td>NIL</td>
+          <td>Rs. 3,800</td>
+          <td>31/12.2020</td>
+          <td>Ordered</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary updates"
+              id="ordered"
+            >
+              Ordered</button
+            >&nbsp;&nbsp;
+            <button
+              type="button"
+              class="btn btn-secondary updates"
+              id="shipped"
+            >
+              Shipped</button
+            >&nbsp;&nbsp;
+            <button
+              type="button"
+              class="btn btn-success updates"
+              id="delivered"
+            >
+              Delivered
+            </button>
+          </td>
+        </tr>
                   `);
         });
         // delete api inside the success for previous api
