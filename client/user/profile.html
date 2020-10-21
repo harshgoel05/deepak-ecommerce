@@ -27,11 +27,12 @@
         <div class="card__profile">
           <img
             src="https://randomuser.me/api/portraits/men/52.jpg"
-            alt="A man smiling"
+            alt="Profile"
+            id="user-pp-img"
           />
         </div>
         <div class="card__name">
-          <h2>Aman Kumar</h2>
+          <h2 id="user-name"></h2>
         </div>
         <div class="card__button">
           <button onclick="window.location.href='./editprofile.html'">
@@ -64,20 +65,15 @@
         <div class="insights">
           <div class="insight">
             <div class="heading">Email</div>
-            <div class="number">aman@gmail.com</div>
+            <div class="number" id="user-email"></div>
           </div>
           <div class="insight">
             <div class="heading">Phone Number</div>
-            <div class="number">+91 9212349873</div>
+            <div class="number" id="user-num"></div>
           </div>
           <div class="insight">
             <div class="heading">Address</div>
-            <div class="number">
-              Tamil Nadu<br />
-              Chennai<br />
-              H.No. 5,Area name, near some mall<br />
-              200300
-            </div>
+            <div class="number" id="user-add"></div>
           </div>
         </div>
       </div>
@@ -115,11 +111,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../src/js/common.js"></script>
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
@@ -129,6 +120,6 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="../src/js/home.js"></script>
+    <script src="./user-scripts/user-getprofile.js"></script>
   </body>
 </html>

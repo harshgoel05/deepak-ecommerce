@@ -16,20 +16,21 @@ $("#user-register-btn").on("click", function (event) {
       url:
         "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php",
       type: "POST",
-      data: JSON.stringify(body),
+      data: JSON.stringify(body_data),
       success: function (response) {
         alert("User registerations successfull!");
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
-        alert("Some unknown error occured. Please try logging in.");
+        alert(
+          "Some unknown error occured. Please try logging in if you have already registered."
+        );
       },
     });
   } else {
     alert("Please enter all the details");
   }
 });
-
 
 /*$(function () {
   $("#name_error_message").hide();

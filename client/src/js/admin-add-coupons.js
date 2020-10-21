@@ -18,7 +18,7 @@ $("#admin-add-coupon-btn").on("click", function (event) {
       type: "POST",
       data: JSON.stringify(body),
       success: function (response) {
-        alert("User registerations successfull!");
+        alert("Coupon added successfully!");
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
