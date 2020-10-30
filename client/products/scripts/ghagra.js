@@ -34,7 +34,7 @@ function appendData(productElement) {
 }
 
 $(document).ready(async function () {
-    const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/sarees/retrieve.php?');
+    const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/ghagra/retrieve.php?');
     const json = await response.json();
     const array = json.data;
     array.map((x)=>{
