@@ -1,4 +1,4 @@
-$(function () {
+$("#submit-btn").click(function () {
   $("#name_error_message").hide();
   $("#email_error_message").hide();
   $("#password_error_message").hide();
@@ -12,6 +12,20 @@ $(function () {
   var error_confirm_password = false;
   var error_address = false;
   var error_phone_number = false;
+
+  //Defined all the variables
+
+  let name = $("#name").val();
+  let email =  $("#email").val();
+  let password = $("#password").val();
+  let confirm_password = $("#confirm_password").val();
+  let state = $("#state").val();
+  let city = $("#city").val();
+  let pincode = $("pincode").val();
+  let address = $("#address").val();
+  let phone_number = $("#phone_number").val();
+  
+  
 
   $("#name").focusout(function () {
     check_name();
@@ -126,6 +140,38 @@ $(function () {
     ) {
       alert("Registration Successfull");
       //   Call ajax here
+
+      body_data={
+        name: name,
+        email: email,
+        password: password,
+        confirm_password: confirm_password,
+        state: state,
+        city: city,
+        address: address,
+        pin_code: pincode,
+        mobile_no: phone_number
+
+      }
+
+      
+
+      $.ajax({
+        url:
+          "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php",
+        type: "POST",
+        data: JSON.stringify(body_data),
+        success: function (response) {
+          alert("User registerations successfull!");
+        },
+        error: function (xhr, status) {
+          console.log("error", xhr, status);
+          alert(
+            "Some unknown error occured. Please try logging in if you have already registered."
+          );
+        },
+      });
+
       return true;
     } else {
       alert("Please Fill the form Correctly");
@@ -133,3 +179,4 @@ $(function () {
     }
   });
 });
+
