@@ -68,7 +68,7 @@ function appendData(productElement) {
 }
 
 window.addEventListener('load',async function (){
-    const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/sarees/retrieve.php?');
+    const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/readymadeDresses/retrieve.php?');
     const json = await response.json();
     const array = json.data;
     array.map((x) => {
@@ -84,12 +84,12 @@ window.addEventListener('load',async function (){
             console.log('clicked');
             const product_id =wishButton.id;
             console.log(product_id);
-            const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/sarees/retrieve.php?productid=' + product_id);
+            const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/readymadeDresses/retrieve.php?productid=' + product_id);
             const json = await response.json();
             const object = json.data;
             console.log(object);
             const data = {
-                "product_category": "sarees",
+                "product_category": "readymadeDresses",
                 "productid": object.productid,
                 "selected_quantity": object.quantity,
                 "selected_size": object.size,
@@ -121,12 +121,12 @@ window.addEventListener('load',async function (){
             console.log('clicked');
             const product_id = cartButton.id;
             console.log(product_id);
-            const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/sarees/retrieve.php?productid=' + product_id);
+            const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/readymadeDresses/retrieve.php?productid=' + product_id);
             const json = await response.json();
             const object = json.data;
             console.log(object);
             const data = {
-                "product_category": "sarees",
+                "product_category": "readymadeDresses",
                 "productid": object.productid,
                 "selected_quantity": object.quantity,
                 "selected_size": object.size,
