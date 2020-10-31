@@ -87,6 +87,7 @@
             <ul class="main-categories">
               <li class="main-nav-list">
                 <a
+                  onclick="renderDressMaterial()"
                   data-toggle="collapse"
                   href="#Dress Material"
                   aria-expanded="false"
@@ -100,6 +101,7 @@
 
               <li class="main-nav-list">
                 <a
+                  onclick="renderGhagra()"
                   data-toggle="collapse"
                   href="#Ghagra"
                   aria-expanded="false"
@@ -126,6 +128,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderKurti()"
                   data-toggle="collapse"
                   href="#Kurtis"
                   aria-expanded="false"
@@ -159,6 +162,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderLeggings()"
                   data-toggle="collapse"
                   href="#Leggings"
                   aria-expanded="false"
@@ -197,6 +201,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderSaree()"
                   data-toggle="collapse"
                   href="#Sarees"
                   aria-expanded="false"
@@ -276,6 +281,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderDresses()"
                   data-toggle="collapse"
                   href="#Readymadedresses"
                   aria-expanded="false"
@@ -313,6 +319,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderBlouses()"
                   data-toggle="collapse"
                   href="#ReadymadeBlouse"
                   aria-expanded="false"
@@ -323,6 +330,7 @@
               </li>
               <li class="main-nav-list">
                 <a
+                  onclick="renderPalazzos()"
                   data-toggle="collapse"
                   href="#Palazzos"
                   aria-expanded="false"
@@ -340,7 +348,7 @@
           <section
             class="lattest-product-area pb-40 category-list list-wrapper"
           >
-            <div class="row">
+            <div class="row" id="render-space">
               <!-- single product -->
               <div class="col-lg-4 col-md-6">
                 <div class="single-product list-item">
@@ -1936,5 +1944,6 @@
     <script src="./user/user-scripts/index-check-user-login.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="./src/js/customer.js"></script>
+    <script src="./src/js/index-render.js"></script>
   </body>
 </html>
