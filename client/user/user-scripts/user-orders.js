@@ -6,32 +6,23 @@ $.ajax({
   type: "GET",
   crossDomain: true,
   success: function (response) {
-    response.data.forEach((product,index) => {
-      product.item.forEach((item,i) => {
-
+    response.data.forEach((product, index) => {
+      product.item.forEach((item, i) => {
         // Function for fetching the image
-       
-          // var pp = item.image1.replace('\\', '');
-          // $('#image').attr('src', `data:image/png;base64,${pp}`);
-          
 
-          // Converting integer value of status to string
-          var status 
-          
-          if(product.order_status == 0)
-          status="Placed"
-          else if(product.order_status == 1)
-          status= "Out For Delivery"
-          else if(product.order_status == 2)
-          status= "Delivered"
-          else if(product.order_status == 3)
-          status= "Cancelled"
-          else if(product.order_status == 4)
-          status= "Returned"
+        // var pp = item.image1.replace('\\', '');
+        // $('#image').attr('src', `data:image/png;base64,${pp}`);
 
-     
-          $(".main_cart").append(
-        `<div class="card p-4">
+        // Converting integer value of status to string
+        var status;
+
+        if (product.order_status == 0) status = "Placed";
+        else if (product.order_status == 1) status = "Out For Delivery";
+        else if (product.order_status == 2) status = "Delivered";
+        else if (product.order_status == 3) status = "Cancelled";
+        else if (product.order_status == 4) status = "Returned";
+        $(".main_cart").append(
+          `<div class="card p-4">
         
         <div class="row">
           <!-- cart images div -->
@@ -40,7 +31,7 @@ $.ajax({
           >
             <img
               
-              src="https://assets.myntassets.com/h_560,q_90,w_420/v1/assets/images/9565501/2019/5/8/aa78186a-9c04-4e42-b5b8-6ce7bd9c3c401557311695707-Janasya-turquoise-blue-7861557311694458-1.jpg"
+              src=data:image/png;base64,${item.image1.replace("\\", "")}
               class="img-fluid"
               alt="cart img"
             />
@@ -114,14 +105,9 @@ $.ajax({
       </div>
       <hr />
         `
-          
-        
-      );
-      
+        );
+      });
     });
-  });
-
-    
   },
   error: function (xhr, status) {
     console.log("User Not logged in");
@@ -129,4 +115,3 @@ $.ajax({
 });
 
 //Shubhankar
-
