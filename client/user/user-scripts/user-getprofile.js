@@ -6,7 +6,7 @@ $.ajax({
   type: "GET",
   crossDomain: true,
   success: function (response) {
-    // $("#user-pp-img").attr(response.data.name);// fix image
+    // $("#user-pp-img").html(response.data.image);// fix image
     $("#user-name").html(response.data.name);
     $("#user-email").html(response.data.email);
     $("#user-num").html(
