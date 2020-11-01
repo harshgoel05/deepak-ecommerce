@@ -297,7 +297,7 @@ async function renderSaree() {
             const object = json.data;
             console.log(object);
             const data = {
-                "product_category": object.product_category,
+                "product_category": "sarees",
                 "productid": object.productid,
                 "selected_quantity": object.quantity,
                 "selected_size": object.size,
@@ -334,7 +334,7 @@ async function renderSaree() {
             const object = json.data;
             console.log(object);
             const data = {
-                "product_category": object.product_category,
+                "product_category": "sarees",
                 "productid": object.productid,
                 "selected_quantity": object.quantity,
                 "selected_size": object.size,
@@ -796,3 +796,5 @@ function appendData(productElement) {
     productBody.appendChild(column);
 
 }
+
+renderSaree();
