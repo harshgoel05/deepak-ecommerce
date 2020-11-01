@@ -32,7 +32,7 @@ $("#user-register-btn").on("click", function (event) {
   }
 });
 
-/*$(function () {
+  $(function () {
   $("#name_error_message").hide();
   $("#email_error_message").hide();
   $("#password_error_message").hide();
@@ -166,4 +166,4 @@ $("#user-register-btn").on("click", function (event) {
       return false;
     }
   });
-});*/
+});

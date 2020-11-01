@@ -1,14 +1,18 @@
 $("#submit-btn1").click(function () {
   console.log("Call add product API");
-  let id = $("#id1").val();
+  let id = ($("#id1").val());
   let title = $("#title1").val();
   let sub_title = $("#sub_title1").val();
-  let price = $("#price1").val();
-  let quant = $("#quant1").val();
+  let price = parseInt($("#price1").val());
+  let quant = parseInt($("#quant1").val());
   // let sub_cat = $("#sub-cat1").val();
   let description = $("#des1").val();
   let type = $("#type1").val();
   let fab = $("#faab1").val();
+
+  //console.log(typeof price);
+  //alert(typeof price);
+  
 
   var sizes = [];
   $("#size-container1 input:checked").each(function () {
@@ -60,6 +64,7 @@ $("#submit-btn1").click(function () {
     finalbody[`washcare${index + 1}`] = washcare;
   });
   console.log(finalbody);
+  //alert(typeof finalbody.price);
 
   $.ajax({
     url:

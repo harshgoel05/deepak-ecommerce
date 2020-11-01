@@ -7,7 +7,7 @@ $.ajax({
   crossDomain: true,
   success: function (response) {
     response.data.forEach((product, index) => {
-      product.item.forEach((item, i) => {
+      product.items.forEach((item, i) => {
         // Function for fetching the image
 
         // var pp = item.image1.replace('\\', '');
@@ -31,7 +31,7 @@ $.ajax({
           >
             <img
               
-              src=data:image/png;base64,${item.image1.replace("\\", "")}
+              src=data:image/png;base64,${item.image1.replace("\\", "")|| "" }
               class="img-fluid"
               alt="cart img"
             />

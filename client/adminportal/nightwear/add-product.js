@@ -91,8 +91,8 @@ $("#submit-btn3").click(function () {
   let id = $("#id").val();
   let title = $("#title3").val();
   let sub_title = $("#sub_title3").val();
-  let price = $("#price3").val();
-  let quant = $("#quant3").val();
+  let price = parseInt($("#price3").val());
+  let quant = parseInt($("#quant3").val());
   let description = $("#des3").val();
   let type= $("#type3").val();
   let fabric= $("#faab3").val();
