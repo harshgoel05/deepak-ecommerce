@@ -13,7 +13,7 @@ $("#submit-btn5").click(function () {
   let sareefabric = $("#sfab5").val();
   let length = $("#length5").val();
   let width = $("#width5").val();
-
+  let img1 = $("#img1").attr('src');
   var sizes = [];
   $("#size-container5 input:checked").each(function () {
     sizes.push(this.value);
