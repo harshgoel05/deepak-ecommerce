@@ -23,6 +23,12 @@ class Wagon extends Table
         if (!(in_array($row['product_category'], PRODUCT_CATEGORIES))) {
             return new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage("product_category"));
         }
+        $productModel = getSingleton('\\Models\\Products\\',$row['product_category']);
+        $product = $productModel->findProductById($row['productid']);
+        if($product === null)
+        {
+            return new Fallacy(CustomErrors::VALUE_ERROR,CustomErrors::invalidValueMessage('productid'));
+        }
         $this->addPrimarySelectedKeysIfMissing($row);
         /* if ($row['selected_quantity'] <= 0) {
             return new Fallacy(CustomErrors::VALUE_ERROR, "selected_quantity should be a positive integer");

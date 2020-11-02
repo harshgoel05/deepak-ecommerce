@@ -9,7 +9,6 @@ require_once(__ROOT__ . '/utility/autoloader.php');
 // print_r(\Models\Cart::getInstance()->getCols());
 // echo '<br>';
 foreach (PRODUCT_CATEGORIES as $category) {
-    $i = 1;
     $productModel = getSingleton('\\Models\\Products\\', $category);
     /* $sql = "DELETE FROM databunker";
     if ($productModel->dbObj->query($sql)) {
@@ -18,31 +17,18 @@ foreach (PRODUCT_CATEGORIES as $category) {
         echo "removing rows with null productid failed for " . $category . '<br>';
         break;
     } */
-    $num = $i*100 + 1;
-    echo "Inserting data in {$category}".'<br>';
-    $data = [
-        'productid' => $category.'PRO'.$num,
-        'title' => "some {$category} product title",
-        'subtitle' => "some {$category} product brand",
-        'price' => $num,
-        'quantity' => $num,
-        'colors' => "red.green.blue",
-        'fabric' => "some {$category} product fabric",
-        'material' => "some {category} product material",
-        'occasion1' => 1,
-        'occasion2' => 0,
-        'occasion3' => 1,
-        'occasion4' => 0,
-        'occasion5' => 1,
-        'occasion6' => 0,
-        'occasion7' => 1,
-        'washcare1' => 1,
-        'washcare2' => 0,
-        'washcare3' => 1,
-    ];
+    echo "Alter`ing columsn of {$category} table".'<br>';
+    
     $sqls = [
-        "INSERT INTO databunker (productid, title, subtitle, brand, price, quantity, colors, fabric, material, occasion1, occasion2, occasion3, occasion4, occasion5, occasion6, occasion7, washcare1, washcare2, washcare3,)".
-        "VALUES ("
+        "occasion1" => "ALTER TABLE databunker MODIFY COLUMN occasion1 VARCHAR(255)",
+        "occasion2" => "ALTER TABLE databunker MODIFY COLUMN occasion2 VARCHAR(255)",
+        "occasion3" => "ALTER TABLE databunker MODIFY COLUMN occasion3 VARCHAR(255)",
+        "occasion4" => "ALTER TABLE databunker MODIFY COLUMN occasion4 VARCHAR(255)",
+        "occasion5" => "ALTER TABLE databunker MODIFY COLUMN occasion5 VARCHAR(255)",
+        "occasion6" => "ALTER TABLE databunker MODIFY COLUMN occasion6 VARCHAR(255)",
+        "washcare1" => "ALTER TABLE databunker MODIFY COLUMN washcare1 VARCHAR(255)",
+        "washcare2" => "ALTER TABLE databunker MODIFY COLUMN washcare2 VARCHAR(255)",
+        "washcare3" => "ALTER TABLE databunker MODIFY COLUMN washcare3 VARCHAR(255)",
     ];
     $allGood = true;
     foreach ($sqls as $key => $value) {
@@ -59,5 +45,4 @@ foreach (PRODUCT_CATEGORIES as $category) {
     }
     if (!$allGood)
         break;
-    $i++;
 }

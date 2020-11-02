@@ -17,6 +17,7 @@ class ProductsBase extends \Models\Table
         {
             return null;
         } */
+        // print_r($productId);
         if ($productId !== null) {
             if (is_array($productId)) {
                 foreach ($productId as $key => $value) {
@@ -25,14 +26,18 @@ class ProductsBase extends \Models\Table
                 }
                 $productsIds = implode(',', $productId);
             } else {
-                $productId = $this->dbObj->escape_string($productId);
+                $productId = "'" .$this->dbObj->escape_string($productId) . "'";
                 $productsIds = $productId;
             }
             $temp_res =  $this->findAllExceptGivenCols(['id'], "`productid` in ($productsIds)");
+            // echo "in not null findProductById".'<br>';
+            // print_r($temp_res);
         } else {
             $temp_res = $this->findAllExceptGivenCols(['id']);
         }
         if ($temp_res->num_rows > 0) {
+            /* print_r("here");
+            print_r($temp_res); */
             if ($productId === null || is_array($productId))
                 return $temp_res->fetch_all(MYSQLI_ASSOC);
             else return $temp_res->fetch_assoc();
