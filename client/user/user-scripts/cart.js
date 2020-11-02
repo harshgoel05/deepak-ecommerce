@@ -15,7 +15,9 @@ async function populateArea() {
     cartItems.map((cartItem) => {
         console.log(parseInt(cartItem.price));
         console.log(totalprice);
-        totalprice = totalprice+cartItem.price;
+        totalprice =parseInt(totalprice)+parseInt(cartItem.price);
+        console.log(totalprice);
+
         totalprice = totalprice*10;
         totalprice = totalprice/10;
         append(cartItem);

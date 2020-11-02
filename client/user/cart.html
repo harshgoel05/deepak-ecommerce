@@ -155,9 +155,14 @@
     };
 
     //HANDLE COUPONS
-    const discount_code = () => {
+    async function discount_code() {
       let totalamtcurr = parseInt(total_cart_amt.innerHTML);
       let error_trw = document.getElementById("error_trw");
+      let response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/coupons/retrieve.php?coupon_code=X_CODE2');
+      let json = await response.json();
+      console.log(json);
+      const coupons = json.data;
+
       if (discountCode.value === "aman") {
         let newtotalamt = totalamtcurr - 15;
         total_cart_amt.innerHTML = newtotalamt;
@@ -177,6 +182,7 @@
   <script src="./user-scripts/cart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="../src/js/common.js"></script>
+  <script src="../user/user-scripts/index-check-user-login.js"></script>
   <script src="../src/js/check-user-login.js"></script>
 
 </body>
