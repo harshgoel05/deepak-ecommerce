@@ -66,7 +66,7 @@ class ProductsBase extends \Models\Table
     public function updateProductById($productId, $row)
     {
         $productId = $this->dbObj->escape_string($productId);
-        $temp_res = $this->update($row, '`' . PRODUCT_ID . '`' . " = " . $productId);
+        $temp_res = $this->update($row, '`' . PRODUCT_ID . '`' . " = " . "'{$productId}'");
         if (!($temp_res instanceof Fallacy)) {
             if ($temp_res > 0)
                 return true;
