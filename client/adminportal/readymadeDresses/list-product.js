@@ -18,13 +18,7 @@ $(document).ready(function () {
                 <td>${product.productid || ""}</td>
                 <td>${product.title || ""}</td>
                 <td>${product.subcategory}</td>
-                <td>
-                  <button type="button" class="btn btn-primary edit-btn" id = ${
-                    product.productid
-                  }>
-                    Update
-                  </button>
-                </td>
+                
                 <td>
                   <button type="button" class="btn btn-danger delete-btn"  id = ${
                     product.productid

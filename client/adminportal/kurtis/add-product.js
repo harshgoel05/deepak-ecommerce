@@ -4,8 +4,8 @@ $("#submit-btn8").click(function () {
   let id = $("#id8").val();
   let title = $("#title8").val();
   let sub_title = $("#sub_title8").val();
-  let price = $("#price8").val();
-  let quant = $("#quant8").val();
+  let price = parseInt($("#price8").val());
+  let quant = parseInt($("#quant8").val());
   let sub_category = $("#sub-cat8").val();
   let description = $("#des").val();
   let kfl = $("#kfl8").val();

@@ -4,25 +4,28 @@ $("#user-register-btn").on("click", function (event) {
   var body_data = {};
   let flag = 0;
   for (let i = 0; i < form_data.length; i++) {
-    if (!form_data[i].value) {
-      flag = 1;
-      break;
-    } else {
-      body_data[form_data[i].name] = form_data[i].value;
-    }
+    // if (!form_data[i].value) {
+    //   flag = 1;
+    //   console.log("No data for", form_data[i].name);
+    //   break;
+    // } else {
+    body_data[form_data[i].name] = form_data[i].value;
+    // }
   }
-  if (flag != 0) {
+  if (body_data.password && body_data.email && body_data.confirm_password) {
     $.ajax({
       url:
         "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php",
       type: "POST",
-      data: JSON.stringify(body),
+      data: JSON.stringify(body_data),
       success: function (response) {
         alert("User registerations successfull!");
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);
-        alert("Some unknown error occured. Please try logging in.");
+        alert(
+          "Some unknown error occured. Please try logging in if you have already registered or fill in details properly"
+        );
       },
     });
   } else {
@@ -30,8 +33,7 @@ $("#user-register-btn").on("click", function (event) {
   }
 });
 
-
-/*$(function () {
+$(function () {
   $("#name_error_message").hide();
   $("#email_error_message").hide();
   $("#password_error_message").hide();
@@ -158,11 +160,11 @@ $("#user-register-btn").on("click", function (event) {
       error_phone_number === false
     ) {
       alert("Registration Successfull");
-    //   Call ajax here
+      //   Call ajax here
       return true;
     } else {
       alert("Please Fill the form Correctly");
       return false;
     }
   });
-});*/
+});

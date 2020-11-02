@@ -6,7 +6,7 @@ $(document).ready(function () {
     success: function (response) {
       if (response.data) {
         response.data.forEach((coupon, index) => {
-          console.log(escape(coupon.title));
+          // console.log(escape(coupon.title));
           $("tbody").append(`
                   <tr>
                   <th
@@ -34,7 +34,7 @@ $(document).ready(function () {
         });
         // delete api inside the success for previous api
         $(".delete-btn").click(function () {
-          console.log("hi");
+          // console.log("hi");
           let coupon_code = $(this)[0].id;
           console.log(coupon_code);
           $.ajax({

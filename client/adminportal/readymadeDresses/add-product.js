@@ -5,8 +5,8 @@ $("#submit_btn2").click(function () {
   let sub_category = $("#sub-cat2").val();
   let title = $("#title2").val();
   let sub_title = $("#sub_title2").val();
-  let price = $("#price2").val();
-  let quant = $("#quant2").val();
+  let price = parseInt($("#price2").val());
+  let quant = parseInt($("#quant2").val());
   let description = $("#des2").val();
   let type= $("#type2").val();
   let fabric= $("#faab2").val();

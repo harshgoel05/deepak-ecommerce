@@ -3,8 +3,8 @@ $("#submit-btn61").click(function () {
   let id = $("#id61").val();
   let title = $("#title61").val();
   let sub_title = $("#sub_title61").val();
-  let price = $("#price61").val();
-  let quant = $("#quant61").val();
+  let price = parseInt($("#price61").val());
+  let quant = parseInt($("#quant61").val());
   let brand = $("#brand61").val();
   let description = $("#des61").val();
   let material = $("#mat61").val();

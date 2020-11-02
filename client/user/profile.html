@@ -19,79 +19,7 @@
     <title>Deepak Sarees</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"
-        ><img class="imgnav" src="../src/img/sds1.jpg"
-      /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../index.html"
-              >HOME <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >ABOUT US <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >TESTIMONIALS <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./contact.html"
-              >CONTACT US <span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search Product"
-            aria-label="Search"
-          />
-          <button class="btn my-2 my-sm-0" type="submit">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </form>
-        <div class="form-inline my-2 my-lg-0 nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">WELCOME</a>
-            <a class="dropdown-item" href="./sign.html">Signup</a>
-            <a class="dropdown-item" href="./login.html">Login</a>
-            <a class="dropdown-item" href="./cart.html">My cart</a>
-            <a class="dropdown-item" href="./wishlist.html">My wish list</a>
-            <a href="#" class="dropdown-item logout-user-btn">Logout</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <div class="div-nav"></div>
     <br />
     <!-- partial:index.partial.html -->
     <div class="card">
@@ -99,11 +27,12 @@
         <div class="card__profile">
           <img
             src="https://randomuser.me/api/portraits/men/52.jpg"
-            alt="A man smiling"
+            alt="Profile"
+            id="user-pp-img"
           />
         </div>
         <div class="card__name">
-          <h2>Aman Kumar</h2>
+          <h2 id="user-name"></h2>
         </div>
         <div class="card__button">
           <button onclick="window.location.href='./editprofile.html'">
@@ -136,20 +65,15 @@
         <div class="insights">
           <div class="insight">
             <div class="heading">Email</div>
-            <div class="number">aman@gmail.com</div>
+            <div class="number" id="user-email"></div>
           </div>
           <div class="insight">
             <div class="heading">Phone Number</div>
-            <div class="number">+91 9212349873</div>
+            <div class="number" id="user-num"></div>
           </div>
           <div class="insight">
             <div class="heading">Address</div>
-            <div class="number">
-              Tamil Nadu<br />
-              Chennai<br />
-              H.No. 5,Area name, near some mall<br />
-              200300
-            </div>
+            <div class="number" id="user-add"></div>
           </div>
         </div>
       </div>
@@ -187,11 +111,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../src/js/common.js"></script>
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
@@ -201,6 +120,6 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="../src/js/home.js"></script>
+    <script src="./user-scripts/user-getprofile.js"></script>
   </body>
 </html>

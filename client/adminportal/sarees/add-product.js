@@ -4,8 +4,8 @@ $("#submit-btn5").click(function () {
   let sub_category = $("#sub-cat5").val();
   let title = $("#title5").val();
   let sub_title = $("#sub_title5").val();
-  let price = $("#price5").val();
-  let quant = $("#quant5").val();
+  let price = parseInt($("#price5").val());
+  let quant = parseInt($("#quant5").val());
   let description = $("#des5").val();
   let type = $("#type5").val();
   let blousefabric = $("#bfab5").val();
@@ -13,7 +13,7 @@ $("#submit-btn5").click(function () {
   let sareefabric = $("#sfab5").val();
   let length = $("#length5").val();
   let width = $("#width5").val();
-
+  let img1 = $("#img1").attr('src');
   var sizes = [];
   $("#size-container5 input:checked").each(function () {
     sizes.push(this.value);
