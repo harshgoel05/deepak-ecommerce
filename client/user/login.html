@@ -22,9 +22,7 @@
     <div class="div-nav"></div>
     <br /><br /><br /><br />
     <div class="login-content">
-      <form id="payment-form">
-      
-      </form>
+      <form id="payment-form"></form>
     </div>
     <br /><br /><br /><br />
     <!-- FOOTER START -->
@@ -43,7 +41,24 @@
       crossorigin="anonymous"
     ></script>
     <script src="../src/js/form.js"></script>
-    <script src="../src/js/check-user-login.js"></script>
+    <!-- <script src="../src/js/check-user-login.js"></script> -->
+    <script>
+      $.ajax({
+        url:
+          "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/profile.php",
+        type: "GET",
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (response, status, xhr) {
+          window.location.href =
+            "https://testing1.thestrategybook.com/deepak-ecommerce/client/user/profile.html";
+        },
+        error: function (xhr, status) {
+          console.log("User not logged in");
+        },
+      });
+    </script>
     <script src="../src/js/common.js"></script>
   </body>
 </html>
