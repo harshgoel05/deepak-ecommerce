@@ -6,6 +6,8 @@ $.ajax({
   type: "GET",
   crossDomain: true,
   success: function (response) {
+
+    // Alert for empty my orders
     if(response.data.length === 0)
     alert('You have not placed any orders');
 

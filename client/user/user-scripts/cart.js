@@ -12,6 +12,11 @@ async function populateArea() {
     const json = await response.json();
     const cartItems = json.data;
     console.log(cartItems);
+
+    // Alert for Empty Cart
+    if(cartItems.length === 0)
+    alert('Your Cart is Empty');
+
     cartItems.map((cartItem) => {
         console.log(parseInt(cartItem.price));
         console.log(totalprice);
