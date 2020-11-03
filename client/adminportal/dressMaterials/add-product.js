@@ -77,7 +77,7 @@ $("#add-product").click(function () {
     price: price,
     quantity: quant,
     // colors
-    image1: i1,
+    image1:  i1,
     image2 : i2,
     image3 : i3,
     image4 : i4,
