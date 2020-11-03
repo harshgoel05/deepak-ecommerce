@@ -656,7 +656,7 @@ async function renderPalazzos() {
 
 }
 
-function appendData(productElement) {
+function appendData(productElement,product = 'sarees') {
     const productBody = document.querySelector('#render-space');
 
     const column = document.createElement('div');
@@ -690,31 +690,28 @@ function appendData(productElement) {
     const bottom = document.createElement('div');
     bottom.classList.add('prd-bottom');
 
-    const cartButton = document.createElement('a');
-    cartButton.href = '#';
-    cartButton.classList.add('social-info');
-    cartButton.classList.add('cart-button');
-    const cartButtonIcon = document.createElement('i');
-    cartButton.id = productElement.productid;
-    cartButtonIcon.classList.add('fa');
-    cartButtonIcon.classList.add('fa-shopping-bag');
-    cartButtonIcon.style.color = "orange";
+    // const cartButton = document.createElement('a');
+    // cartButton.href = '#';
+    // cartButton.classList.add('social-info');
+    // cartButton.classList.add('cart-button');
+    // const cartButtonIcon = document.createElement('i');
+    // cartButton.id = productElement.productid;
+    // cartButtonIcon.classList.add('fa');
+    // cartButtonIcon.classList.add('fa-shopping-bag');
+    // cartButtonIcon.style.color = "orange";
 
-    const wishButton = document.createElement('a');
-    wishButton.href = '#';
-    wishButton.classList.add('social-info');
-    wishButton.classList.add('wish-button');
-    const wishButtonIcon = document.createElement('i');
-    wishButton.id = productElement.productid;
-    wishButtonIcon.classList.add('fa');
-    wishButtonIcon.classList.add('fa-heart');
-    wishButtonIcon.style.color = "crimson";
+    const buyButtonLink = document.createElement('a');
+    buyButtonLink.href = 'https://testing1.thestrategybook.com/deepak-ecommerce/client/products/Ghagra.html';
+    const buyButton = document.createElement('button');
+    buyButton.innerHTML = "Buy Product"
+    buyButton.classList.add('btn');
+    buyButton.classList.add('btn-primary');
 
-    cartButton.appendChild(cartButtonIcon);
-    bottom.appendChild(cartButton);
+    buyButtonLink.appendChild(buyButton);
+    bottom.appendChild(buyButtonLink);
 
-    wishButton.appendChild(wishButtonIcon);
-    bottom.appendChild(wishButton);
+    // wishButton.appendChild(wishButtonIcon);
+    // bottom.appendChild(wishButton);
 
     listItem.appendChild(img);
     listItem.appendChild(productDetails);
