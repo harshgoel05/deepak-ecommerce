@@ -1,6 +1,5 @@
 $.ajax({
-  url:
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/profile.php",
+  url: "https://shreedeepaksarees.com/server/api/admin/profile.php",
   type: "GET",
   xhrFields: {
     withCredentials: true,
@@ -8,7 +7,7 @@ $.ajax({
   success: function (response, status, xhr) {
     console.log("Admin is logged in");
     window.location.href =
-      "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html";
+      "https://shreedeepaksarees.com/client/adminportal/index.html";
   },
   error: function (xhr, status) {
     console.log("error", xhr, status);
@@ -26,14 +25,13 @@ $("#admin-login-btn").on("click", function (event) {
       password: pass,
     };
     $.ajax({
-      url:
-        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/login.php",
+      url: "https://shreedeepaksarees.com/server/api/admin/login.php",
       type: "POST",
       data: JSON.stringify(body),
       success: function (response, status, xhr) {
         console.log(response);
         window.location.href =
-          "https://testing1.thestrategybook.com/deepak-ecommerce/client/adminportal/index.html";
+          "https://shreedeepaksarees.com/client/adminportal/index.html";
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);

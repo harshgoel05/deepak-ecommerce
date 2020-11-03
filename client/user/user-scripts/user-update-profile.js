@@ -24,8 +24,6 @@ $("#submit-btn").click(function () {
   // let pincode = $("pincode").val();
   let address = $("#address").val();
   let phone_number = $("#phone_number").val();
-  
-  
 
   // $("#name").focusout(function () {
   //   check_name();
@@ -130,54 +128,48 @@ $("#submit-btn").click(function () {
   //   check_address();
   //   check_phone_number();
 
-    // if (
-    //   error_name === false &&
-    //   error_email === false &&
-    //   error_password === false &&
-    //   error_confirm_password === false &&
-    //   error_address === false &&
-    //   error_phone_number === false
-    // ) {
-    //   alert("Registration Successfull");
-      //   Call ajax here
+  // if (
+  //   error_name === false &&
+  //   error_email === false &&
+  //   error_password === false &&
+  //   error_confirm_password === false &&
+  //   error_address === false &&
+  //   error_phone_number === false
+  // ) {
+  //   alert("Registration Successfull");
+  //   Call ajax here
 
-      body_data={
-        
-        // password: password,
-        // confirm_password: confirm_password,
-        name: name,
-        state: state,
-        city: city,
-        address: address,
-        // pin_code: pincode,
-        mobile_no: phone_number
+  body_data = {
+    // password: password,
+    // confirm_password: confirm_password,
+    name: name,
+    state: state,
+    city: city,
+    address: address,
+    // pin_code: pincode,
+    mobile_no: phone_number,
+  };
 
-      };
-
-      
-      console.log(body_data);
-      $.ajax({
-        url:
-          "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/update.php",
-        type: "POST",
-        data: JSON.stringify(body_data),
-        success: function (response) {
-          
-          alert("User registerations successfull!");
-        },
-        error: function (xhr, status) {
-          console.log("error", xhr, status);
-          alert(
-            "Some unknown error occured. Please try logging in if you have already registered."
-          );
-        },
-      });
-
-      //return true;
-    // } else {
-    //   alert("Please Fill the form Correctly");
-    //   return false;
-    // }
+  console.log(body_data);
+  $.ajax({
+    url: "https://shreedeepaksarees.com/server/api/user/update.php",
+    type: "POST",
+    data: JSON.stringify(body_data),
+    success: function (response) {
+      alert("User registerations successfull!");
+    },
+    error: function (xhr, status) {
+      console.log("error", xhr, status);
+      alert(
+        "Some unknown error occured. Please try logging in if you have already registered."
+      );
+    },
   });
-// });
 
+  //return true;
+  // } else {
+  //   alert("Please Fill the form Correctly");
+  //   return false;
+  // }
+});
+// });

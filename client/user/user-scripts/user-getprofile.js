@@ -1,5 +1,4 @@
-var url =
-  "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/profile.php";
+var url = "https://shreedeepaksarees.com/server/api/user/profile.php";
 
 $.ajax({
   url: url,

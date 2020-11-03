@@ -1,15 +1,12 @@
-var url =
-  "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/orders/retrieve.php";
+var url = "https://shreedeepaksarees.com/server/api/user/orders/retrieve.php";
 
 $.ajax({
   url: url,
   type: "GET",
   crossDomain: true,
   success: function (response) {
-
     // Alert for empty my orders
-    if(response.data.length === 0)
-    alert('You have not placed any orders');
+    if (response.data.length === 0) alert("You have not placed any orders");
 
     response.data.forEach((product, index) => {
       product.items.forEach((item, i) => {
@@ -36,7 +33,7 @@ $.ajax({
           >
             <img
               
-              src=data:image/png;base64,${item.image1.replace("\\", "")|| "" }
+              src=data:image/png;base64,${item.image1.replace("\\", "") || ""}
               class="img-fluid"
               alt="cart img"
             />

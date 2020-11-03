@@ -1,18 +1,18 @@
-async function encodeImageFileAsURL(id,element) {
+async function encodeImageFileAsURL(id, element) {
   //const image = document.querySelector('#i1');
   let file = element.files[0];
   let reader = new FileReader();
   //console.log(id);
-  reader.onloadend = function() {
+  reader.onloadend = function () {
     //document.write( reader.result);
     id.src = reader.result;
-    console.log('reading file');
+    console.log("reading file");
     //console.log(reader.result);
     //console.log(image.src);
     console.log(id.src);
 
     //$("#i1").val(reader.result)
-  }
+  };
   await reader.readAsDataURL(file);
   //await console.log(image.src);
 }
@@ -30,7 +30,7 @@ $("#submit-btn6").click(function () {
   let type = $("#type6").val();
   let fabric = $("#faab6").val();
   let i1 = $("#i1")[0].src;
-  let i2 =$("#i2")[0].src;
+  let i2 = $("#i2")[0].src;
   let i3 = $("#i3")[0].src;
   let i4 = $("#i4")[0].src;
   let i5 = $("#i5")[0].src;
@@ -58,14 +58,14 @@ $("#submit-btn6").click(function () {
     subtitle: sub_title,
     brand: brand,
     price: price,
-    quantity : quant,
+    quantity: quant,
     // colors
-    image1:  i1,
-    image2 : i2,
-    image3 : i3,
-    image4 : i4,
-    image5 : i5,
-    image6 : i6,
+    image1: i1,
+    image2: i2,
+    image3: i3,
+    image4: i4,
+    image5: i5,
+    image6: i6,
     description: description,
     type: type,
     fabric: fabric,
@@ -89,8 +89,7 @@ $("#submit-btn6").click(function () {
   console.log(finalbody);
   // Ajax api call
   $.ajax({
-    url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/leggings/add.php",
+    url: "https://shreedeepaksarees.com/server/api/products/leggings/add.php",
     type: "POST",
     data: JSON.stringify(finalbody),
     success: function (response) {

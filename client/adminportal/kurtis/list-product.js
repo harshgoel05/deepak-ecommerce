@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $.ajax({
     url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/kurtis/retrieve.php",
+      "https://shreedeepaksarees.com/server/api/products/kurtis/retrieve.php",
     type: "GET",
     success: function (response) {
       response.data.forEach((product, index) => {
@@ -32,7 +32,7 @@ $(document).ready(function () {
         console.log(productid);
         $.ajax({
           url:
-            "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/kurtis/remove.php",
+            "https://shreedeepaksarees.com/server/api/products/kurtis/remove.php",
           type: "POST",
           data: JSON.stringify({
             productid: productid,
@@ -42,7 +42,7 @@ $(document).ready(function () {
           },
           success: function (response, status, xhr) {
             alert("Product Deleted");
-            window.location.reload()
+            window.location.reload();
           },
           error: function (xhr, status) {
             console.log("error", xhr, status);

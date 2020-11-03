@@ -14,8 +14,7 @@ $("#user-register-btn").on("click", function (event) {
   }
   if (body_data.password && body_data.email && body_data.confirm_password) {
     $.ajax({
-      url:
-        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php",
+      url: "https://shreedeepaksarees.com/server/api/user/add.php",
       type: "POST",
       data: JSON.stringify(body_data),
       success: function (response) {

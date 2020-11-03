@@ -169,7 +169,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/cart/apply-coupon.php", requestOptions)
+      fetch("https://shreedeepaksarees.com/server/api/user/cart/apply-coupon.php", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result);
@@ -190,9 +190,9 @@
       if (parseInt(product_total_amt.innerHTML) == 0) {
         alert('Please confirm your cart items before initiating checkout');
       } else {
-        location.href = ('https://testing1.thestrategybook.com/deepak-ecommerce/client/user/checkout.html');
+        location.href = ('https://shreedeepaksarees.com/client/user/checkout.html');
       }
-      // const response = await fetch('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/cart/retrieve.php?');
+      // const response = await fetch('https://shreedeepaksarees.com/server/api/user/cart/retrieve.php?');
       // const json = await response.json();
       // const cartItems = json.data;
       // cartItems.map(async (cartItem)=>{

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $.ajax({
     url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterials/retrieve.php",
+      "https://shreedeepaksarees.com/server/api/products/dressMaterials/retrieve.php",
     type: "GET",
     success: function (response) {
       response.data.forEach((product, index) => {
@@ -32,7 +32,7 @@ $(document).ready(function () {
         console.log(productid);
         $.ajax({
           url:
-            "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterials/remove.php",
+            "https://shreedeepaksarees.com/server/api/products/dressMaterials/remove.php",
           type: "POST",
           data: JSON.stringify({
             productid: productid,
