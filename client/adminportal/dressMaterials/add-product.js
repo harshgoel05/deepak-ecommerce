@@ -42,6 +42,12 @@ $("#add-product").click(function () {
   let type = $("#type").val();
   let stitch = $("#stitch").val();
   let i1 = $("#i1")[0].src;
+  let i2 =$("#i2")[0].src;
+  let i3 = $("#i3")[0].src;
+  let i4 = $("#i4")[0].src;
+  let i5 = $("#i5")[0].src;
+  let i6 = $("#i6")[0].src;
+
   //let i1 = image_1;
   //console.log(image_1[0].src);
 
@@ -72,11 +78,11 @@ $("#add-product").click(function () {
     quantity: quant,
     // colors
     image1: i1,
-    // image2
-    // image3
-    // image4
-    // image5
-    // image6
+    image2 : i2,
+    image3 : i3,
+    image4 : i4,
+    image5 : i5,
+    image6 : i6,
     kurtafabric: kurtafabric,
     bottomfabric: bottomfabric,
     dupattafabric: dupattafabric,
