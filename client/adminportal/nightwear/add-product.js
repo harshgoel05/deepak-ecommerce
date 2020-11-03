@@ -70,7 +70,7 @@
 //   // Ajax api call
 //   $.ajax({
 //     url:
-//       "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterials/add.php",
+//       "https://shreedeepaksarees.com/server/api/products/dressMaterials/add.php",
 //     type: "POST",
 //     data: JSON.stringify(finalbody),
 //     success: function (response) {
@@ -168,7 +168,7 @@ $("#submit-btn3").click(function () {
   // Ajax api call
   $.ajax({
     url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/nightwear/add.php",
+      "https://shreedeepaksarees.com/server/api/products/nightwear/add.php",
     type: "POST",
     data: JSON.stringify(finalbody),
     success: function (response) {

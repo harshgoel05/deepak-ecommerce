@@ -263,7 +263,7 @@ background-size: cover;
   display: none;
 }
 &:nth-child(2) {
-  background-image: url('http://bastianandre.at/giphy.gif');
+  background-image: url('https://bastianandre.at/giphy.gif');
 }
 }
 .sideit{

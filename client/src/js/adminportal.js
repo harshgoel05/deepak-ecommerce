@@ -2270,7 +2270,7 @@ function initDropEffect(box) {
 //   console.log(formData);
 //   $.ajax({
 //     url:
-//       "http://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php", // change url to product
+//       "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php", // change url to product
 //     type: "POST",
 //     data: JSON.stringify(formData),
 //     crossDomain: true,

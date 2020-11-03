@@ -9,7 +9,7 @@ async function populateArea() {
   var total_cart_amt = document.getElementById("total_cart_amt");
 
   const response = await fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/wishlist/retrieve.php",
+    "https://shreedeepaksarees.com/server/api/user/wishlist/retrieve.php",
     requestOptions
   );
   const json = await response.json();
@@ -17,9 +17,8 @@ async function populateArea() {
   console.log(cartItems);
 
   // Alert for Empty Wishlist
-  if(cartItems.length === 0)
-  alert('Your Wishlist is Empty');
-  
+  if (cartItems.length === 0) alert("Your Wishlist is Empty");
+
   cartItems.map((cartItem) => {
     console.log(parseInt(cartItem.price));
     console.log(totalprice);
@@ -62,7 +61,7 @@ const deleteBlock = async (productid) => {
   };
 
   const response = await fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/wishlist/retrieve.php",
+    "https://shreedeepaksarees.com/server/api/user/wishlist/retrieve.php",
     requestOptions
   );
   const json = await response.json();
@@ -91,7 +90,7 @@ const deleteBlock = async (productid) => {
   };
 
   fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/wishlist/remove.php",
+    "https://shreedeepaksarees.com/server/api/user/wishlist/remove.php",
     requestOptions
   )
     .then((response) => response.text())
@@ -110,7 +109,7 @@ const sendToCart = async (productid) => {
   };
 
   const response = await fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/wishlist/retrieve.php",
+    "https://shreedeepaksarees.com/server/api/user/wishlist/retrieve.php",
     requestOptions
   );
   const json = await response.json();
@@ -139,7 +138,7 @@ const sendToCart = async (productid) => {
   };
 
   fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/cart/add.php",
+    "https://shreedeepaksarees.com/server/api/user/cart/add.php",
     requestOptions
   )
     .then((response) => response.text())

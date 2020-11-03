@@ -1,15 +1,10 @@
-$(".footer").load(
-  "https://testing1.thestrategybook.com/deepak-ecommerce/client/common/footer.html"
-);
+$(".footer").load("https://shreedeepaksarees.com/client/common/footer.html");
 
-$(".div-nav").load(
-  "https://testing1.thestrategybook.com/deepak-ecommerce/client/common/navbar.html"
-);
+$(".div-nav").load("https://shreedeepaksarees.com/client/common/navbar.html");
 
 $("#nav-logout").click(function (e) {
   e.preventDefault();
-  var url =
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/logout.php";
+  var url = "https://shreedeepaksarees.com/server/api/logout.php";
 
   $.ajax({
     url: url,
@@ -17,7 +12,7 @@ $("#nav-logout").click(function (e) {
     crossDomain: true,
     success: function (response) {
       window.location.href =
-        "https://testing1.thestrategybook.com/deepak-ecommerce/client/user/login.html";
+        "https://shreedeepaksarees.com/client/user/login.html";
     },
     error: function (xhr, status) {
       console.log("error", xhr, status);

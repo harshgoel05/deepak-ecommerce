@@ -1,6 +1,6 @@
 async function retriveData(product_id) {
   const response = await fetch(
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/sarees/retrieve.php?productid=" +
+    "https://shreedeepaksarees.com/server/api/products/sarees/retrieve.php?productid=" +
       product_id
   );
   const json = await response.json();

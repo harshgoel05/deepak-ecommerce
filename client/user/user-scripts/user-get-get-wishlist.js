@@ -1,6 +1,5 @@
 $.ajax({
-  url:
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/wishlist/retrieve.php",
+  url: "https://shreedeepaksarees.com/server/api/user/wishlist/retrieve.php",
   type: "GET",
   crossDomain: true,
   success: function (response) {

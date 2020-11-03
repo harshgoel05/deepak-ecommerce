@@ -1,7 +1,6 @@
 $("#user-logout-btn").click(function (e) {
   e.preventDefault();
-  var url =
-    "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/profile.php";
+  var url = "https://shreedeepaksarees.com/server/api/user/profile.php";
 
   $.ajax({
     url: url,
@@ -9,7 +8,7 @@ $("#user-logout-btn").click(function (e) {
     crossDomain: true,
     success: function (response) {
       window.location.href =
-        "https://testing1.thestrategybook.com/deepak-ecommerce/client/user/profile.html";
+        "https://shreedeepaksarees.com/client/user/profile.html";
     },
     error: function (xhr, status) {
       console.log("error", xhr, status);
@@ -28,14 +27,13 @@ $("#user-login-btn").on("click", function (event) {
       password: pass,
     };
     $.ajax({
-      url:
-        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/login.php",
+      url: "https://shreedeepaksarees.com/server/api/user/login.php",
       type: "POST",
       data: JSON.stringify(body),
       success: function (response) {
         console.log(response);
         window.location.href =
-          "https://testing1.thestrategybook.com/deepak-ecommerce/client/user/profile.html";
+          "https://shreedeepaksarees.com/client/user/profile.html";
       },
       error: function (xhr, status) {
         console.log("error", xhr, status);

@@ -13,8 +13,7 @@ $("#admin-add-coupon-btn").on("click", function (event) {
   }
   if (flag != 0) {
     $.ajax({
-      url:
-        "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/user/add.php",
+      url: "https://shreedeepaksarees.com/server/api/user/add.php",
       type: "POST",
       data: JSON.stringify(body),
       success: function (response) {

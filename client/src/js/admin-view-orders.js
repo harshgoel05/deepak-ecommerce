@@ -2,8 +2,7 @@ $(document).ready(function () {
   var ord_stat;
   var items;
   $.ajax({
-    url:
-      "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/orders/retrieve.php",
+    url: "https://shreedeepaksarees.com/server/api/admin/orders/retrieve.php",
     type: "GET",
     success: function (response) {
       if (response.data) {
@@ -81,7 +80,7 @@ $(document).ready(function () {
           //console.log(order_id);
           $.ajax({
             url:
-              "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/orders/update.php",
+              "https://shreedeepaksarees.com/server/api/admin/orders/update.php",
             type: "POST",
             data: JSON.stringify({
               order_id: order_id,
@@ -104,7 +103,7 @@ $(document).ready(function () {
           //console.log(order_id);
           $.ajax({
             url:
-              "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/orders/update.php",
+              "https://shreedeepaksarees.com/server/api/admin/orders/update.php",
             type: "POST",
             data: JSON.stringify({
               order_id: order_id,
@@ -127,7 +126,7 @@ $(document).ready(function () {
           //console.log(order_id);
           $.ajax({
             url:
-              "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/orders/update.php",
+              "https://shreedeepaksarees.com/server/api/admin/orders/update.php",
             type: "POST",
             data: JSON.stringify({
               order_id: order_id,
@@ -150,7 +149,7 @@ $(document).ready(function () {
           //console.log(order_id);
           $.ajax({
             url:
-              "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/admin/orders/update.php",
+              "https://shreedeepaksarees.com/server/api/admin/orders/update.php",
             type: "POST",
             data: JSON.stringify({
               order_id: order_id,

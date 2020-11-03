@@ -385,7 +385,7 @@
       $(".logout-user-btn").click(function (e) {
         e.preventDefault();
         var url =
-          "https://testing1.thestrategybook.com/deepak-ecommerce/server/api/logout.php";
+          "https://shreedeepaksarees.com/server/api/logout.php";
 
         $.ajax({
           url: url,
@@ -393,7 +393,7 @@
           crossDomain: true,
           success: function (response) {
             window.location.href =
-              "https://testing1.thestrategybook.com/deepak-ecommerce/client/user/login.html";
+              "https://shreedeepaksarees.com/client/user/login.html";
           },
           error: function (xhr, status) {
             console.log("error", xhr, status);
