@@ -31,7 +31,7 @@ async function populateArea() {
 }
 function append(cartItem) {
     console.log(cartItem);
-    const image = cartItem.img1;
+    const image = cartItem.image1;
     const textboxid = 'textbox' + cartItem.productid;
     const itemval = 'itemval' + cartItem.productid;
     //const deleteid = 'delete'+cartItem.productid ;
