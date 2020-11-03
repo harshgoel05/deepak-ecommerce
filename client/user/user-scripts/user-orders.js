@@ -6,6 +6,9 @@ $.ajax({
   type: "GET",
   crossDomain: true,
   success: function (response) {
+    if(response.data.length === 0)
+    alert('You have not placed any orders');
+
     response.data.forEach((product, index) => {
       product.items.forEach((item, i) => {
         // Function for fetching the image
