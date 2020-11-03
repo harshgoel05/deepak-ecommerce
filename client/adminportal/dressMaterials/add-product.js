@@ -1,6 +1,31 @@
+console.log('loaded script');
+
+const image = document.querySelector('#i1');
+console.log(image);
+
+async function encodeImageFileAsURL(id,element) {
+  //const image = document.querySelector('#i1');
+  let file = element.files[0];
+  let reader = new FileReader();
+  //console.log(id);
+  reader.onloadend = function() {
+    //document.write( reader.result);
+    id.src = reader.result;
+    console.log('reading file');
+    //console.log(reader.result);
+    //console.log(image.src);
+    console.log(id.src);
+
+    //$("#i1").val(reader.result)
+  }
+  await reader.readAsDataURL(file);
+  //await console.log(image.src);
+}
+
+
 $("#add-product").click(function () {
 
-
+  console.log('hi');
 
   console.log("Call add product API");
   let id = $("#product_id").val();
@@ -16,8 +41,15 @@ $("#add-product").click(function () {
   let dl = $("#dl").val();
   let type = $("#type").val();
   let stitch = $("#stitch").val();
-  let i1 = $("#i1").val();
-  
+  let i1 = $("#i1")[0].src;
+  let i2 =$("#i2")[0].src;
+  let i3 = $("#i3")[0].src;
+  let i4 = $("#i4")[0].src;
+  let i5 = $("#i5")[0].src;
+  let i6 = $("#i6")[0].src;
+
+  //let i1 = image_1;
+  //console.log(image_1[0].src);
 
   
 
@@ -45,12 +77,12 @@ $("#add-product").click(function () {
     price: price,
     quantity: quant,
     // colors
-    image1: i1,
-    // image2
-    // image3
-    // image4
-    // image5
-    // image6
+    image1:  i1,
+    image2 : i2,
+    image3 : i3,
+    image4 : i4,
+    image5 : i5,
+    image6 : i6,
     kurtafabric: kurtafabric,
     bottomfabric: bottomfabric,
     dupattafabric: dupattafabric,
@@ -90,58 +122,6 @@ $("#add-product").click(function () {
       alert("Something went wrong");
     },
   });
-  //Method to convert to base 64
-  // // Method 1
-    
-  //   const toDataURL = url => fetch(url)
-  //   .then(response => response.blob())
-  //   .then(blob => new Promise((resolve, reject) => {
-  //     const reader = new FileReader()
-  //     reader.onloadend = () => resolve(reader.result)
-  //     reader.onerror = reject
-  //     reader.readAsDataURL(blob)
-  //   }))
-
-
-  // toDataURL('https://testing1.thestrategybook.com/deepak-ecommerce/server/api/products/dressMaterials/retrieve.php?productid=10')
-  //   .then(dataUrl => {
-  //     console.log('RESULT:', dataUrl)
-  //   })
-
-  // // Method 2-
-
-  // function toDataURL(src, callback, outputFormat) {
-  //   var img = new Image();
-  //   img.crossOrigin = 'Anonymous';
-  //   img.onload = function() {
-  //     var canvas = document.createElement('CANVAS');
-  //     var ctx = canvas.getContext('2d');
-  //     var dataURL;
-  //     canvas.height = this.naturalHeight;
-  //     canvas.width = this.naturalWidth;
-  //     ctx.drawImage(this, 0, 0);
-  //     dataURL = canvas.toDataURL(outputFormat);
-  //     callback(dataURL);
-  //   };
-  //   img.src = src;
-  //   if (img.complete || img.complete === undefined) {
-  //     img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-  //     img.src = src;
-  //   }
-  // }
-
-  // toDataURL(
-  //   'https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0',
-  //   function(dataUrl) {
-  //     console.log('RESULT:', dataUrl)
-  //   }
-  // )
-
-
-
-
-
-
 });
 
 

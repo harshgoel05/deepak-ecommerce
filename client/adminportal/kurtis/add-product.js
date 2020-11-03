@@ -1,3 +1,25 @@
+const image = document.querySelector('#i1');
+console.log(image);
+
+async function encodeImageFileAsURL(id,element) {
+  //const image = document.querySelector('#i1');
+  let file = element.files[0];
+  let reader = new FileReader();
+  //console.log(id);
+  reader.onloadend = function() {
+    //document.write( reader.result);
+    id.src = reader.result;
+    console.log('reading file');
+    //console.log(reader.result);
+    //console.log(image.src);
+    console.log(id.src);
+
+    //$("#i1").val(reader.result)
+  }
+  await reader.readAsDataURL(file);
+  //await console.log(image.src);
+}
+
 $("#submit-btn8").click(function () {
   console.log("Call add product API");
 
@@ -19,6 +41,12 @@ $("#submit-btn8").click(function () {
   let neck = $("#neck8").val();
   let ornamentation = $("#orna8").val();
   let fabric2 = $("#fab82").val();
+  let i1 = $("#i1")[0].src;
+  let i2 =$("#i2")[0].src;
+  let i3 = $("#i3")[0].src;
+  let i4 = $("#i4")[0].src;
+  let i5 = $("#i5")[0].src;
+  let i6 = $("#i6")[0].src;
 
   // For sizes
   var sizes = [];
@@ -44,12 +72,12 @@ $("#submit-btn8").click(function () {
     price: price,
     quantity : quant,
     // colors
-    // image1
-    // image2
-    // image3
-    // image4
-    // image5
-    // image6
+    image1:  i1,
+    image2 : i2,
+    image3 : i3,
+    image4 : i4,
+    image5 : i5,
+    image6 : i6,
     description: description,
     kfl: kfl,
     bfl: bfl,

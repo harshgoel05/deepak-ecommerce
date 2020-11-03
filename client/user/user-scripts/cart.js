@@ -12,6 +12,11 @@ async function populateArea() {
     const json = await response.json();
     const cartItems = json.data;
     console.log(cartItems);
+
+    // Alert for Empty Cart
+    if(cartItems.length === 0)
+    alert('Your Cart is Empty');
+
     cartItems.map((cartItem) => {
         console.log(parseInt(cartItem.price));
         console.log(totalprice);
@@ -31,7 +36,7 @@ async function populateArea() {
 }
 function append(cartItem) {
     console.log(cartItem);
-    const image = cartItem.img1;
+    const image = cartItem.image1;
     const textboxid = 'textbox' + cartItem.productid;
     const itemval = 'itemval' + cartItem.productid;
     //const deleteid = 'delete'+cartItem.productid ;
