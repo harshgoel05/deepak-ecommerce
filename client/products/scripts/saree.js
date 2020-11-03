@@ -8,6 +8,7 @@ async function retriveData(product_id) {
     alert("Some unkown error has occured!");
   } else {
     const data = json.data;
+    console.log(data);
     $("#title").html(data.title);
     $("#sub-title").html(data.subtitle);
     $("#price").html(`Rs. ${data.price}`);
