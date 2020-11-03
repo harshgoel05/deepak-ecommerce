@@ -1,12 +1,11 @@
 <?php
-
 use Utility\Fallacy;
 
 require_once('Crypto.php');
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/ccavenue.php');
 require_once(__ROOT__ . '/utility/utilities.php');
-
+\Utility\SessionUtil\startReadOnlySession();
 ?>
 <?php
 
@@ -26,7 +25,7 @@ for ($i = 0; $i < $dataSize; $i++) {
 	$row[$information[0]] = $information[1];
 }
 
-\Utility\SessionUtil\addIdentifierToSession(USER_LOGIN,$row['merchant_param1']);
+// \Utility\SessionUtil\addIdentifierToSession(USER_LOGIN,$row['merchant_param1']);
 $userId = \Utility\SessionUtil\getUserSessionIdentifier();
 // echo $userId.'<br>';
 if($userId === null)

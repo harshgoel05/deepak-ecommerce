@@ -104,7 +104,7 @@ $amount = $order[FINAL_AMOUNT];
 			</tr>
 			<tr>
 				<td>Billing Name :</td>
-				<td><input type="text" name="billing_name" value="Charli" /></td>
+				<td><input type="text" name="billing_name" value=<?php echo "'" . $order['delivery_person_name'] . "'" ?> /></td>
 			</tr>
 			<tr>
 				<td>Billing Address :</td>
@@ -132,7 +132,7 @@ $amount = $order[FINAL_AMOUNT];
 			</tr>
 			<tr>
 				<td>Billing Email :</td>
-				<td><input type="text" name="billing_email" value="test@test.com" /></td>
+				<td><input type="text" name="billing_email" value=<?php echo "'" . $order['delivery_email'] . "'" ?> /></td>
 			</tr>
 			<tr>
 				<td colspan="2">Shipping information(optional)</td>
@@ -199,7 +199,7 @@ $amount = $order[FINAL_AMOUNT];
 			</tr>
 		</table>
 	</form>
-	<script type="text/javascript">
+	<script language="javascript">
 		document.customerData.submit();
 	</script>
 </body>

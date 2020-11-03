@@ -10,6 +10,7 @@ require_once('Crypto.php');
 require_once(__DIR__.'/../config/other-configs.php');
 require_once(__ROOT__.'/utility/utilities.php');
 require_once(__ROOT__.'/config/ccavenue.php');
+\Utility\SessionUtil\startReadOnlySession();
 ?>
 <?php 
 
@@ -34,5 +35,6 @@ echo "<input type=hidden name=access_code value=$access_code>";
 </center>
 <script language='javascript'>document.redirect.submit();</script>
 </body>
+<?php exit(); ?>
 </html>
 

@@ -12,6 +12,11 @@ $data = \Utility\HttpUtil\decodeRequestJson();
 
 $data['user_id'] = \Utility\SessionUtil\getUserSessionIdentifier();
 
+if(!array_key_exists(SELECTED_QUANTITY,$data))
+{
+    $data[SELECTED_QUANTITY] = 1;
+}
+
 $wagonModel = getSingleton('\\Models\\',__DIR__);
 
 $res = $wagonModel->removeItem($data);
