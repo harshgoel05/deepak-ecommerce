@@ -13,7 +13,7 @@ async function renderDressMaterial() {
   console.log(array);
   array.map((x) => {
     console.log(x);
-    appendData(x);
+    appendData(x,'dress-materials');
   });
 }
 
@@ -442,7 +442,7 @@ async function renderPalazzos() {
   }
 }
 
-function appendData(productElement, product = "sarees") {
+function appendData(productElement, product = "saree") {
   const productBody = document.querySelector("#render-space");
 
   const column = document.createElement("div");
@@ -475,21 +475,12 @@ function appendData(productElement, product = "sarees") {
   const bottom = document.createElement("div");
   bottom.classList.add("prd-bottom");
 
-  // const cartButton = document.createElement('a');
-  // cartButton.href = '#';
-  // cartButton.classList.add('social-info');
-  // cartButton.classList.add('cart-button');
-  // const cartButtonIcon = document.createElement('i');
-  // cartButton.id = productElement.productid;
-  // cartButtonIcon.classList.add('fa');
-  // cartButtonIcon.classList.add('fa-shopping-bag');
-  // cartButtonIcon.style.color = "orange";
-
   const buyButtonLink = document.createElement("a");
   buyButtonLink.href =
-    "https://shreedeepaksarees.com/client/products/Ghagra.html";
+    "https://shreedeepaksarees.com/client/products/"+product+".html?product_id="+productElement.productid;
+  console.log(buyButtonLink.href);
   const buyButton = document.createElement("button");
-  buyButton.innerHTML = "Buy Product";
+  buyButton.innerHTML = "View Product";
   buyButton.classList.add("btn");
   buyButton.classList.add("btn-primary");
 
