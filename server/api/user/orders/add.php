@@ -101,7 +101,9 @@ foreach ($toCommit as $model) {
 }
 
 if ($allGood) {
-    \Utility\HttpUtil\sendSuccessResponse();
+    $data = [];
+    $data['order_id'] = $orderId;
+    \Utility\HttpUtil\sendSuccessResponse($data);
 } else {
     \Utility\HttpUtil\sendFailResponse("Commit to sql failed");
 }

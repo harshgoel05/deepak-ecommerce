@@ -32,7 +32,9 @@ const ORDER_STATUS_FLAGS =[
     "OUT_FOR_DELIVERY" => 1,
     "DELIVERED" => 2,
     "CANCELLED" => 3,
-    "RETURNED" => 4
+    "RETURNED" => 4,
+    'ABORTED' => 5,
+    'FAILED' => 6
 ];
 
 const ORDER_ID = 'order_id';

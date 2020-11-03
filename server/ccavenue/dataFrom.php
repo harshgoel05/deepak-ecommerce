@@ -1,16 +1,4 @@
-<html>
-
-<head>
-	<script>
-		window.onload = function() {
-			var d = new Date().getTime();
-			document.getElementById("tid").value = d;
-		};
-	</script>
-</head>
-
-<body>
-	<?php
+<?php
 
 	use Utility\CustomErrors;
 	use Utility\Fallacy;
@@ -21,18 +9,30 @@
 	require_once(__ROOT__ . '/utility/utilities.php');
 
 
-	$order_id = $_POST['order_id'];
+	$order_id = $_GET['order_id'];
 	$user_id = \Utility\SessionUtil\getUserSessionIdentifier();
 	$ordersModel = \Models\Orders::getInstance();
 	$order = $ordersModel->getOrders($order_id, $user_id);
 	$amount = $order[FINAL_AMOUNT];
 	/* print_r($order_id);
 	echo '<br>';
-	print_r($user_id);
+	echo "user id =".$user_id;
 	echo '<br>';
 	echo $amount;
 	exit(); */
 	?>
+<html>
+<head>
+	<script>
+		window.onload = function() {
+			var d = new Date().getTime();
+			document.getElementById("tid").value = d;
+		};
+	</script>
+</head>
+
+<body>
+	
 
 	<form method="post" name="customerData" action="ccavRequestHandler.php">
 		<table width="40%" height="100" border='1' align="center">
@@ -180,6 +180,9 @@
 			</tr>
 		</table>
 	</form>
+	<script>
+		document.dataForm.submmit();
+	</script>
 </body>
 
 </html>

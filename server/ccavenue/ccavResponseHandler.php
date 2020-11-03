@@ -1,4 +1,7 @@
 <?php
+
+use Utility\Fallacy;
+
 require_once('Crypto.php');
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/ccavenue.php');
@@ -14,38 +17,69 @@ $rcvdString = decrypt($encResponse, $workingKey);		//Crypto Decryption used as p
 $order_status = "";
 $decryptValues = explode('&', $rcvdString);
 $dataSize = sizeof($decryptValues);
+
 echo "<center>";
-
-for ($i = 0; $i < $dataSize; $i++) {
-	$information = explode('=', $decryptValues[$i]);
-	if ($i == 3)	$order_status = $information[1];
-}
-
-if ($order_status === "Success") {
-	echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.";
-} else if ($order_status === "Aborted") {
-	echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail";
-} else if ($order_status === "Failure") {
-	echo "<br>Thank you for shopping with us.However,the transaction has been declined.";
-} else {
-	echo "<br>Security Error. Illegal access detected";
-}
-
-echo "<br><br>";
-
-echo "<table cellspacing=4 cellpadding=4>";
 $row = [];
 for ($i = 0; $i < $dataSize; $i++) {
 	$information = explode('=', $decryptValues[$i]);
-	echo '<tr><td>' . $information[0] . '</td><td>' . $information[1] . '</td></tr>';
+	if ($i == 3)	$order_status = $information[1];
 	$row[$information[0]] = $information[1];
 }
 
 $PaymentsModel = \Models\Payments::getInstance();
 $temp_res = $PaymentsModel->insertRow($row);
-if ($temp_res !== true) {
-	echo "Writing to payments table failed";
+if($temp_res instanceof Fallacy)
+{
+	print_r($temp_res);
+	echo '<br>';
 }
+if ($temp_res !== true) {
+	echo "Writing to payments table failed<br>";
+}
+else {
+	echo "Writing to payments table succeeded<br>";
+}
+
+$toUpdate = [];
+
+if ($order_status === "Success") {
+	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['PLACED'];
+	echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.";
+} else if ($order_status === "Aborted") {
+	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['ABORTED'];
+	echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail";
+} else if ($order_status === "Failure") {
+	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['FAILED'];
+	echo "<br>Thank you for shopping with us.However,the transaction has been declined.";
+} else {
+	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['FAILED'];
+	echo "<br>Security Error. Illegal access detected";
+}
+
+$ordersModel = \Models\Orders::getInstance();
+$condition = [];
+$condition[ORDER_ID] = $row[ORDER_ID];
+$condition['user_id'] = $row['user_id'];
+$condition = $ordersModel->conditionCreaterHelper($condition);
+$temp_res = $ordersModel->update($toUpdate,$condition);
+
+if($temp_res instanceof Fallacy)
+{
+	echo "Updating order status failed<br>";
+	print_r($temp_res);
+	echo '<br>';
+}
+else {
+	echo "Order status updated successfully<br>";
+}
+echo "<br><br>";
+
+echo "<table cellspacing=4 cellpadding=4>";
+for ($i = 0; $i < $dataSize; $i++) {
+	$information = explode('=', $decryptValues[$i]);
+	echo '<tr><td>' . $information[0] . '</td><td>' . $information[1] . '</td></tr>';
+}
+
 
 
 echo "</table><br>";
