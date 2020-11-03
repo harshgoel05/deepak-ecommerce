@@ -86,7 +86,7 @@ class Identifier extends Table
 
         $temp_res = $this->update($row, $condition);
         if (!($temp_res instanceof Fallacy)) {
-            if ($temp_res > 0)
+            if ($temp_res >= 0)
                 return true;
             else
                 return false;
