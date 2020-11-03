@@ -12,23 +12,20 @@ foreach (PRODUCT_CATEGORIES as $category) {
     $productModel = getSingleton('\\Models\\Products\\', $category);
     /* $sql = "DELETE FROM databunker";
     if ($productModel->dbObj->query($sql)) {
-        echo "rows will null productid removed from " . $category . '<br>';
+        echo "all rows removed from " . $category . '<br>';
     } else {
-        echo "removing rows with null productid failed for " . $category . '<br>';
+        echo "removing rows failed for " . $category . '<br>';
         break;
     } */
-    echo "Alter`ing columsn of {$category} table".'<br>';
+    echo "Altering columsn of {$category} table".'<br>';
     
     $sqls = [
-        "occasion1" => "ALTER TABLE databunker MODIFY COLUMN occasion1 VARCHAR(255)",
-        "occasion2" => "ALTER TABLE databunker MODIFY COLUMN occasion2 VARCHAR(255)",
-        "occasion3" => "ALTER TABLE databunker MODIFY COLUMN occasion3 VARCHAR(255)",
-        "occasion4" => "ALTER TABLE databunker MODIFY COLUMN occasion4 VARCHAR(255)",
-        "occasion5" => "ALTER TABLE databunker MODIFY COLUMN occasion5 VARCHAR(255)",
-        "occasion6" => "ALTER TABLE databunker MODIFY COLUMN occasion6 VARCHAR(255)",
-        "washcare1" => "ALTER TABLE databunker MODIFY COLUMN washcare1 VARCHAR(255)",
-        "washcare2" => "ALTER TABLE databunker MODIFY COLUMN washcare2 VARCHAR(255)",
-        "washcare3" => "ALTER TABLE databunker MODIFY COLUMN washcare3 VARCHAR(255)",
+        "image1" => "ALTER TABLE databunker MODIFY COLUMN image1 MEDIUMBLOB",
+        "image2" => "ALTER TABLE databunker MODIFY COLUMN image2 MEDIUMBLOB",
+        "image3" => "ALTER TABLE databunker MODIFY COLUMN image3 MEDIUMBLOB",
+        "image4" => "ALTER TABLE databunker MODIFY COLUMN image4 MEDIUMBLOB",
+        "image5" => "ALTER TABLE databunker MODIFY COLUMN image5 MEDIUMBLOB",
+        "image6" => "ALTER TABLE databunker MODIFY COLUMN image6 MEDIUMBLOB",
     ];
     $allGood = true;
     foreach ($sqls as $key => $value) {

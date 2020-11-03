@@ -6,6 +6,7 @@ require_once('Crypto.php');
 require_once(__DIR__ . '/../config/other-configs.php');
 require_once(__ROOT__ . '/config/ccavenue.php');
 require_once(__ROOT__ . '/utility/utilities.php');
+
 ?>
 <?php
 
@@ -18,13 +19,21 @@ $order_status = "";
 $decryptValues = explode('&', $rcvdString);
 $dataSize = sizeof($decryptValues);
 
-echo "<center>";
 $row = [];
 for ($i = 0; $i < $dataSize; $i++) {
 	$information = explode('=', $decryptValues[$i]);
 	if ($i == 3)	$order_status = $information[1];
 	$row[$information[0]] = $information[1];
 }
+
+\Utility\SessionUtil\addIdentifierToSession(USER_LOGIN,$row['merchant_param1']);
+$userId = \Utility\SessionUtil\getUserSessionIdentifier();
+// echo $userId.'<br>';
+if($userId === null)
+{
+	echo "Not logged in";
+}
+echo "<center>";
 
 $PaymentsModel = \Models\Payments::getInstance();
 $temp_res = $PaymentsModel->insertRow($row);
@@ -44,22 +53,23 @@ $toUpdate = [];
 
 if ($order_status === "Success") {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['PLACED'];
-	echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.";
+	echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.<br>";
 } else if ($order_status === "Aborted") {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['ABORTED'];
-	echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail";
+	echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail<br>";
 } else if ($order_status === "Failure") {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['FAILED'];
-	echo "<br>Thank you for shopping with us.However,the transaction has been declined.";
+	echo "<br>Thank you for shopping with us.However,the transaction has been declined.<br>";
 } else {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['FAILED'];
-	echo "<br>Security Error. Illegal access detected";
+	echo "<br>Security Error. Illegal access detected<br>";
 }
 
 $ordersModel = \Models\Orders::getInstance();
 $condition = [];
 $condition[ORDER_ID] = $row[ORDER_ID];
-$condition['user_id'] = $row['user_id'];
+$condition[ORDER_ID] = 11;
+$condition['user_id'] = $userId;
 $condition = $ordersModel->conditionCreaterHelper($condition);
 $temp_res = $ordersModel->update($toUpdate,$condition);
 

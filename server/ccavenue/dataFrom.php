@@ -1,27 +1,46 @@
 <?php
 
-	use Utility\CustomErrors;
-	use Utility\Fallacy;
+use Utility\CustomErrors;
+use Utility\Fallacy;
 
-	require_once(__DIR__ . '/../config/other-configs.php');
-	require_once(__ROOT__ . '/config/field-consts.php');
-	require_once(__ROOT__ . '/config/ccavenue.php');
-	require_once(__ROOT__ . '/utility/utilities.php');
+require_once(__DIR__ . '/../config/other-configs.php');
+require_once(__ROOT__ . '/config/field-consts.php');
+require_once(__ROOT__ . '/config/ccavenue.php');
+require_once(__ROOT__ . '/utility/utilities.php');
 
 
-	$order_id = $_GET['order_id'];
-	$user_id = \Utility\SessionUtil\getUserSessionIdentifier();
-	$ordersModel = \Models\Orders::getInstance();
-	$order = $ordersModel->getOrders($order_id, $user_id);
-	$amount = $order[FINAL_AMOUNT];
-	/* print_r($order_id);
+$fall = null;
+if (!isset($_GET[ORDER_ID])) {
+	$fall = new Fallacy(CustomErrors::TYPE_ERROR, CustomErrors::missingRequiredFieldMessage(ORDER_ID));
+}
+$order_id = $_GET[ORDER_ID];
+$userId = \Utility\SessionUtil\getUserSessionIdentifier();
+if ($userId === null) {
+	$fall = new Fallacy(CustomErrors::AUTH_ERROR);
+}
+if ($fall instanceof Fallacy) {
+	print_r($fall);
+	exit();
+}
+$ordersModel = \Models\Orders::getInstance();
+$order = $ordersModel->getOrders($order_id, $userId);
+if ($order === null) {
+	$fall = new Fallacy(CustomErrors::VALUE_ERROR, CustomErrors::invalidValueMessage('order'));
+}
+if ($fall instanceof Fallacy) {
+	print_r($fall);
+	exit();
+}
+$amount = $order[FINAL_AMOUNT];
+/* print_r($order_id);
 	echo '<br>';
-	echo "user id =".$user_id;
+	echo "user id =".$userId;
 	echo '<br>';
 	echo $amount;
 	exit(); */
-	?>
+?>
 <html>
+
 <head>
 	<script>
 		window.onload = function() {
@@ -32,7 +51,7 @@
 </head>
 
 <body>
-	
+
 
 	<form method="post" name="customerData" action="ccavRequestHandler.php">
 		<table width="40%" height="100" border='1' align="center">
@@ -148,7 +167,7 @@
 			</tr>
 			<tr>
 				<td>Merchant Param1 :</td>
-				<td><input type="text" name="merchant_param1" value="additional Info." /></td>
+				<td><input type="text" name="merchant_param1" value=<?php echo "'" . $userId . "'" ?> /></td>
 			</tr>
 			<tr>
 				<td>Merchant Param2 :</td>
@@ -180,8 +199,8 @@
 			</tr>
 		</table>
 	</form>
-	<script>
-		document.dataForm.submmit();
+	<script type="text/javascript">
+		document.customerData.submit();
 	</script>
 </body>
 

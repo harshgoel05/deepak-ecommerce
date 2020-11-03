@@ -35,7 +35,7 @@ function ensureNotLoggedIn()
 
 function addIdentifierToSession($loginType, $id)
 {
-    session_start();
+    startSession();
     $_SESSION[SESSION_IDENTIFIER] = $id;
     $_SESSION[$loginType] = true;
     session_write_close();
@@ -48,7 +48,8 @@ function startSession()
         'use_only_cookies' => 1,
         'cookie_lifetime' => 86400,
         'cookie_secure' => 0,
-        'cookie_httponly' => 0
+        'cookie_httponly' => 0,
+        'cookie_samesite' => 'Lax',
       ]);
 }
 
@@ -60,6 +61,7 @@ function startReadOnlySession()
         'cookie_secure' => 0,
         'cookie_httponly' => 0,
         'read_and_close' => true,
+        'cookie_samesite' => 'Lax'
     ]);
 }
 
