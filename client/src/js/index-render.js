@@ -29,89 +29,7 @@ async function renderKurti() {
   const array = json.data;
   array.map((x) => {
     appendData(x);
-  });
-
-  var cartButtons = document.querySelectorAll(".cart-button");
-  var wishButtons = document.querySelectorAll(".wish-button");
-
-  for (const wishButton of wishButtons) {
-    wishButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = wishButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/kurtis/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: object.product_category,
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-        selected_length: object.length,
-        selected_width: object.width,
-      };
-      console.log(data);
-
-      fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
-
-  for (const cartButton of cartButtons) {
-    cartButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = cartButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/kurtis/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: object.product_category,
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-        selected_length: object.length,
-        selected_width: object.width,
-      };
-
-      fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
+  }); 
 }
 
 async function renderLeggings() {
@@ -128,87 +46,7 @@ async function renderLeggings() {
     appendData(x);
   });
 
-  var cartButtons = document.querySelectorAll(".cart-button");
-  var wishButtons = document.querySelectorAll(".wish-button");
 
-  for (const wishButton of wishButtons) {
-    wishButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = wishButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/leggings/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: object.product_category,
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-        selected_length: object.length,
-        selected_width: object.width,
-      };
-      console.log(data);
-
-      fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
-
-  for (const cartButton of cartButtons) {
-    cartButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = cartButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/leggings/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: object.product_category,
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-        selected_length: object.length,
-        selected_width: object.width,
-      };
-
-      fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
 }
 
 async function renderSaree() {
@@ -225,97 +63,6 @@ async function renderSaree() {
     appendData(x);
   });
 
-  var cartButtons = document.querySelectorAll(".cart-button");
-  var wishButtons = document.querySelectorAll(".wish-button");
-
-  for (const wishButton of wishButtons) {
-    wishButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = wishButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/sarees/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: "sarees",
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-      };
-      console.log(data);
-
-      fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-          if (data.success) {
-            alert("Added to wishlist");
-          } else if (data.error.type == "UnauthorizedAccessError") {
-            alert("Please log in to perform this action");
-          } else {
-            console.log("Success:", data);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
-
-  for (const cartButton of cartButtons) {
-    cartButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = cartButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/sarees/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: "sarees",
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-      };
-
-      fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-          if (data.success) {
-            alert("Added to cart");
-          } else if (data.error.type == "UnauthorizedAccessError") {
-            alert("Please log in to perform this action");
-          } else {
-            console.log("Success:", data);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
 }
 
 async function renderGhagra() {
@@ -331,85 +78,85 @@ async function renderGhagra() {
   array.map((x) => {
     appendData(x);
   });
-
-  var cartButtons = document.querySelectorAll(".cart-button");
-  var wishButtons = document.querySelectorAll(".wish-button");
-
-  for (const wishButton of wishButtons) {
-    wishButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = wishButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/ghagra/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: "ghagra",
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-      };
-      console.log(data);
-
-      fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
-
-  for (const cartButton of cartButtons) {
-    cartButton.addEventListener("click", async function (event) {
-      console.log("clicked");
-      const product_id = cartButton.id;
-      console.log(product_id);
-      const response = await fetch(
-        "https://shreedeepaksarees.com/server/api/products/ghagra/retrieve.php?productid=" +
-          product_id
-      );
-      const json = await response.json();
-      const object = json.data;
-      console.log(object);
-      const data = {
-        product_category: "ghagra",
-        productid: object.productid,
-        selected_quantity: object.quantity,
-        selected_size: object.size,
-        selected_colors: object.colors,
-      };
-
-      fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  }
 }
+  // var cartButtons = document.querySelectorAll(".cart-button");
+  // var wishButtons = document.querySelectorAll(".wish-button");
+
+  // for (const wishButton of wishButtons) {
+  //   wishButton.addEventListener("click", async function (event) {
+  //     console.log("clicked");
+  //     const product_id = wishButton.id;
+  //     console.log(product_id);
+  //     const response = await fetch(
+  //       "https://shreedeepaksarees.com/server/api/products/ghagra/retrieve.php?productid=" +
+  //         product_id
+  //     );
+  //     const json = await response.json();
+  //     const object = json.data;
+  //     console.log(object);
+  //     const data = {
+  //       product_category: "ghagra",
+  //       productid: object.productid,
+  //       selected_quantity: object.quantity,
+  //       selected_size: object.size,
+  //       selected_colors: object.colors,
+  //     };
+  //     console.log(data);
+
+  //     fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         console.log("Success:", data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+  //   });
+  // }
+
+  // for (const cartButton of cartButtons) {
+  //   cartButton.addEventListener("click", async function (event) {
+  //     console.log("clicked");
+  //     const product_id = cartButton.id;
+  //     console.log(product_id);
+  //     const response = await fetch(
+  //       "https://shreedeepaksarees.com/server/api/products/ghagra/retrieve.php?productid=" +
+  //         product_id
+  //     );
+  //     const json = await response.json();
+  //     const object = json.data;
+  //     console.log(object);
+  //     const data = {
+  //       product_category: "ghagra",
+  //       productid: object.productid,
+  //       selected_quantity: object.quantity,
+  //       selected_size: object.size,
+  //       selected_colors: object.colors,
+  //     };
+
+  //     fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         console.log("Success:", data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+  //   });
+  // }
+//}
 
 async function renderDresses() {
   console.log("Fired dress Function");
