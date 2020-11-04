@@ -51,13 +51,20 @@ $("#submit-btn25").click(function () {
     washcares.push(this.value);
   });
 
+  var colors = [];
+  $("#colors_input input:checked").each(function () {
+    colors.push(this.value);
+  });
+
+  var colorString = colors.toString();
+
   var finalbody = {
     productid: id,
     title: title,
     subtitle: sub_title,
     price: price,
     quantity: quant,
-    // colors
+    colors: colorString,
     image1: i1,
     image2: i2,
     image3: i3,
