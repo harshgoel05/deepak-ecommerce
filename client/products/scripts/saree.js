@@ -36,6 +36,9 @@ async function retriveData(product_id) {
     $("#fabric").html(data.fabric);
     $("#length").html(data.length);
     $("#width").html(data.width);
+    $('#blouse_fabric').html(data.blouse);
+    $('#saree_fabric').html(data.sareefabric);
+
     // size,colors left
     //image left
   }
