@@ -31,15 +31,6 @@
           </div>
           <hr />
         </div>
-        <div class="col-6">
-          <ul class="pagination justify-content-end prices">
-            <li class="page-item"> <button class="page-link" onclick="decreaseNumber()"> <i class="fas fa-minus"></i>
-              </button> </li>
-            <li class="page-item"> <input type="text" name="" class="page-link" value="0" id="textbox" /> </li>
-            <li class="page-item"> <button class="page-link" onclick="increaseNumber()"> <i class="fas fa-plus"></i>
-              </button> </li>
-          </ul>
-        </div>
 
         <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
           <div class="right_side p-3 shadow bg-white">
@@ -119,29 +110,37 @@
     var discountCode = document.getElementById("discount_code1");
 
     //DECREASE QUANTITY
-    const decreaseNumber = (val) => {
-      console.log(val);
-      // var itemval = document.getElementById(incdec.id);
-      // var itemprice = document.getElementById(itemprice.id);
-      // console.log(itemprice.innerHTML);
-      // console.log(incdec);console.log(itemval);
-      // console.log(itemval.value);
+    const decreaseNumber = async (cartItem,product) => {
+      console.log(cartItem);
+      console.log(product.attributes.selected_colors.value);
+      var raw =
 
-      // if (itemval.value <= 0) {
-      //   itemval.value = 0;
-      //   alert("Negative quantity not allowed");
-      // } else {
-      //   itemval.value = parseInt(itemval.value) - 1;
-      //   itemval.style.background = "#fff";
-      //   itemval.style.color = "#000";
-      //   itemprice.innerHTML = parseInt(itemprice.innerHTML) - parseInt(itemprice.innerHTML);
-      //   product_total_amt.innerHTML =
-      //     parseInt(product_total_amt.innerHTML) - parseInt(itemprice.innerHTML);
-      //   total_cart_amt.innerHTML =
-      //     parseInt(product_total_amt.innerHTML) +
-      //     parseInt(shipping_charge.innerHTML);
-      // }
-    };
+  {
+    "product_category": product.attributes.product_category.value,
+    "productid": product.id,
+    "selected_quantity": 1,
+    "selected_size": product.attributes.selected_size.value,
+    "selected_colors": product.attributes.selected_colors.value,
+  }
+      raw = JSON.stringify(raw);
+      console.log(raw);
+
+      var requestOptions = {
+        method: 'POST',
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://shreedeepaksarees.com/server/api/user/cart/remove.php", requestOptions)
+        .then(response => response.text())
+        .then(result => {console.log(result)
+          link = 'https://shreedeepaksarees.com/client/user/cart.html';
+          console.log(link);
+          window.location=link;
+        })
+        .catch(error => console.log('error', error));
+  
+  };
 
     //INCREASE QUANTITY
     const increaseNumber = async (cartItem,product) => {
@@ -167,7 +166,11 @@
 
       fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php?", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {console.log(result)
+          link = 'https://shreedeepaksarees.com/client/user/cart.html';
+          console.log(link);
+          window.location=link;
+        })
         .catch(error => console.log('error', error));
 
 
