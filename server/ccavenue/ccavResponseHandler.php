@@ -55,7 +55,7 @@ if ($order_status === "Success") {
 	echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.<br>";
 } else if ($order_status === "Aborted") {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['ABORTED'];
-	echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail<br>";
+	echo "<br>Payment was aborted<br>";
 } else if ($order_status === "Failure") {
 	$toUpdate[ORDER_STATUS] = ORDER_STATUS_FLAGS['FAILED'];
 	echo "<br>Thank you for shopping with us.However,the transaction has been declined.<br>";
