@@ -83,8 +83,10 @@ async function addToCart() {
   fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php", requestOptions)
     .then(response => response.json())
     .then(result => {
-      if(result.success == true)
+      if(result.success == true){
         alert('Added To Cart!');
+        window.location = "https://shreedeepaksarees.com/client/user/cart.html";
+      }
       else
         alert('Please login to perform this action');
       console.log(result);
@@ -126,8 +128,10 @@ async function addToWishList() {
   fetch("https://shreedeepaksarees.com/server/api/user/wishlist/add.php", requestOptions)
     .then(response => response.json())
     .then(result => {
-      if(result.success == true)
+      if(result.success == true){
         alert('Added To Wishlist!');
+        window.location = "https://shreedeepaksarees.com/client/user/wishlist.html";
+      }
       else
         alert('Please login to perform this action');
       console.log(result);
