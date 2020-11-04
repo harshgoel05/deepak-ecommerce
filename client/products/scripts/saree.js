@@ -49,7 +49,8 @@ retriveData(product_id);
 
 async function addToCart() {
   console.log('Cart function fired');
-  let id = product_id.slice(0, product_id.length - 1);
+  let id = product_id;
+  console.log(id);
   const response = await fetch(
     "https://shreedeepaksarees.com/server/api/products/sarees/retrieve.php?productid=" +
     id
@@ -63,11 +64,9 @@ async function addToCart() {
   {
     "product_category": "sarees",
     "productid": id,
-    "selected_quantity": data.quantity,
+    "selected_quantity": 1,
     "selected_size": data.size1,
     "selected_colors": "red",
-    "selected_length": data.length,
-    "selected_width": data.width
   }
   console.log(raw);
   raw = JSON.stringify(raw);
@@ -93,7 +92,8 @@ async function addToCart() {
 
 async function addToWishList() {
   console.log('Wishlist function fired');
-  let id = product_id.slice(0, product_id.length - 1);
+  let id = product_id;
+  console.log(id);
   const response = await fetch(
     "https://shreedeepaksarees.com/server/api/products/sarees/retrieve.php?productid=" +
     id
@@ -107,11 +107,9 @@ async function addToWishList() {
   {
     "product_category": "sarees",
     "productid": id,
-    "selected_quantity": data.quantity,
+    "selected_quantity": 1,
     "selected_size": data.size1,
     "selected_colors": "red",
-    "selected_length": data.length,
-    "selected_width": data.width
   }
   console.log(raw);
   raw = JSON.stringify(raw);

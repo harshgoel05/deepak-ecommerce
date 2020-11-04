@@ -1,5 +1,3 @@
-<html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
@@ -33,6 +31,7 @@
           </div>
           <hr />
         </div>
+
         <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
           <div class="right_side p-3 shadow bg-white">
             <h2 class="product_name mb-5">The Total Amount Of</h2>
@@ -111,48 +110,86 @@
     var discountCode = document.getElementById("discount_code1");
 
     //DECREASE QUANTITY
-    const decreaseNumber = (incdec, itemprice) => {
+    const decreaseNumber = async (cartItem,product) => {
+      console.log(cartItem);
+      console.log(product.attributes.selected_colors.value);
+      var raw =
+
+  {
+    "product_category": product.attributes.product_category.value,
+    "productid": product.id,
+    "selected_quantity": 1,
+    "selected_size": product.attributes.selected_size.value,
+    "selected_colors": product.attributes.selected_colors.value,
+  }
+      raw = JSON.stringify(raw);
+      console.log(raw);
+
+      var requestOptions = {
+        method: 'POST',
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://shreedeepaksarees.com/server/api/user/cart/remove.php", requestOptions)
+        .then(response => response.text())
+        .then(result => {console.log(result)
+          link = 'https://shreedeepaksarees.com/client/user/cart.html';
+          console.log(link);
+          window.location=link;
+        })
+        .catch(error => console.log('error', error));
+  
+  };
+
+    //INCREASE QUANTITY
+    const increaseNumber = async (cartItem,product) => {
+      console.log(cartItem);
+      console.log(product.attributes.selected_colors.value);
+      var raw =
+
+  {
+    "product_category": product.attributes.product_category.value,
+    "productid": product.id,
+    "selected_quantity": 1,
+    "selected_size": product.attributes.selected_size.value,
+    "selected_colors": product.attributes.selected_colors.value,
+  }
+      raw = JSON.stringify(raw);
+      console.log(raw);
+
+      var requestOptions = {
+        method: 'POST',
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php?", requestOptions)
+        .then(response => response.text())
+        .then(result => {console.log(result)
+          link = 'https://shreedeepaksarees.com/client/user/cart.html';
+          console.log(link);
+          window.location=link;
+        })
+        .catch(error => console.log('error', error));
+
+
       // var itemval = document.getElementById(incdec.id);
       // var itemprice = document.getElementById(itemprice.id);
-      // console.log(itemprice.innerHTML);
-      // console.log(incdec);console.log(itemval);
-      // console.log(itemval.value);
-
-      // if (itemval.value <= 0) {
-      //   itemval.value = 0;
-      //   alert("Negative quantity not allowed");
+      // if (itemval.value >= 1) {
+      //   itemval.value = 1;
+      //   alert("You have already confirmed this item!");
+      //   itemval.style.background = "red";
+      //   itemval.style.color = "#fff";
       // } else {
-      //   itemval.value = parseInt(itemval.value) - 1;
-      //   itemval.style.background = "#fff";
-      //   itemval.style.color = "#000";
-      //   itemprice.innerHTML = parseInt(itemprice.innerHTML) - parseInt(itemprice.innerHTML);
+      //   itemval.value = parseInt(itemval.value) + 1;
+      //   //itemprice.innerHTML = parseInt(itemprice.innerHTML) + parseInt(itemprice.innerHTML);
       //   product_total_amt.innerHTML =
-      //     parseInt(product_total_amt.innerHTML) - parseInt(itemprice.innerHTML);
+      //     parseInt(product_total_amt.innerHTML) + parseInt(itemprice.innerHTML);
       //   total_cart_amt.innerHTML =
       //     parseInt(product_total_amt.innerHTML) +
       //     parseInt(shipping_charge.innerHTML);
       // }
-    };
-
-    //INCREASE QUANTITY
-    const increaseNumber = (incdec, itemprice) => {
-      console.log(incdec.id, itemprice.id);
-      var itemval = document.getElementById(incdec.id);
-      var itemprice = document.getElementById(itemprice.id);
-      if (itemval.value >= 1) {
-        itemval.value = 1;
-        alert("You have already confirmed this item!");
-        itemval.style.background = "red";
-        itemval.style.color = "#fff";
-      } else {
-        itemval.value = parseInt(itemval.value) + 1;
-        //itemprice.innerHTML = parseInt(itemprice.innerHTML) + parseInt(itemprice.innerHTML);
-        product_total_amt.innerHTML =
-          parseInt(product_total_amt.innerHTML) + parseInt(itemprice.innerHTML);
-        total_cart_amt.innerHTML =
-          parseInt(product_total_amt.innerHTML) +
-          parseInt(shipping_charge.innerHTML);
-      }
     };
 
     //HANDLE COUPONS
@@ -173,14 +210,14 @@
         .then(response => response.json())
         .then(result => {
           console.log(result);
-          if(result.success){
+          if (result.success) {
             alert('Valid Coupon! Succesfully Applied!You"ll see the updated amount during checkout');
-          }else if(result.error.message = 'coupon_code not found'){
+          } else if (result.error.message = 'coupon_code not found') {
             alert('Invalid coupon');
           }
           console.log(result.success);
         })
-        .catch(error => {  
+        .catch(error => {
           console.log('error', error)
         });
 
