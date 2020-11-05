@@ -110,18 +110,18 @@
     var discountCode = document.getElementById("discount_code1");
 
     //DECREASE QUANTITY
-    const decreaseNumber = async (cartItem,product) => {
+    const decreaseNumber = async (cartItem, product) => {
       console.log(cartItem);
       console.log(product.attributes.selected_colors.value);
       var raw =
 
-  {
-    "product_category": product.attributes.product_category.value,
-    "productid": product.id,
-    "selected_quantity": 1,
-    "selected_size": product.attributes.selected_size.value,
-    "selected_colors": product.attributes.selected_colors.value,
-  }
+      {
+        "product_category": String(product.attributes.product_category.value),
+        "productid": String(product.id),
+        "selected_quantity": "1",
+        "selected_size": String(product.attributes.selected_size.value),
+        "selected_colors": String(secondWord(product.attributes.selected_colors.value)),
+      }
       raw = JSON.stringify(raw);
       console.log(raw);
 
@@ -133,28 +133,29 @@
 
       fetch("https://shreedeepaksarees.com/server/api/user/cart/remove.php", requestOptions)
         .then(response => response.text())
-        .then(result => {console.log(result)
+        .then(result => {
+          console.log(result)
           link = 'https://shreedeepaksarees.com/client/user/cart.html';
           console.log(link);
-          window.location=link;
+          window.location = link;
         })
         .catch(error => console.log('error', error));
-  
-  };
+
+    };
 
     //INCREASE QUANTITY
-    const increaseNumber = async (cartItem,product) => {
+    const increaseNumber = async (cartItem, product) => {
       console.log(cartItem);
       console.log(product.attributes.selected_colors.value);
       var raw =
 
-  {
-    "product_category": product.attributes.product_category.value,
-    "productid": product.id,
-    "selected_quantity": 1,
-    "selected_size": product.attributes.selected_size.value,
-    "selected_colors": product.attributes.selected_colors.value,
-  }
+      {
+        "product_category": String(product.attributes.product_category.value),
+        "productid": String(product.id),
+        "selected_quantity": "1",
+        "selected_size": String(product.attributes.selected_size.value),
+        "selected_colors": secondWord(product.attributes.selected_colors.value),
+      }
       raw = JSON.stringify(raw);
       console.log(raw);
 
@@ -166,10 +167,11 @@
 
       fetch("https://shreedeepaksarees.com/server/api/user/cart/add.php?", requestOptions)
         .then(response => response.text())
-        .then(result => {console.log(result)
+        .then(result => {
+          console.log(result)
           link = 'https://shreedeepaksarees.com/client/user/cart.html';
           console.log(link);
-          window.location=link;
+          window.location = link;
         })
         .catch(error => console.log('error', error));
 
@@ -237,6 +239,26 @@
       // })
       // for(var i=0;i<cartItems.length;i++)
       //   console.log(cartItems[i]);
+    }
+    function secondWord(string) {
+      switch (string) {
+        case "bottle": return "bottle green";
+          break;
+        case "pista": return "pista green";
+          break;
+        case "parrot": return "parrot green";
+          break;
+        case "off": return "off white";
+          break;
+        case "rama": return "rama green";
+          break;
+        case "peacock": return "bottle green";
+          break;
+        case "dark": return "dark grey";
+          break;
+        default: return string;
+          break;
+      }
     }
   </script>
   <script src="./user-scripts/cart.js"></script>
