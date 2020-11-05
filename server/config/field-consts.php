@@ -49,3 +49,7 @@ const TOTAL_AMOUNT = 'total_amount';
 const FINAL_AMOUNT = 'final_amount';
 const ORDER_STATUS = 'order_status';
 const SELECTED_QUANTITY = 'selected_quantity';
+
+const USER_EMAIL = 'email';
+const USER_OTP_RESET = 'otp_reset';
+const USER_OTP_VERIFICATION = 'otp_verification';

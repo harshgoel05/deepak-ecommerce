@@ -8,3 +8,4 @@ require_once(__ROOT__ . '/utility/session-util.php');
 require_once(__ROOT__ . '/utility/CustomErrors.php');
 require_once(__ROOT__.'/utility/autoloader.php');
 require_once(__ROOT__.'/utility/arrays-util.php');
+require_once(__ROOT__.'/utility/mail-util.php');

@@ -11,6 +11,9 @@ abstract class CustomErrors
     const UNAUTHORIZED_ACCESS_ERROR = 'UnauthorizedAccessError';
     const WRONG_REQUEST_METHOD_ERROR = 'WrongRequestMethodError';
     const LOGIN_ERROR = 'LoginError';
+    const MAIL_ERROR = 'MailError';
+    const SERVER_ERROR = 'ServerError';
+
     public static function invalidValueMessage($val)
     {
         return "Invalid {$val}";
