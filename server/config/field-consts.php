@@ -54,3 +54,6 @@ const USER_EMAIL = 'email';
 const USER_OTP_RESET = 'otp_reset';
 const USER_OTP_VERIFICATION = 'otp_verification';
 const USER_VERIFIED = 'verified';
+
+const FILTER_MIN_PRICE = 'min_price';
+const FILTER_MAX_PRICE = 'max_price';

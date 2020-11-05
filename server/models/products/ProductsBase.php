@@ -76,15 +76,55 @@ class ProductsBase extends \Models\Table
             return $temp_res;
     }
 
-    public function findProductsByInfo($info, $findIn = ['title', 'subtitle'], $conditionSep = "OR")
+    public function findProductsByInfo($info)
     {
+        $conditions = [];
+        
+        if(array_key_exists('colors',$info))
+        {
+            $condition = "";
+            if(! is_array($info['colors']))
+            {
+                $info['colors'] = [$info['colors']];
+            }
+            $lastKey = array_key_last($info['colors']);
+            $condition = "(";
+            foreach($info['colors'] as $key => $value)
+            {
+                $condition.="`colors` LIKE '%{$value}%' ";
+                if($key !== $lastKey)
+                    $condition.="OR ";
+            }
+            $condition.=" ) ";
+            $conditions[] = $condition;
+        }
+
+        if(array_key_exists('title',$info))
+        {
+            $condition = "( ";
+            $condition.= "`title` LIKE '%{$info['title']}%' ";
+            $condition.="OR ";
+            $condition.= "`subtitle` LIKE '%{$info['title']}%' ";
+            $condition.=") ";
+            $conditions[] = $condition;
+        }
+        
+        if(array_key_exists('min_price',$info))
+        {
+            $condition = "( ";
+            $condition.="`price` BETWEEN {$info['min_price']} AND {$info['max_price']} ";
+            $condition.=")";
+            $conditions[]=$condition;
+        }
+
         $condition = "";
-        $temp_arr = array_keys($findIn);
-        $lastKey = end($temp_arr);
-        foreach ($findIn as $key => $colName) {
-            $condition .= "`{$colName}` LIKE '%${info}%' ";
-            if ($key != $lastKey) {
-                $condition .= "{$conditionSep} ";
+        $lastKey = array_key_last($conditions);
+        foreach($conditions as $key => $value)
+        {
+            $condition.=$value;
+            if($key !== $lastKey)
+            {
+                $condition.="AND ";
             }
         }
         $temp_res = $this->findAllExceptGivenCols(['id'], $condition);
