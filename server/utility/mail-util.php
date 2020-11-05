@@ -20,10 +20,11 @@ function sendMail($to,$subject,$message) {
     return true;
 }
 
-function sendOtpMail($email,$about) {
+function sendOtpMail($email,$about,$otp = null) {
     $to = $email;
     $subject = $about;
-    $otp = \rand(1000,9999);
+    if($otp === null)
+        $otp = \rand(1000,9999);
     $message = "OTP to {$about} is {$otp}";
     $success = sendMail($to,$subject,$message);
     if($success instanceof Fallacy)

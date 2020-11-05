@@ -77,4 +77,39 @@ class Users extends Identifier
         }
         return $res;
     }
+
+    public function verifyAccountUsingOtp($userId,$otp) {
+        $row = $this->find([USER_OTP_VERIFICATION],$this->conditionCreaterHelper(['id' => $userId]));
+        if($row->num_rows === 0)
+        {
+            return new Fallacy(CustomErrors::AUTH_ERROR,CustomErrors::valueNotFoundMessage('user'));
+        }
+        $row = $row->fetch_assoc();
+        $verify = ($otp == $row[USER_OTP_VERIFICATION]);
+        // echo $otp.'<br>'.$row[USER_OTP_VERIFICATION].'<br>';
+        if(!$verify)
+        {
+            return new Fallacy(CustomErrors::VALUE_ERROR,"incorrect otp");
+        }
+        $res = $this->updateProfile($userId,[USER_VERIFIED => 1]);
+        if($res instanceof Fallacy)
+        {
+            return $res;
+        }
+        return $res;
+    }
+
+    public function getVerifyStatus($userId)
+    {
+        $row = $this->findById([USER_VERIFIED],$userId);
+        if($row instanceof Fallacy)
+        {
+            return $row;
+        }
+        if($row === null)
+        {
+            return new Fallacy(CustomErrors::AUTH_ERROR,CustomErrors::valueNotFoundMessage('user'));
+        }
+        return $row[USER_VERIFIED];
+    }
 }

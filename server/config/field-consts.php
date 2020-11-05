@@ -53,3 +53,4 @@ const SELECTED_QUANTITY = 'selected_quantity';
 const USER_EMAIL = 'email';
 const USER_OTP_RESET = 'otp_reset';
 const USER_OTP_VERIFICATION = 'otp_verification';
+const USER_VERIFIED = 'verified';

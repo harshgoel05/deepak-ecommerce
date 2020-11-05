@@ -70,7 +70,7 @@ abstract class Table
         $res =  $this->find($colNames,"`id` = {$_id}");
         if($res->num_rows > 0)
             return $res->fetch_assoc();
-        return false;
+        return null;
 
     }
 
