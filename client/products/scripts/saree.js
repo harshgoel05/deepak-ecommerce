@@ -14,6 +14,8 @@ async function retriveData(product_id) {
     console.log(data.colors);
     let colors = stringSeperator(data.colors);
     console.log(colors);
+    selectedColor = colors[0];
+    console.log(selectedColor);
     colors.map((color)=>{
       const hex = colorPaletteReturn(color);
       console.log(form);
@@ -73,16 +75,16 @@ async function addToCart() {
   );
   const json = await response.json();
   const data = json.data;
-  //console.log(json.data);
+  console.log(data.size1);
   //console.log(id);
   var raw =
 
   {
     "product_category": "sarees",
-    "productid": id,
-    "selected_quantity": 1,
-    "selected_size": data.size1,
-    "selected_colors": selectedColor,
+    "productid": String(id),
+    "selected_quantity": "1",
+    "selected_size": String(data.size1),
+    "selected_colors": String(selectedColor),
   }
   console.log(raw);
   raw = JSON.stringify(raw);
@@ -118,16 +120,17 @@ async function addToWishList() {
   );
   const json = await response.json();
   const data = json.data;
-  //console.log(json.data);
-  //console.log(id);
+  console.log(json.data);
+  console.log(data.size1);
+  let selSize = "S";
   var raw =
 
   {
     "product_category": "sarees",
-    "productid": id,
-    "selected_quantity": 1,
-    "selected_size": data.size1,
-    "selected_colors": selectedColor,
+    "productid": String(id),
+    "selected_quantity": "1",
+    "selected_size": String(data.size1),
+    "selected_colors": String(selectedColor),
   }
   console.log(raw);
   raw = JSON.stringify(raw);
